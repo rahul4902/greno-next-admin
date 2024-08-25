@@ -1,27 +1,11 @@
 {
-  "name": "dashui-free-nextjs-admin-template",
+  "name": "greno-next",
   "version": "1.1.0",
   "private": true,
   "author": {
-    "name": "codescandy",
-    "url": "https://codescandy.com"
+    "name": "greno"
   },
-  "keywords": [
-    "react",
-    "javascript",
-    "admin",
-    "dashboard",
-    "nextjs",
-    "nextjs13",
-    "admin-dashboard",
-    "free",
-    "admin-template",
-    "admin-panel",
-    "freebies",
-    "nextjs-template",
-    "react-dashboard",
-    "bootstrap 5"
-  ],
+  "keywords": [],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -48,7 +32,10 @@
     "react-dropzone": "^14.2.3",
     "react-feather": "^2.0.10",
     "react-responsive": "^9.0.2",
+    "react-select": "^5.8.0",
     "react-syntax-highlighter": "^15.5.0",
+    "react-tag-input-component": "^2.0.2",
+    "react-toastify": "^10.0.5",
     "sass": "^1.64.2",
     "sass-loader": "^13.3.2",
     "simplebar": "^6.2.5",
