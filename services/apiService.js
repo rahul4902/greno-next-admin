@@ -1,3 +1,5 @@
+import { CategoryFormData, SampleTypeFormData, TestFormData } from "data/greno/defaultFormData";
+
 const { default: axios } = require("axios");
 const { API_URL } = require("utils/constant");
 
@@ -26,6 +28,56 @@ const apiService = {
       return [];
     }
   },
+  fetchTests: async () => {
+    try {
+      const { data } = await axios.get(API_URL + 'test/activeList');
+      
+      return data?.data || []; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return [];
+    }
+  },
+  fetchTest: async (_id) => {
+    try {
+      const { data } = await axios.get(API_URL + 'test/'+_id);
+      
+      return data?.data || TestFormData; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return TestFormData;
+    }
+  },
+  fetchCategoryById: async (_id) => {
+    try {
+      const { data } = await axios.get(API_URL + 'category/'+_id);
+      
+      return data?.data || CategoryFormData; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return TestFormData;
+    }
+  },
+  fetchSampleTypeById: async (_id) => {
+    try {
+      const { data } = await axios.get(API_URL + 'sampleType/'+_id);
+      
+      return data?.data || SampleTypeFormData; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return TestFormData;
+    }
+  },
+  saveTestForm: async (formData) => {
+    try {
+      const { data } = await axios.post(API_URL + 'test/create', formData);
+      console.log('data',data)
+      return data?.data || []; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return [];
+    }
+  }
 };
 
 export default apiService;

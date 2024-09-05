@@ -10,23 +10,23 @@ export const DashboardMenu = [
 	},
 	{
 		id: uuid(),
-		title: 'Our Tests',
+		title: 'Test',
 		icon: 'package',
-		children: [
-			{ id: uuid(), link: '/dashboard/test', name: 'Test' },
-			{ id: uuid(), link: '/custom/settings', name: 'Package'}
-		]
+		link: '/dashboard/test',		
 	},	
 	{
 		id: uuid(),
-		title: 'LAYOUTS & PAGES',
+		title: 'MASTER & OTHERS',
 		grouptitle: true
 	},
 	{
 		id: uuid(),
-		title: 'Pages',
+		title: 'Masters',
 		icon: 'layers',
 		children: [
+			{ id: uuid(), link: '/admin/category', name: 'Category' },
+			{ id: uuid(), link: '/admin/sampletypes', name: 'Sample Type' },
+			
 			{ id: uuid(), link: '/pages/profile', name: 'Profile' },
 			{ id: uuid(), link: '/pages/settings', name: 'Settings'},
 			{ id: uuid(), link: '/pages/billing', name: 'Billing' },
@@ -44,12 +44,7 @@ export const DashboardMenu = [
 			{ id: uuid(), link: '/authentication/forget-password', name: 'Forget Password'}			
 		]
 	},
-	{
-		id: uuid(),
-		title: 'Layouts',
-		icon: 'layout',
-		link: '/layout-vertical'
-	},	
+	
 	{
 		id: uuid(),
 		title: 'UI COMPONENTS',
@@ -85,62 +80,6 @@ export const DashboardMenu = [
 			{ id: uuid(), link: '/components/toasts', name: 'Toasts' },
 			{ id: uuid(), link: '/components/tooltips', name: 'Tooltips' }
 		]
-	},	
-	{
-		id: uuid(),
-		title: 'Menu Level',
-		icon: 'corner-left-down',
-		children: [
-			{ 
-				id: uuid(), 
-				link: '#', 
-				title: 'Two Level',
-				children: [
-					{ id: uuid(), link: '#', name: 'NavItem 1'},
-					{ id: uuid(), link: '#', name: 'NavItem 2' }
-				]
-			},
-			{ 
-				id: uuid(), 
-				link: '#', 
-				title: 'Three Level',
-				children: [
-					{ 
-						id: uuid(), 
-						link: '#', 
-						title: 'NavItem 1',
-						children: [
-							{ id: uuid(), link: '#', name: 'NavChildItem 1'},
-							{ id: uuid(), link: '#', name: 'NavChildItem 2'}
-						]
-					},
-					{ id: uuid(), link: '#', name: 'NavItem 2' }
-				]
-			}
-		]
-	},	
-	{
-		id: uuid(),
-		title: 'Documentation',
-		grouptitle: true
-	},
-	{
-		id: uuid(),
-		title: 'Docs',
-		icon: 'clipboard',
-		link: '/documentation'
-	},
-	{
-		id: uuid(),
-		title: 'Changelog',
-		icon: 'git-pull-request',
-		link: '/changelog'
-	},
-	{
-		id: uuid(),
-		title: 'Download',
-		icon: 'download',
-		link: 'https://codescandy.gumroad.com/l/dashui-nextjs'
 	}
 ];
 // export const DashboardMenu = [

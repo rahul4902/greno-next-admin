@@ -1,10 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Pagination from "./Pagination"; // Assuming you have this component
+import Pagination from "../../../components/Pagination"; // Assuming you have this component
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container, Col, Row } from "react-bootstrap";
+import EditIcon from "svg/EditIcon";
+import DeleteIcon from "svg/DeleteIcon";
+import apiService from "services/apiService";
+import { API_URL } from "utils/constant";
+import { toast } from "react-toastify";
 
 const PaginatedTable = () => {
   const [currentPage, setCurrentPage] = useState(1); // Default page 1
@@ -23,8 +28,8 @@ const PaginatedTable = () => {
           },
         });
         console.log("Data fetched:", response.data.data); // Debug log
-        setTests(response.data.data.results);
-        setTotalItems(response?.data?.data?.pagination?.totalItems);
+        setTests(response.data.data);
+        setTotalItems(response?.data?.pagination?.totalItems);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -36,6 +41,20 @@ const PaginatedTable = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
+  const deleteTest = async (_id) => {
+    try {
+      const response = await axios.delete(API_URL + 'test/'+_id);
+      if(response?.data?.status == 200){
+        setTests(prevTests => prevTests.filter(test => test._id !== _id));
+        toast.success(response.data.message);
+      }else{
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('API Error:', error.message);
+    }
+  }
 
   return (
     <Fragment>
@@ -67,7 +86,10 @@ const PaginatedTable = () => {
                   <tr>
                     <th>Name</th>
                     <th>Amount</th>
-                    <th>Priority</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -75,28 +97,28 @@ const PaginatedTable = () => {
                     <></>
                   ) : (
                     <tr>
-                      <td colSpan={3}>No Record Found...</td>
+                      <td colSpan={6}>No Record Found...</td>
                     </tr>
                   )}
-                  {tests?.map((project, index) => (
+                  {tests?.map((test, index) => (
                     <tr key={index}>
                       <td>
                         <div className="d-flex align-items-center">
                           <div className="ms-3 lh-1">
                             <h5 className="mb-1">
                               <a href="#" className="text-inherit">
-                                {project.name}
+                                {test.name}(<b className="text-primary">{test.code}</b>)
                               </a>
                             </h5>
                           </div>
                         </div>
                       </td>
-                      <td><b><del className="fs-4">{project.offer_price}</del></b><small>{project.amount}</small></td>
-                      <td>
-                        <span className={`badge bg-${project.priorityBadgeBg}`}>
-                          {project.priority}
-                        </span>
-                      </td>
+                      <td><b><del className="fs-4">₹{test.offer_price}</del></b><small>{test.amount}</small></td>
+                      <td>{test?.category?.name}</td>
+                      <td><span className={`badge-${test?.status?'success':'danger'}-soft badge bg-none`}>{test?.status?'Active':'InActive'}</span></td>
+                      <td><span className={`badge-${test?.package_or_test == 'test'?'success':'danger'}-soft badge bg-none text-capitalize`}>{test?.package_or_test}</span></td>
+                      <td><Link class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" href={`/dashboard/test/create?_id=${test?._id}`}><DeleteIcon /></Link>
+                          <button class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" type="button" onClick={ ()=>{ deleteTest(test._id) } }><EditIcon /></button></td>
                     </tr>
                   ))}
                 </tbody>

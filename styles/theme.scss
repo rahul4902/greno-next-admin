@@ -1,6 +1,6 @@
 /*
 =========================================================
-* Dash UI - Bootstrap 5 Admin & Dashboard Theme
+* Greno - Bootstrap 5 Admin & Dashboard Theme
 =========================================================
 * Product Page: https://codescandy.com/dashui/index.html
 * Copyright 2023 Codescandy (https://codescandy.com/)
@@ -65,4 +65,20 @@
 
 }
 
+}
+
+
+.badge-danger-soft {
+    color: #dc3545;
+    background-color: rgba(220,53,69,.1);
+}
+
+.badge-success-soft {
+    color: #198754;
+    background-color: rgba(25,135,84,.1);
+}
+
+.badge-warning-soft {
+    color: #ffc107;
+    background-color: rgba(255,193,7,.1);
 }
