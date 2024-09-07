@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Image } from "react-bootstrap";
-import Departments from "components/Front/departments";
+import Departments from "components/Front/Departments";
 import Budget from "components/Front/Budget";
 import About from "components/Front/About";
 import OurDoctor from "components/Front/OurDoctor";
@@ -9,7 +9,6 @@ import Testimonial from "components/Front/Testimonial";
 import Appointment from "components/Front/Appointment";
 import Blog from "components/Front/Blog";
 import Hero from "components/Front/Hero";
-import Header2 from "components/Front/header2";
 import LayoutWithHeaderFooter from "layouts/layout-with-header-footer";
 
 const page = () => {

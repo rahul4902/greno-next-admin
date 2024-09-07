@@ -9,8 +9,8 @@ const Header2 = () => {
       style={{ backgroundColor: "#00000012" }}
     >
       <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <Image src="/images/gallery/logo.png" width={118} alt="logo" />
+        <a className="navbar-brand" href="/">
+          <Image src="/images/brand/logo/project-logo.webp" width={118} alt="logo" />
         </a>
         <button
           className="navbar-toggler"
@@ -35,7 +35,7 @@ const Header2 = () => {
             </li>
             <li className="nav-item px-2">
               <a className="nav-link" href="#departments">
-                Departments
+                Departments222
               </a>
             </li>
             <li className="nav-item px-2">
