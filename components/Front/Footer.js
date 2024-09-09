@@ -143,12 +143,12 @@ const Footer = () => (
             <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center">
               Copyright © 2019{" "}
               <a className="fs-14 text-white-50" href="#">
-                Medz
+                Greno Labs
               </a>
               . Designed by{" "}
               <a className="fs-14 text-white-50" href="https://www.spruko.com/">
                 {" "}
-                Spruko Technologies Pvt.Ltd
+                greno labs Pvt.Ltd
               </a>{" "}
               All rights reserved.
             </div>

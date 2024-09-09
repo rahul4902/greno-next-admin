@@ -35,7 +35,7 @@ const Header2 = () => {
             </li>
             <li className="nav-item px-2">
               <a className="nav-link" href="#departments">
-                Departments222
+                Departments
               </a>
             </li>
             <li className="nav-item px-2">
