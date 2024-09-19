@@ -74,7 +74,7 @@ const Footer = () => (
             <div className="col-lg-3 col-md-12">
               <h6>Contact</h6>
               <hr className="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-              <ul className="list-unstyled mb-0 contact-footer">
+              <ul className="list-unstyled mb-0 contact-footer" style={{color:"#AFAEBC"}}>
                 <li>
                   <i className="fa fa-map-marker"></i> 22 S. Rock Creek
                   StreetSan Carlos, Uniontown CA 94070, USA
@@ -140,15 +140,15 @@ const Footer = () => (
       <div className="text-white p-0">
         <div className="container">
           <div className="row d-flex">
-            <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center">
-              Copyright © 2019{" "}
-              <a className="fs-14 text-white-50" href="#">
+            <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center d-flex justify-content-evenly" style={{color:"#AFAEBC"}}>
+              Copyright © 2024{" "}
+              {/* <a className="fs-14 text-white-50" href="#">
                 Medz
-              </a>
+              </a> */}
+              <a className="fs-14" href="#">
               . Designed by{" "}
-              <a className="fs-14 text-white-50" href="https://www.spruko.com/">
                 {" "}
-                Spruko Technologies Pvt.Ltd
+              LIVEDOC
               </a>{" "}
               All rights reserved.
             </div>

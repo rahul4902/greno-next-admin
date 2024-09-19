@@ -110,17 +110,24 @@ const Hero = () => {
                 </ul>
               )}
             </div>
-            <div className="mt-3 row">
-              <div className="col-6">
+            <div className="mt-3 row two-btn">
+              <div className="col-12 d-flex gap-3">
                 <a
-                  className="btn btn-primary rounded-pill w-100"
+                  className="btn btn-primary rounded-pill"
                   href="#!"
                   role="button"
                 >
                   <SearchIcon fill="#FFF"/> Search
                 </a>
+                <a
+                  className="btn btn-primary rounded-pill"
+                  href={Href}
+                  role="button"
+                >
+                  <UploadIcon fill="#FFF"/> Upload
+                </a>
               </div>
-              <div className="col-6">
+              {/* <div className="col-6">
                 <a
                   className="btn btn-primary rounded-pill w-100 "
                   href={Href}
@@ -128,9 +135,12 @@ const Hero = () => {
                 >
                   <UploadIcon fill="#FFF"/> Upload
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
+          
+          
+
         </div>
       </div>
     </section>
