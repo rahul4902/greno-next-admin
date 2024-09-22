@@ -4,7 +4,7 @@ import ClockIcon from "./../../../svg/ClockIcon"
 const TestCard = ({ test }) => {
   return (
     <article className="gui-card gui-card--block test-card-container p-0 w-100">
-      <div className="px-3 pt-4">
+      <div className="text-cards px-3 pt-4">
         <div className="test-header">
           <div className="header-item d-flex justify-content-betweeen align-items-center gap-4">
             <a href="/lab-test-bangalore/kidney-function-test">
@@ -26,14 +26,17 @@ const TestCard = ({ test }) => {
               </label>
             </button>
           </div>
-          <div className="header-item">
+          <div className="header-item d-flex justify-content-between gap-0">
             <div className="tat-info">
               {/* <ClockIcon height="13" width="14" fill="#878787" />
               <span className="gui-ty  report-tat-container  gui-ty--size-12 gui-ty-w600 gui-ty--line-height-16 ">
                 &nbsp;Reports within {" "} 6 hours
               </span> */}
             </div>
-            <p className="price">
+            <p className="price d-flex justify-content-between w-100 mb-0">
+              <p>
+              <b className="eleven-tests">11 tests</b></p>
+              <p>
               <span className="gui-ty  strike-price  gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 gui-ty--decoration-line-through">
                 <span>₹</span>943
               </span>
@@ -43,6 +46,7 @@ const TestCard = ({ test }) => {
                 </span>
                 700
               </span>
+              </p>
             </p>
           </div>
         </div>
@@ -100,7 +104,7 @@ const TestCard = ({ test }) => {
               </defs>
             </svg>
             <div className="tests-summary">
-              <p className="gui-ty   gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 ">
+              <p className="gui-ty   gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 mb-0">
                 <b>11 tests: </b>
                 <span>
                   <span className="gui-ty   gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 ">
@@ -143,13 +147,13 @@ const TestCard = ({ test }) => {
               <ClockIcon height="13" width="14" fill="#878787" /> Reports in{" "}
               <b>{test.tat_time}</b>
             </a>
-            <a
+            {/* <a
               href="#"
               className="btn btn-outline-light w-33 p-2 border-top-0  border-bottom-0"
             >
               <i className="fe fe-eye  mr-1"></i>
               <b>11</b> tests
-            </a>
+            </a> */}
             <a
               href="/lab-test-bangalore/kidney-function-test"
               className="d-flex align-items-center justify-content-center view-details btn btn-outline-light w-34 p-2 border-top-0 border-right-0  border-bottom-0"
