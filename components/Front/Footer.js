@@ -148,9 +148,7 @@ const Footer = () => (
               </a>
               . Designed by{" "}
                 {" "}
-                greno labs Pvt.Ltd
-              </a>{" "}
-              All rights reserved.
+                greno labs Pvt.Ltd              
             </div>
           </div>
         </div>
