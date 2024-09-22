@@ -9,8 +9,8 @@ const Header2 = () => {
       style={{ backgroundColor: "#00000012" }}
     >
       <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <Image src="/images/gallery/logo.png" width={118} alt="logo" />
+        <a className="navbar-brand" href="/">
+          <Image src="/images/brand/logo/project-logo.webp" width={118} alt="logo" />
         </a>
         <button
           className="navbar-toggler"

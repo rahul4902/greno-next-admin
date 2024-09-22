@@ -140,15 +140,15 @@ const Footer = () => (
       <div className="text-white p-0">
         <div className="container">
           <div className="row d-flex">
-            <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center d-flex justify-content-evenly" style={{color:"#AFAEBC"}}>
+
+            <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center">
               Copyright © 2024{" "}
-              {/* <a className="fs-14 text-white-50" href="#">
-                Medz
-              </a> */}
-              <a className="fs-14" href="#">
+              <a className="fs-14 text-white-50" href="#">
+                Greno Labs
+              </a>
               . Designed by{" "}
                 {" "}
-              LIVEDOC
+                greno labs Pvt.Ltd
               </a>{" "}
               All rights reserved.
             </div>

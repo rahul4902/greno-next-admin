@@ -52,7 +52,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-xxl-10 pb-0" id="home">
+    <section className="py-xxl-10 pb-0 section" id="home">
       <div
         className="bg-holder bg-size"
         style={{
