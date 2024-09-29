@@ -108,7 +108,7 @@ const Hero = () => {
                   className="list-group position-absolute w-100"
                   style={{ zIndex: 1000 }}
                 >
-                  {suggestions.map((suggestion) => (
+                  {suggestions?.map((suggestion) => (
                     <li
                       key={suggestion._id}
                       className="list-group-item list-group-item-action"
