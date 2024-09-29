@@ -27,6 +27,7 @@ const page = () => {
         <Testimonial />
         <Appointment />
         <Blog /> */}
+        
       </LayoutWithHeaderFooter>
     </>
   );
