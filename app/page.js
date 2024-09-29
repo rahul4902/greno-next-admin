@@ -19,14 +19,14 @@ const page = () => {
     <>
       <LayoutWithHeaderFooter>
         <Carousel/>
-        <Hero />
+        {/* <Hero />
         <Departments />
         <Budget />
         <About />
         <OurDoctor />
         <Testimonial />
         <Appointment />
-        <Blog />
+        <Blog /> */}
       </LayoutWithHeaderFooter>
     </>
   );
