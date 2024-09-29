@@ -51,7 +51,7 @@ const Headernew = () => {
 
   return (
     <div>
-      <div className="border-bottom header-new py-2">
+      <div className="border-bottom header-new py-2 bg-white">
         <div className="container">
           <header className="d-flex flex-wrap row align-items-center justify-content-center justify-content-md-between py-1">
             <a
@@ -86,7 +86,6 @@ const Headernew = () => {
                       onKeyDown={handleKeyDown}
                       placeholder="Search..."
                       aria-label="Search"
-                      style={{ height: "46px", backgroundColor: "#f0f4f9" }}
                     />
                     {isSuggestionsVisible && (
                       <ul

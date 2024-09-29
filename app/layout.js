@@ -1,5 +1,6 @@
 // import theme style scss file
-import 'styles/theme.scss';
+// import 'styles/theme.scss';
+// import "./../public/css/theme.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
