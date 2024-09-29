@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import Carousel from "components/Front/Carousel";
-import Departments from "components/Front/departments";
+
+import { Image } from "react-bootstrap";
+import Departments from "components/Front/Departments";
 import Budget from "components/Front/Budget";
 import About from "components/Front/About";
 import OurDoctor from "components/Front/OurDoctor";

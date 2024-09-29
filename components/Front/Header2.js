@@ -4,13 +4,13 @@ import { Image } from "react-bootstrap";
 const Header2 = () => {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
+      className="navbar navbar-expand-lg navbar-light py-3 d-block"
       data-navbar-on-scroll="data-navbar-on-scroll"
-      style={{ backgroundColor: "#00000012" }}
+      style={{ backgroundColor: "#FFF" }}
     >
       <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <Image src="/images/gallery/logo.png" width={118} alt="logo" />
+        <a className="navbar-brand" href="/">
+          <Image src="/images/brand/logo/project-logo.webp" width={118} alt="logo" />
         </a>
         <button
           className="navbar-toggler"

@@ -81,7 +81,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="row justify-content-center py-0">
+ <div className="row justify-content-center py-0">
         <div className="col-md-10">
           <div className="ftr_addtln_inof">
             <div className="row">

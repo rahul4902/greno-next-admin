@@ -52,7 +52,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-xxl-10 pb-0" id="home">
+    <section className="py-xxl-10 pb-0 section" id="home">
       <div
         className="bg-holder bg-size"
         style={{
@@ -64,19 +64,30 @@ const Hero = () => {
       {/*/.bg-holder*/}
       <div className="container">
         <div className="row min-vh-xl-100 min-vh-xxl-25">
-          <div className="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end">
+          <div className="col-md-5 col-xl-5 order-0 order-md-1 text-end">
             <Image
               className="pt-7 pt-md-0 w-100"
               src="/images/gallery/hero.png"
               alt="hero-header"
             />
           </div>
-          <div className="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
-            <h1 className="fw-light font-base fs-6 fs-xxl-7">
+          <div className="col-md-7 col-xl-7 text-md-start text-center py-6">
+            {/* <h1 className="fw-light font-base fs-6 fs-xxl-7">
               Were <strong>determined </strong>for
               <br />
               your&nbsp;<strong>better life.</strong>
-            </h1>
+            </h1> */}
+            <div className="d-flex justify-content-start align-items-center gap-2 mb-2">
+              <h1 className="fw-light font-base fs-4 fs-xxl-7 text-nowrap mb-0">
+                <b>Greno Path Lab : </b>
+              </h1>
+              <div class="typewriter">
+                <h1 className="fw-light font-base fs-3 fs-xxl-7 mb-0">
+                  Your trusted partner...
+                </h1>
+              </div>
+            </div>
+
             {/* <p className="fs-1 mb-5">
               You can get the care you need 24/7 – be it online or in <br />
               person. You will be treated by caring specialist doctors.{" "}
@@ -90,14 +101,14 @@ const Hero = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="Search..."
                 aria-label="Search"
-                style={{ height: "46px",backgroundColor:"#f0f4f9" }}
+                style={{ height: "46px", backgroundColor: "#f0f4f9" }}
               />
               {isSuggestionsVisible && (
                 <ul
                   className="list-group position-absolute w-100"
                   style={{ zIndex: 1000 }}
                 >
-                  {suggestions.map((suggestion) => (
+                  {suggestions?.map((suggestion) => (
                     <li
                       key={suggestion._id}
                       className="list-group-item list-group-item-action"
@@ -117,14 +128,14 @@ const Hero = () => {
                   href="#!"
                   role="button"
                 >
-                  <SearchIcon fill="#FFF"/> Search
+                  <SearchIcon fill="#FFF" /> Search
                 </a>
                 <a
                   className="btn btn-primary rounded-pill"
                   href={Href}
                   role="button"
                 >
-                  <UploadIcon fill="#FFF"/> Upload
+                  <UploadIcon fill="#FFF" /> Upload
                 </a>
               </div>
               {/* <div className="col-6">
@@ -138,9 +149,6 @@ const Hero = () => {
               </div> */}
             </div>
           </div>
-          
-          
-
         </div>
       </div>
     </section>
