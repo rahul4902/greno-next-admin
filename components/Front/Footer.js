@@ -1,160 +1,142 @@
-// src/components/Footer.tsx
-import React from "react";
+import React from 'react';
 
 const Footer = () => (
-  <section>
-    <footer className="text-white footer-bg">
-      <div className="footer-main">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-2 col-md-12">
-              <h6>About</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto mt-0" />
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="javascript:;">Our Team</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Contact US</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Faq</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Careers</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Blog</a>
-                </li>
-              </ul>
+  <footer>
+    <div className="container">
+      <div className="row gx-5">
+        <div className="col-md-3">
+          <img 
+            src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v2/images/logo.svg" 
+            alt="" 
+          />
+          <p></p>
+          <p className="small link-danger pt-2 pb-0 mb-0 ftcol">Get A Lot Of Information About Us</p>
+          <h4 className="dp-col4 fs-5 mb-3">Subscribe Our Newsletter</h4>
+          <div className="mb-3">
+            <div className="response-n"></div>
+            <p></p>
+          </div>
+          <form id="form-subscribe-news-letter">
+            <div className="mb-3">
+              <input 
+                type="email" 
+                className="form-control" 
+                id="userEmail" 
+                name="email" 
+                placeholder="Enter your email id" 
+              />
+              <textarea 
+                id="pageURL" 
+                style={{ display: 'none' }} 
+                name="page"
+              >
+                https://www.apollohospitals.com
+              </textarea>
             </div>
-            <div className="col-lg-2 col-md-12">
-              <h6>Resources</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto mt-0" />
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="javascript:;">Search Doctor</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Search Hospital</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Search Clinic</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Search Fitnesscenter</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Search BloodBank</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-2 col-md-12">
-              <h6>More</h6>
-              <hr className="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-              <div className="clearfix"></div>
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="javascript:;">Help</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Terms and Services</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Book Appointments</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="javascript:;">Subscribers</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-3 col-md-12">
-              <h6>Contact</h6>
-              <hr className="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-              <ul className="list-unstyled mb-0 contact-footer" style={{color:"#AFAEBC"}}>
-                <li>
-                  <i className="fa fa-map-marker"></i> 22 S. Rock Creek
-                  StreetSan Carlos, Uniontown CA 94070, USA
-                </li>
-                <li>
-                  <i className="fa fa-envelope "></i>info12323@example.com
-                </li>
-                <li>
-                  <i className="fa fa-phone"></i>+ 01 234 567 88
-                </li>
-                <li>
-                  <i className="fa fa-print"></i>+ 01 234 567 89
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-3 col-md-12">
-              <h6>Subscribe</h6>
-              <hr className="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-              <div className="clearfix"></div>
-              <div className="input-group w-100">
-                <input
-                  className="form-control br-tl-3 br-bl-3"
-                  placeholder="Email"
-                  type="text"
-                />
-                <div className="input-group-append">
-                  <button
-                    className="btn btn-primary br-tr-3 br-br-3"
-                    type="button"
-                  >
-                    Subscribe
-                  </button>
+            <p>
+              <button 
+                type="submit" 
+                className="btn btn-primary w-100 ft-btn" 
+                id="btn-subscribe-newsletter"
+              >
+                Submit
+              </button>
+            </p>
+          </form>
+          <div className="row mt-3 mt-lg-5 helplineno row-cols-3">
+            {/** Repeating phone info structure */}
+            {[ 
+              { title: "Emergency", number: "1066" },
+              { title: "Apollo Lifeline International", number: "+91 4043441066" },
+              { title: "Health Help Line", number: "1860-500-1066" }
+            ].map(({ title, number }) => (
+              <div className="col-sm-12" key={title}>
+                <div className="d-flex">
+                  <p className="mb-1 ftcol pe-3"><i className="fa-solid fa-phone"></i></p>
+                  <div>
+                    <h6>{title}</h6>
+                    <p><a href={`tel:${number}`}>{number}</a></p>
+                  </div>
                 </div>
               </div>
-              <h6 className="mt-5">Follow Us</h6>
-              <hr className="deep-purple text-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-              <ul className="list-unstyled list-inline follow-footer">
-                <li className="list-inline-item">
-                  <a className="btn-floating btn-sm">
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a className="btn-floating btn-sm">
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a className="btn-floating btn-sm">
-                    <i className="fa fa-google-plus"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a className="btn-floating btn-sm">
-                    <i className="fa fa-linkedin"></i>
-                  </a>
-                </li>
+            ))}
+          </div>
+        </div>
+        <div className="col-md-9">
+          <div className="row row-cols-lg-5 row-cols-2">
+            {/** Section for Patient Care and other links */}
+            {/** You can refactor this section similarly to keep it DRY */}
+            <div className="col">
+              <h5>Patient Care</h5>
+              <ul className="list-unstyled ft-links">
+                <li><a href="https://www.askapollo.com/" target="_blank" rel="noopener noreferrer">Find A Doctor</a></li>
+                <li><a href="/patient-care/service-excellence/">Medical Services</a></li>
+                <li><a href="/departments/heart/testimonial-videos/">Patient Testimonials</a></li>
+                <li><a href="/patient-care/value-added-services/">Value Added Services</a></li>
+                <li><a href="https://pay.apollohospitals.com/" target="_blank" rel="noopener noreferrer">Pay Online</a></li>
+                <li><a href="/apollo-surgery/">Apollo Surgery</a></li>
               </ul>
             </div>
+            {/* Additional sections can be added similarly */}
           </div>
         </div>
       </div>
-      <div className="text-white p-0">
-        <div className="container">
-          <div className="row d-flex">
-
-            <div className="col-lg-12 col-sm-12 mt-3 mb-3 text-center">
-              Copyright © 2024{" "}
-              <a className="fs-14 text-white-50" href="#">
-                Greno Labs
-              </a>
-              . Designed by{" "}
-                {" "}
-                greno labs Pvt.Ltd              
+ <div className="row justify-content-center py-0">
+        <div className="col-md-10">
+          <div className="ftr_addtln_inof">
+            <div className="row">
+              <div className="col-md-4">
+                <p>Our stents pricing <a href="/departments/heart/stent-prices-disclosure/" title="Know More About Our Stents Pricing">click here</a></p>
+                <p><a href="/corporate/careers/recruitment-disclaimer/" title="Recruitment Disclaimer">Recruitment disclaimer</a></p>
+              </div>
+              <div className="col-md-5">
+                <p>Total knee replacement implants pricing <a href="/departments/orthopedic/our-implant-pricing/" title="Know More About Knee Replacement Pricing">click here</a></p>
+                <p><a href="/covid-19-rt-pcr-test/" title="Covid-19 RT-PCR Test">Covid-19 RT-PCR Test</a></p>
+              </div>
+              <div className="col-md-3">
+                <p><a href="/departments/transplantation/transplant-disclaimer/" title="Transplant Disclaimer">Transplant Disclaimer</a></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  </section>
+
+      <div className="row justify-content-center py-0">
+        <div className="col-md-10">
+          <div className="ftr_addtln_inof appstore">
+            <div className="row">
+              <div className="col-sm-6">
+                <h2>Apollo’s Healthcare @ your Fingertips</h2>
+                <h3>Download the app</h3>
+              </div>
+              <div className="col-sm-6">
+                <div className="d-flex gap-3">
+                  <div>
+                    <a href="https://apps.apple.com/in/app/apollo-247-health-medicine/id1496740273" target="_blank" rel="noopener noreferrer">
+                      <img 
+                        src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/appstore-icon.png" 
+                        alt="Apple Store" 
+                        className="img-fluid" 
+                      />
+                    </a>
+                  </div>
+                  <div>
+                    <a href="https://play.google.com/store/apps/details?id=com.apollo.patientapp" target="_blank" rel="noopener noreferrer">
+                      <img 
+                        src="https://www.apollohospitals.com/wp-content/themes/apollohospitals/assets-v3/images/playstore-icon.png" 
+                        alt="Play Store" 
+                        className="img-fluid" 
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 );
 
 export default Footer;

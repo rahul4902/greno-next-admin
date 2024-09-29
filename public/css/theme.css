@@ -21451,6 +21451,306 @@ ul {
 
 /*# sourceMappingURL=theme.css.map */
 
+
+
+/* topheader */
+.top_hdr {
+  background: #007C9D;
+  padding: 2px 0px 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}
+.top_hdr .nav-link {
+  font-size: 12px;
+  color: #fff !important;
+  font-weight: 400;
+  border-right: .08rem solid #ffffff;
+  padding: 0px;
+  margin-top: 9px;
+  letter-spacing: .4px;
+  line-height: 1;
+}
+.recognation_logo {
+  width: 52px;
+  padding-top: 2px;
+}
+@media (min-width: 576px) {
+  .d-sm-flex {
+      display: flex !important;
+  }
+}
+
+
+/* header-new */
+.header-new{
+  border-bottom: 1px solid #dee2e6 !important;
+  margin-top: 3%;
+}
+.header-new .form-control {
+  font-size: 12px !important;
+  padding: 11px !important;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem !important;
+  font-size: 1rem !important;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .375rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.hdr_srch_icon {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 10.8px 12px;
+  border-radius: 4px !important;
+  background-color: #007C9D !important;
+    border-color: #007C9D !important;
+}
+.hdr_srch_icon:hover {
+  background-color: #0a95ba !important;
+    border-color: #007C9D !important;
+}
+.ajax-search-result {
+  position: absolute;
+  top: 39px;
+  min-height: auto;
+  overflow-y: scroll;
+  z-index: 999;
+  background: #fff;
+  max-height: 300px;
+  width: 100%;
+}
+.ajax-search-result li {
+  border-bottom: 1px solid #f3f3f3;
+}
+.ajax-search-result li a {
+  display: block;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+.hdr_tel_lable {
+  font-size: 12px;
+  text-align: left;
+  color: #000;
+  padding-bottom: 3px;
+  font-weight: 500;
+}
+.btn-outline-primary {
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0.375rem;
+}
+.btn-outline-primary:hover {
+  background-color: #007C9D !important;
+  border-color: #007C9D !important;
+}
+.btn-outline-primary a:hover {
+  color: #fff !important;
+}
+ .btn-outline-primary a {
+  color: #007C9D;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+.upload-prescription-btn .button {
+  /* width: 100%; */
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: #007C9D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.upload-prescription-btn  .button:hover {
+  background-color: #0a95ba;
+}
+.upload-prescription-btn  .button svg {
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .header-new{
+    margin-top: 10%;
+  }
+  .header-new .ah_logo{
+    height: 20px;
+  }
+  .header-new .form-control {
+    font-size: 12px !important;
+    padding: 11px !important;
+}
+  .hdr_srch_icon {
+    position: absolute;
+    top: 2.9px;
+    right: 2px;
+    padding: 8.6px 12px;
+}
+.upload-prescription-btn .button {
+  justify-content: start;
+  align-items: center;
+  padding: 5px;
+}
+  
+}
+
+/* footer */
+footer {
+  background: #060822;
+  padding: 45px 0px;
+  color: #fff;
+}
+.ftcol {
+  color: #E96A25 !important;
+}
+.dp-col4 {
+  color: #ffffff;
+  text-align: left;
+  font-size: 0.9rem !important;
+  line-height: 28px;
+  padding-top: 12px;
+}
+footer .form-control {
+  font-size: .84rem;
+  padding: 0.66rem 0.75rem;
+}
+textarea {
+  resize: vertical;
+}
+.ft-btn {
+  color: #fff;
+  background: #007C9D;
+  border: 1px solid #007C9D;
+  padding: 0.5rem;
+}
+.ft-btn:hover{
+  background-color: #0a95ba;
+}
+.helplineno p {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 12px !important;
+}
+.ftcol {
+  color: #E96A25 !important;
+}
+.helplineno h6 {
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+  letter-spacing: .05rem;
+  color: #fff;
+}
+.helplineno p {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+.helplineno p a{
+  color: #007C9D;
+    font-weight: 600;
+    text-decoration: none;
+}
+footer h5 {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  margin-top: 4px;
+  position: relative;
+}
+footer h5:after {
+  background-image: linear-gradient(90deg, #EC8046, #060822);
+  bottom: 0px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 50px;
+  border-radius: 10px;
+}
+footer ul li {
+  padding-bottom: 6px;
+  line-height: 19px;
+}
+footer ul li a {
+  color: #94a0a3;
+  font-size: 12px;
+  text-decoration: none;
+}
+.ftr_addtln_inof {
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 20px 28px 12px 28px;
+}
+.ftr_addtln_inof p {
+  font-size: 12px;
+  margin-bottom: 6px;
+} 
+.ftr_addtln_inof p a{
+  color: #007C9D;
+  font-size: 12px;
+  text-decoration: none;
+} 
+.appstore h2 {
+  font-size: 22px;
+  color: #23698D;
+}
+.appstore h3 {
+  font-size: 22px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.cprght_ftr {
+  background: #007C9D;
+  padding: 12px 0px;
+  color: #fff;
+  font-size: 12px;
+}
+.cprght_ftr .nav-item a {
+  font-size: 12px;
+  color: #fff !important;
+  font-weight: 300;
+  border-right: 0.08rem solid #ffffff;
+  padding: 0px;
+  margin-top: 9px;
+  letter-spacing: .4px;
+  line-height: 1;
+}
+.cprght_ftr .nav-item a {
+  font-size: 12px;
+  color: #fff !important;
+  font-weight: 300;
+  border-right: 0;
+  padding: 0px;
+  margin-top: 9px;
+  letter-spacing: .4px;
+  line-height: 1;
+}
 .footer-main .social li {
   float: left;
   margin-right: 15px;
