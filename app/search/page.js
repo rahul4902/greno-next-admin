@@ -8,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 import withHeader from "../../hoc/withHeader";
 import TestLoader from "../../components/Front/Test/TestLoader";
 import TestCard from "../../components/Front/Test/TestCard";
+import TestItemCard from "../../components/Front/Test/TestItemCard";
 import {API_URL} from "../../utils/constant"
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -903,6 +904,7 @@ const SearchPage = () => {
         ]
     }
 ]);
+
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -940,15 +942,15 @@ const SearchPage = () => {
     <>
       <section className="sptb pb-0">
         <div className="container">
-          <h5>Showing results for &quot;{searchQuery}&quot; test</h5>
+          <h4>Showing results for &quot;{searchQuery}&quot; test</h4>
 
           <div className="row mb-4">
             {tests.map((test) => (
               <div
-                className="col-lg-6 col-md-12 col-xl-4 mb-4 mb-lg-4"
+                className="col-lg-6 col-md-12 col-xl-16 mb-16 mb-lg-16"
                 key={test._id}
               >
-                <TestCard test={test} />
+                <TestItemCard test={test} />
               </div>
             ))}
             {loading &&
