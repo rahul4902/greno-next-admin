@@ -36,7 +36,7 @@ const Footer = () => (
             <p>
               <button 
                 type="submit" 
-                className="btn btn-primary w-100 ft-btn" 
+                className="w-100 ft-btn rounded" 
                 id="btn-subscribe-newsletter"
               >
                 Submit

@@ -62,7 +62,7 @@ body{
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 .hdr-srch button{
-  padding: 11px 12px;
+  padding: 8px 12px !important;
 }
 .hdr_srch_icon {
   position: absolute;
@@ -643,4 +643,60 @@ button, input, optgroup, select, textarea {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* search-page */
+@media screen and (max-width: 767px) {
+  h2{
+    font-size: 16px !important;
+    line-height: normal !important;
+  }
+  button{
+    padding: 4px 10px !important;
+    font-size: 12px !important; 
+  }
+  .sptb button{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 10px !important;
+    font-size: 12px !important; 
+  }
+  .sptb svg{
+    width: 16px;
+  }
+  .sptb .read-btn{
+    padding: 0px !important;
+  }
+  
+}
+h2{
+  font-size: 30px;
+  font-weight: 600;
+  color: #0e1d52 !important;
+}
+.sptb button{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sptb svg{
+  width: 20px;
+}
+button {
+  padding: 10px 12px;
+  background-color: #007C9D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+}
+button:hover {
+  background-color: #0a95ba;
+}
+.read-btn:hover{
+  color: #0a95ba !important;
 }
