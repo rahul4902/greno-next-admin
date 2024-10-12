@@ -1,0 +1,22 @@
+h2{
+    color: #161616;
+    font-weight: 800;
+}
+.why_ah_sec {
+    background: #EBFBFF;
+    padding: 60px 0px;
+}
+.why_point img {
+    width: 72px;
+}
+.point_icon {
+    padding: 12px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px #bed9e0;
+    border-radius: 9px;
+}
+.why_ah_points h4 {
+    color: #035e78;
+    font-weight: 900;
+    font-size: 29px;
+}

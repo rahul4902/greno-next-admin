@@ -36,7 +36,7 @@ const Footernew = () => {
                   </textarea>
                 </div>
                 <p>
-                  <button type="submit" className="btn btn-primary w-100 ft-btn" id="btn-subscribe-newsletter">
+                  <button type="submit" className="w-100 ft-btn rounded" id="btn-subscribe-newsletter">
                     Submit
                   </button>
                 </p>

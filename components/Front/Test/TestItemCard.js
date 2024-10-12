@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp, Clock, Eye, Tag, Plus } from "lucide-react";
 
 const Button = ({ children, className = "", ...props }) => (
   <button
-    className={`px-4 py-2 rounded font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${className}`}
+    className={`rounded font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${className}`}
     {...props}
   >
     {children}
@@ -66,7 +66,7 @@ export default function TestItemCard() {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full mx-auto">
       <CardHeader className="pb-3">
         <div className="d-flex justify-content-between items-start">
           <h2
@@ -80,7 +80,7 @@ export default function TestItemCard() {
             )}
           </h2>
           <Button
-            style={{ backgroundColor: 'rgb(14, 29, 82 ,1)' }}
+            // style={{ backgroundColor: 'rgb(14, 29, 82 ,1)' }}
             className="ml-2 text-white flex-shrink-0"
           >
             <Plus className="mr-2 h-4 w-4" />
@@ -120,18 +120,20 @@ export default function TestItemCard() {
             )}
           </span>
         </p>
-        <div className="d-flex items-center space-x-2 overflow-x-auto">
+        <div className="d-flex gap-3 items-center space-x-2 overflow-x-auto">
+          <div className="d-flex gap-3">
           <span className="font-semibold flex-shrink-0">Test Names:</span>
           {testNames.slice(0, expanded ? 11 : 3).map((test, index) => (
             <span key={index} className="whitespace-nowrap">
               {test}
             </span>
           ))}
+          </div>
           {testNames.length > 3 && (
             <Button
               style={{ color: "#0e1d52" }}
-              className=" p-0 h-auto d-flex bg-transparent hover:bg-transparent border-0 p-0"
-              onClick={() => setExpanded(!expanded)}
+              className=" p-0 h-auto d-flex bg-transparent hover:bg-transparent border-0 p-0 ms-0 ps-0 read-btn"
+              
             >
               {expanded ? (
                 <>
@@ -150,21 +152,21 @@ export default function TestItemCard() {
       </CardContent>
       <CardFooter
         style={{ backgroundColor: "rgb(14 29 82 /0.1)" }}
-        className="d-flex justify-content-between mt-4 bg-opacity-10"
+        className="d-flex justify-content-between bg-opacity-10"
       >
         <Button
-          style={{ backgroundColor: "#0e1d52" }}
+          // style={{ backgroundColor: "#0e1d52" }}
           className="d-flex items-center text-white"
         >
           <Clock className="mr-2 h-4 w-4" />
           Reports in 10 hours
         </Button>
         <Button
-          style={{ backgroundColor: "#0e1d52" }}
+          // style={{ backgroundColor: "#0e1d52" }}
           className="d-flex items-center text-white"
         >
           <Eye className="mr-2 h-4 w-4" />
-          View Details
+          View  More Details
         </Button>
       </CardFooter>
     </Card>

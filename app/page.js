@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import Carousel from "components/Front/Carousel";
+import HomeTabs from "components/Front/HomeTabs";
+import HomePackages from "components/Front/HomePackages";
+import HomeWhyChoose from "components/Front/HomeWhyChoose"
 
 import { Image } from "react-bootstrap";
 import Departments from "components/Front/Departments";
@@ -19,6 +22,9 @@ const page = () => {
     <>
       <LayoutWithHeaderFooter>
         <Carousel/>
+        <HomeTabs/>
+        <HomePackages/>
+        <HomeWhyChoose/>
         {/* <Hero />
         <Departments />
         <Budget />

@@ -1,0 +1,132 @@
+.packages{
+    margin-top: 7%;
+}
+.packages .container{
+    box-shadow: 0px 0px 1px 1px;
+    border-radius: 14px;
+}
+.card-body h4{
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #bcbcbc;
+}
+.card-body li{
+    font-size: 16px;
+}
+.slick-track{
+    display: flex !important;
+    gap: 30px;
+}
+.pricee-div {
+    background: #c6c5c2;
+    padding: 5px 10px;
+    border-radius: 5px 0 0 5px;
+    width: 65%;
+}
+.popularprice span {
+    display: inline-block !important;
+}
+.pricee-div span {
+    font-size: 16px;
+    font-weight: 600;
+}
+.packages .know-more{
+    color: #035e78;
+    font-weight: 600;
+}
+.packages .know-more:hover{color: #0a95ba;}
+.cartt-div {
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    width: 35%;
+    text-align: center;
+}
+.cartt-div, .cartt-div:hover {
+    background: #035e78;
+    transition: .3s;
+}
+.cartt-div a{
+    font-size: 16px;
+    color: #fff;
+    opacity: .9;
+}
+.cartt-div a:hover{
+    color: #fff;
+    font-weight: 700;
+    opacity: 1;
+}
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.slick-prev{
+    left: -60px !important;
+}
+.slick-next{
+    right: -55px !important;
+}
+
+.slick-prev:before, .slick-next:before {
+    /* content: '←' !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    opacity: .75 !important; */
+    color: #035e78 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.packages .view-all a{
+    font-size: 16px;
+    font-weight: 600;
+    color: #035e78;
+    border-bottom: 1px solid #035e78;
+}
+.packages.view-all a:hover{
+    color: #0a95ba;
+    background-color: #0a95ba;
+}
+
+@media screen and (max-width: 767px) {
+    h2{
+        font-size: 20px !important;
+        font-weight: 700 !important;
+    }
+    .slick-prev, .slick-next{
+        display: none !important;
+    }
+    .slick-track{
+        display: flex !important;
+        gap: 0px;
+    }   
+    .packages{
+        margin-top: 15%;
+    }
+    .card-body h4{
+        font-size: 16px;
+    }
+    .card-body li{
+        font-size: 14px;
+    }
+    .card-body .know-more{
+        font-size: 14px;
+    }
+    .packages .view-all a{
+        font-size: 14px;
+    }
+    .why_ah_sec p{
+        font-size: 14px;
+    }
+    
+}
