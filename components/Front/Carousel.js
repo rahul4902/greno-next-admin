@@ -7,13 +7,13 @@ const Carousel = () => {
     return (
         <Carousel2 showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true}>
             <div>
-                <img src="/images/gallery/1.jpeg" />
+                <img src="https://lpmedia.redcliffelabs.com/Diwali_Website_Banner_2_1_fb1203451a.webp" />
             </div>
             <div>
-                <img src="/images/gallery/1.jpeg" />
+                <img src="https://lpmedia.redcliffelabs.com/Diwali_Website_Banner_2_1_fb1203451a.webp" />
             </div>
             <div>
-                <img src="/images/gallery/1.jpeg" />
+                <img src="https://lpmedia.redcliffelabs.com/Diwali_Website_Banner_2_1_fb1203451a.webp" />
             </div>
         </Carousel2>
     );

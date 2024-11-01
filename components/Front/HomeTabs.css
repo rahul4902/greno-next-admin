@@ -1,4 +1,4 @@
-.tp_widget {
+.h_tabs {
     background: #fff;
     box-shadow: 6px 6px 70px rgb(16 40 81 / 23%);
     padding: 20px 10px;
@@ -11,10 +11,12 @@
     justify-content: center;
     align-items: center;
 }
-.tp_widget img {
+
+.h_tabs img {
     width: 42px;
 }
-.tp_widget h5 {
+
+.h_tabs h5 {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.6;
@@ -22,18 +24,14 @@
     margin: 0px;
     color: #161616;
 }
-.tp_widget:hover {
-    background-color: #007C9d;
+
+.h_tabs:hover {
     cursor: pointer;
-    border-color: #01C9C9 !important;
-    /* background: transparent #0a95ba; */
-    background: transparent linear-gradient(281deg, #007C9D 0%, #01C9C9 100%) 0% 0% no-repeat;
+    box-shadow: 13px 13px 30px 10px rgb(16 40 81 / 23%);
 }
-.tp_widget:hover h5 {
-    color: #fff;
-}
+/* 
 @media (min-width: 320px) and (max-width: 767.98px) {
-    .tp_widget {
+    .h_tabs {
         text-align: center;
         background: #fff;
         box-shadow: 6px 6px 70px rgb(16 40 81 / 23%);
@@ -41,17 +39,20 @@
         height: 106px;
         border-radius: 15px;
     }
-    .tp_widget img {
+
+    .h_tabs img {
         width: 32px;
     }
-    .tp_widget img {
-        color: #035e78;
+
+    .h_tabs img {
+        color: #12344d;
     }
-    .tp_widget h5 {
+
+    .h_tabs h5 {
         font-size: 12px;
         font-weight: 500;
         line-height: 1.4;
         padding-top: 12px;
         margin: 0px;
     }
-}
+} */

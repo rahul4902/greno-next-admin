@@ -3,7 +3,7 @@ import React from "react";
 const ClockIcon = ({
   height = "1rem",
   width = "1rem",
-  fill = "#000",
+  fill = "#2f2f2f",
 }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height={height} width={width} fill={fill}>

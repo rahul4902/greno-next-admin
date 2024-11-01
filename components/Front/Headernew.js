@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Image } from "react-bootstrap";
 import { API_URL, Href } from "utils/constant";
 import { useRouter } from "next/navigation";
+import CallIcon from "svg/CallIcon";
+import WhatsappIcon from "svg/WhatsappIcon";
 
 const Headernew = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +38,7 @@ const Headernew = () => {
         )}`
       );
       const data = await response.json();
-      setSuggestions(data.data); // Assuming data.data contains the array of suggestions
+      setSuggestions(data?.data?.data || []); // Assuming data.data contains the array of suggestions
       setIsSuggestionsVisible(true);
     } catch (error) {
       console.error("Error fetching suggestions:", error);
@@ -51,16 +53,16 @@ const Headernew = () => {
 
   return (
     <div>
-      <div className="border-bottom header-new py-2 bg-white">
+      <div className="border-bottom bg-white">
         <div className="container">
           <header className="d-flex flex-wrap row align-items-center justify-content-center justify-content-md-between py-1">
             <a
-              href="#"
+              href="/"
               className="d-flex align-items-center col-md-3 col-2  mb-md-0 text-dark text-decoration-none"
             >
               <Image
-                src="/images/gallery/logo.png"
-                width={118}
+                width={120}
+                src="/images/brand/logo/logo.png"
                 alt="logo"
                 className="ah_logo"
               />
@@ -165,27 +167,12 @@ const Headernew = () => {
                     style={{ display: "none" }}
                     accept=".pdf,.jpg,.jpeg,.png"
                   />
-                  <a
-                    href="#"
-                    className="button"
-                    onclick="alert('Download functionality not implemented in this HTML-only version.')"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={14}
-                      height={14}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1={12} y1={15} x2={12} y2={3} />
-                    </svg>
-                    Download Report
+                  
+                  <a href="#" className="header_call">
+                    <CallIcon height="24px" width="24px" color="#12344d"/> 9876543219
+                  </a>
+                  <a href="#" className="header_call">
+                    <WhatsappIcon height="26px" width="26px" color="#25D366"/>
                   </a>
                 </div>
               </div>
