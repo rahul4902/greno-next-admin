@@ -31,10 +31,10 @@
     font-weight: 600;
 }
 .packages .know-more{
-    color: #035e78;
+    color: #12344d;
     font-weight: 600;
 }
-.packages .know-more:hover{color: #0a95ba;}
+.packages .know-more:hover{color: #12344d;}
 .cartt-div {
     padding: 5px 10px;
     border-radius: 0 5px 5px 0;
@@ -42,7 +42,7 @@
     text-align: center;
 }
 .cartt-div, .cartt-div:hover {
-    background: #035e78;
+    background: #12344d;
     transition: .3s;
 }
 .cartt-div a{
@@ -83,19 +83,19 @@
     font-size: 20px !important;
     line-height: 1 !important;
     opacity: .75 !important; */
-    color: #035e78 !important;
+    color: #12344d !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 .packages .view-all a{
     font-size: 16px;
     font-weight: 600;
-    color: #035e78;
-    border-bottom: 1px solid #035e78;
+    color: #12344d;
+    border-bottom: 1px solid #12344d;
 }
 .packages.view-all a:hover{
-    color: #0a95ba;
-    background-color: #0a95ba;
+    color: #12344d;
+    background-color: #12344d;
 }
 
 @media screen and (max-width: 767px) {
