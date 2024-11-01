@@ -130,59 +130,6 @@ const HomeWhyChoose = () => {
                   </div>
                 </div>
 
-                <div className="col-md-6">
-                  <div className="d-flex gap-3">
-                    <div className="d-flex gap-4 py-2 pt-3 why_point">
-                      <div className="flex-shrink-0">
-                        <img 
-                          src="/images/gallery/01-Counters-Hospitals-1.svg" 
-                          alt="" 
-                          className="point_icon" 
-                        />
-                      </div>
-                      <div className="flex-grow-1 why_ah_points">
-                        <h4><span className="counter-holder">{counters.pincodes}</span>+</h4>
-                        <div>Pin codes served across India</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-6">
-                  <div className="d-flex gap-3">
-                    <div className="d-flex gap-4 py-2 pt-3 why_point">
-                      <div className="flex-shrink-0">
-                        <img 
-                          src="/images/gallery/01-Counters-Hospitals-1.svg" 
-                          alt="" 
-                          className="point_icon" 
-                        />
-                      </div>
-                      <div className="flex-grow-1 why_ah_points">
-                        <h4><span className="counter-holder">{counters.doctors}</span>+</h4>
-                        <div>Doctors</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-md-6">
-                  <div className="d-flex gap-3">
-                    <div className="d-flex gap-4 py-2 pt-3 why_point">
-                      <div className="flex-shrink-0">
-                        <img 
-                          src="/images/gallery/01-Counters-Hospitals-1.svg" 
-                          alt="" 
-                          className="point_icon" 
-                        />
-                      </div>
-                      <div className="flex-grow-1 why_ah_points">
-                        <h4><span className="counter-holder">{counters.beds}</span>+</h4>
-                        <div>Beds</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
               </div>
             </div>

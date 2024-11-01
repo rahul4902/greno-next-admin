@@ -1,6 +1,5 @@
-
 import React from "react";
-import ClockIcon from "./../../../svg/ClockIcon"
+import ClockIcon from "./../../../svg/ClockIcon";
 const TestCard = ({ test }) => {
   return (
     <article className="gui-card gui-card--block test-card-container p-0 w-100">
@@ -13,11 +12,7 @@ const TestCard = ({ test }) => {
                 <span className="gui-ty  gui-ty-w600 "></span>
               </h3>
             </a>
-            <button
-              className="gui-button gui-button--small gui-button--positive gui-button--icon-right add-btn"
-              type="button"
-              role="button"
-            >
+            <button className="btn btn-outline-danger" type="button">
               <label className="gui-button--secondary-label gui-button--label"></label>
               <label className="gui-button--label mb-0">
                 <span className="gui-ty   gui-ty--size-14 gui-ty-w600 gui-ty--line-height-18 ">
@@ -35,17 +30,18 @@ const TestCard = ({ test }) => {
             </div>
             <p className="price d-flex justify-content-between w-100 mb-0">
               <p>
-              <b className="eleven-tests">11 tests</b></p>
+                <b className="eleven-tests">11 tests</b>
+              </p>
               <p>
-              <span className="gui-ty  strike-price  gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 gui-ty--decoration-line-through">
-                <span>₹</span>943
-              </span>
-              <span className="gui-ty  real-price  gui-ty--size-16 gui-ty-w600 gui-ty--line-height-20 ">
-                <span className="gui-ty   gui-ty--size-14 gui-ty--line-height-18 ">
-                  ₹
+                <span className="gui-ty  strike-price  gui-ty--size-12 gui-ty--weight-500 gui-ty--line-height-16 gui-ty--decoration-line-through">
+                  <span>₹</span>943
                 </span>
-                700
-              </span>
+                <span className="gui-ty  real-price  gui-ty--size-16 gui-ty-w600 gui-ty--line-height-20 ">
+                  <span className="gui-ty   gui-ty--size-14 gui-ty--line-height-18 ">
+                    ₹
+                  </span>
+                  700
+                </span>
               </p>
             </p>
           </div>
