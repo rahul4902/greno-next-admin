@@ -9,7 +9,7 @@ export const SimpleBadgeCode = `
 
 export const BadgeWithButtonCode = `   
 <Button variant="primary">
-    Notifications <Badge bg="light" className="text-primary">4</Badge>                                        
+    Notifications <Badge bg="light" className="text-primary-custom">4</Badge>                                        
 </Button>
 `.trim();
 

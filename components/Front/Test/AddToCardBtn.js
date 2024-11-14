@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../redux/cartSlice";
 import Link from "next/link"; // Assuming you want to link to the cart page
+import CheckIcon from "../../../svg/CheckIcon"
 
 const AddToCartBtn = ({ test }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const AddToCartBtn = ({ test }) => {
     <>
       {isInCart ? (
         <Link href="/cart">
-          <button className="btn btn-success">View Cart</button>
+          <button className="btn btn-outline-primary"><CheckIcon /> View Cart</button>
         </Link>
       ) : (
         <button className="btn btn-outline-primary" onClick={handleAddToCart}>

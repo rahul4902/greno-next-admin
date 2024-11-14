@@ -107,7 +107,7 @@ const PaginatedTable = () => {
                           <div className="ms-3 lh-1">
                             <h5 className="mb-1">
                               <a href="#" className="text-inherit">
-                                {test.name}(<b className="text-primary">{test.code}</b>)
+                                {test.name}(<b className="text-primary-custom">{test.code}</b>)
                               </a>
                             </h5>
                           </div>

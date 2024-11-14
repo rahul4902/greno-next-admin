@@ -1,6 +1,6 @@
 import React from "react";
 
-const ClockIcon = ({ height = "24", width = "24", fill = "none" }) => {
+const CheckIcon = ({ height = "24", width = "24", fill = "none" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,12 +12,12 @@ const ClockIcon = ({ height = "24", width = "24", fill = "none" }) => {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="lucide lucide-clock"
+      class="lucide lucide-circle-check-big"
     >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
+      <path d="M21.801 10A10 10 0 1 1 17 3.335" />
+      <path d="m9 11 3 3L22 4" />
     </svg>
   );
 };
 
-export default ClockIcon;
+export default CheckIcon;

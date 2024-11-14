@@ -8,6 +8,22 @@ a {
   text-decoration: none !important;
 }
 
+.text-primary-custom {
+  color: #12344d !important;
+}
+
+.btn-outline-primary {
+  color: #12344d !important;
+  border-color: #12344d !important;
+  font-weight: 500!important;
+}
+
+.btn-primary {
+  background-color: #12344d !important;
+  border-color: #12344d !important;
+}
+
+
 /* topheader */
 .top_hdr {
   background: #12344d;
@@ -73,23 +89,16 @@ a {
 }
 
 .hdr-srch button {
-  padding: 8px 12px !important;
+  /* padding: 8px 12px !important; */
 }
 
 .hdr_srch_icon {
   position: absolute;
   top: 2px;
   right: 2px;
-  padding: 10.8px 12px;
-  border-radius: 4px !important;
-  background-color: #12344d !important;
-  border-color: #12344d !important;
+  bottom: 2px;
 }
 
-.hdr_srch_icon:hover {
-  background-color: #12344d !important;
-  border-color: #12344d !important;
-}
 
 .ajax-search-result {
   position: absolute;
@@ -131,17 +140,18 @@ a {
   border-color: #12344d !important;
 }
 
-.btn-success{
-  background-color: #31ccb0!important;
-  border-color: #31ccb0!important;
-}
-.btn-outline-success{
-  
-  border-color: #31ccb0!important;
+.btn-success {
+  background-color: #31ccb0 !important;
+  border-color: #31ccb0 !important;
 }
 
-.btn-outline-success:hover{
-  background-color: #31ccb0!important;
+.btn-outline-success {
+
+  border-color: #31ccb0 !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #31ccb0 !important;
 }
 
 .btn-outline-primary:hover {
@@ -199,12 +209,12 @@ a {
     padding: 11px !important;
   }
 
-  .hdr_srch_icon {
+  /* .hdr_srch_icon {
     position: absolute;
     top: 2.9px;
     right: 2px;
     padding: 8.6px 12px;
-  }
+  } */
 
   .upload-prescription-btn .button {
     justify-content: start;

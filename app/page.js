@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Carousel from "components/Front/Carousel";
-import HomeTabs from "components/Front/HomeTabs";
-import HomePackages from "components/Front/HomePackages";
-import HomeWhyChoose from "components/Front/HomeWhyChoose"
+import Carousel from "../components/Front/Carousel";
+import HomeTabs from "../components/Front/HomeTabs";
+import HomePackages from "../components/Front/HomePackages";
+import HomeWhyChoose from "../components/Front/HomeWhyChoose"
 
 import { Image } from "react-bootstrap";
 import Departments from "components/Front/Departments";
@@ -13,9 +13,8 @@ import OurDoctor from "components/Front/OurDoctor";
 import Testimonial from "components/Front/Testimonial";
 import Appointment from "components/Front/Appointment";
 import Blog from "components/Front/Blog";
-import Hero from "components/Front/Hero";
 import Topheader from "components/Front/Topheader";
-import LayoutWithHeaderFooter from "layouts/layout-with-header-footer";
+import LayoutWithHeaderFooter from "./../layouts/layout-with-header-footer";
 
 const page = () => {
   return (
