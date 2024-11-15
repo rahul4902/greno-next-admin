@@ -15,7 +15,7 @@ a {
 .btn-outline-primary {
   color: #12344d !important;
   border-color: #12344d !important;
-  font-weight: 500!important;
+  font-weight: 500 !important;
 }
 
 .btn-primary {
@@ -825,4 +825,37 @@ button {
   font-size: 16px;
   line-height: 14px;
   color: #0e3f6c;
+}
+
+/*  */
+.banner-ad {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.bg-danger-custom {
+  background-color: #f9ebe7 !important;
+}
+
+.bg-info-custom {
+  background-color: #e6f3fa !important;
+}
+
+.text-warning-custom {
+  color: rgb(255 196 63);
+}
+
+.banner-ad-1 {
+  background: url('https://cdn2.healthians.com/img/campaign/yuvi.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+.banner-ad-2 {
+  background: url('/images/bg2.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
 }

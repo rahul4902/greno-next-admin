@@ -5,7 +5,7 @@ import { Carousel as Carousel2 } from 'react-responsive-carousel';
 
 const Carousel = () => {
     return (
-        <Carousel2 showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true}>
+        <Carousel2 showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true} itemsToShow={2}>
             <div>
                 <img src="https://lpmedia.redcliffelabs.com/Diwali_Website_Banner_2_1_fb1203451a.webp" />
             </div>
