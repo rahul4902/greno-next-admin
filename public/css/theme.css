@@ -859,3 +859,56 @@ button {
   background-position: right;
   background-size: contain;
 }
+/*  */
+/* styles.css *//* styles/globals.css */
+/* styles/globals.css */
+
+.progress-bar-custom {
+  position: relative;
+}
+
+.progress-bar-custom .progress-line {
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  width: 100%;
+  height: 4px;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.progress-bar-custom .progress-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #9d9fa1; /* Default color for unvisited steps */
+}
+
+.progress-bar-custom .progress-step.completed {
+  background-color: #12344d; /* Color for completed steps */
+}
+
+.progress-bar-custom .progress-step.current {
+  background-color: #12344d; /* Color for current step */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.progress-bar-custom .progress-label {
+  margin-top: 0px;
+  font-size: 14px;
+  color: #333;
+}
+
+.progress-bar-custom .progress-step.completed .lucide-check {
+  font-size: 18px;
+  color: white;
+}
+
