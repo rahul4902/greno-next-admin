@@ -20,6 +20,7 @@ const page = () => {
         <HomeTabs />
         {/* <CategoryCarousel/> */}
         <AddBanners/>
+        <HomePackages />
         <section class="py-5">
           <div class="container"> 
             <h2 class="my-5">People are also looking for</h2>
@@ -100,7 +101,7 @@ const page = () => {
             </div>
           </div>
         </section>
-        <HomePackages />
+        
         <HomeWhyChoose />
 
         {/* <Hero />
