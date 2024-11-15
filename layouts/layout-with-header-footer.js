@@ -3,10 +3,7 @@ import "./../public/css/theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Topheader from '../components/Front/Topheader'
 import Headernew from '../components/Front/Headernew'
-// import Header2 from 'components/Front/header2';
-import Footernew from 'components/Front/Footernew';
-import Footer from 'components/Front/Footer';
-// import "./../public/css/theme.css";
+import Footernew from '../components/Front/Footernew';
 
   
 

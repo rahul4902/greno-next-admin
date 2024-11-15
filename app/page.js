@@ -4,17 +4,12 @@ import Carousel from "../components/Front/Carousel";
 import HomeTabs from "../components/Front/HomeTabs";
 import HomePackages from "../components/Front/HomePackages";
 import HomeWhyChoose from "../components/Front/HomeWhyChoose";
+import AddBanners from "../components/Front/Home/AddBanners";
 import CategoryCarousel from "../components/Front/CategoryCarousel";
 
-import { Image } from "react-bootstrap";
-import Departments from "components/Front/Departments";
-import Budget from "components/Front/Budget";
-import About from "components/Front/About";
-import OurDoctor from "components/Front/OurDoctor";
-import Testimonial from "components/Front/Testimonial";
-import Appointment from "components/Front/Appointment";
-import Blog from "components/Front/Blog";
-import Topheader from "components/Front/Topheader";
+import About from "../components/Front/About";
+import Testimonial from "../components/Front/Testimonial";
+
 import LayoutWithHeaderFooter from "./../layouts/layout-with-header-footer";
 
 const page = () => {
@@ -24,48 +19,9 @@ const page = () => {
         <Carousel />
         <HomeTabs />
         {/* <CategoryCarousel/> */}
-        <div className="container">
-          <section className="py-5">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="banner-ad bg-danger-custom mb-3 banner-ad-1">
-                    <div className="banner-content p-5">
-                      <div className="categories text-warning-custom fs-3 fw-bold">
-                        Upto 25% Off
-                      </div>
-                      <h3 className="banner-title">Greno welcome</h3>
-                      <p>
-                        Free Vitamin B12
-                      </p>
-                      <a href="#" className="btn btn-dark text-uppercase">
-                        Show Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="banner-ad bg-info-custom banner-ad-2">
-                    <div className="banner-content p-5">
-                      <div className="categories text-warning-custom fs-3 fw-bold">
-                        Upto 25% Off
-                      </div>
-                      <h3 className="banner-title"> Ayushman package</h3>
-                      <p>
-                        Very tasty &amp; creamy vanilla flavour creamy muffins.
-                      </p>
-                      <a href="#" className="btn btn-dark text-uppercase">
-                        Show Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+        <AddBanners/>
         <section class="py-5">
-          <div class="container">
+          <div class="container"> 
             <h2 class="my-5">People are also looking for</h2>
             <a href="#" class="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Blue diamon almonds</a>
             <a href="#" class="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Angie’s Boomchickapop Corn</a>
