@@ -16,7 +16,7 @@ const Step2 = ({ onNext, onBack, onPatientSelection }) => {
   return (
     <div>
       <h4>Add Patients</h4>
-      {patients.map((patient, index) => (
+      {selectedPatients?.map((patient, index) => (
         <div key={index} className="mb-3">
           <h5>
             {patient.name} | {patient.age} | {patient.gender}{" "}

@@ -8,6 +8,9 @@ a {
   text-decoration: none !important;
 }
 
+.bg-primary-custom{
+  background-color: #12344d !important;
+}
 .text-primary-custom {
   color: #12344d !important;
 }
