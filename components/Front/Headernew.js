@@ -12,8 +12,8 @@ const Headernew = () => {
   return (
     <div className="border-bottom bg-white">
       <div className="container">
-        <header className="d-flex flex-wrap align-items-center justify-content-center py-2">
-          <a href="/" className="col-md-3 col-2">
+        <header className="d-flex flex-wrap align-items-center justify-content-between py-2">
+          <a href="/" className="col-md-4">
             <Image
               width={120}
               src="/images/brand/logo/logo.png"
@@ -22,14 +22,17 @@ const Headernew = () => {
             />
           </a>
 
-          <div className="col-10 col-md-9">
-            <div className="d-flex justify-content-between ">
+          <div className="col-md-4">
+            <div className="">
               <div>
                 <div className="d-none d-md-block">
                   <SearchForm />
                 </div>
               </div>
-              <div className="d-flex gap-4">
+            </div>
+          </div>
+          <div className="col-md-4 d-flex justify-content-md-end">
+           <div className="d-flex gap-4">
                 <a href="#" className="header_call">
                   <CallIcon height="30px" width="30px" color="#12344d" />{" "}
                   9876543219
@@ -41,8 +44,7 @@ const Headernew = () => {
                   <CartIcon height="24px" width="24px" />
                 </a>
               </div>
-            </div>
-          </div>
+              </div>
         </header>
         <div className="d-md-none">
           <SearchForm />
