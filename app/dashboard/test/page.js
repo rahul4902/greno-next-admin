@@ -117,8 +117,8 @@ const PaginatedTable = () => {
                       <td>{test?.category?.name}</td>
                       <td><span className={`badge-${test?.status?'success':'danger'}-soft badge bg-none`}>{test?.status?'Active':'InActive'}</span></td>
                       <td><span className={`badge-${test?.package_or_test == 'test'?'success':'danger'}-soft badge bg-none text-capitalize`}>{test?.package_or_test}</span></td>
-                      <td><Link class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" href={`/dashboard/test/create?_id=${test?._id}`}><DeleteIcon /></Link>
-                          <button class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" type="button" onClick={ ()=>{ deleteTest(test._id) } }><EditIcon /></button></td>
+                      <td><Link className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" href={`/dashboard/test/create?_id=${test?._id}`}><DeleteIcon /></Link>
+                          <button className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" type="button" onClick={ ()=>{ deleteTest(test._id) } }><EditIcon /></button></td>
                     </tr>
                   ))}
                 </tbody>

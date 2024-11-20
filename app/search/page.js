@@ -8,8 +8,7 @@ import withHeader from "../../hoc/withHeader";
 import TestLoader from "../../components/Front/Test/TestLoader";
 import TestItemCard from "../../components/Front/Test/TestItemCard";
 import { API_URL } from "../../utils/constant";
-import CircleAlterIcon from "../../svg/CircleAlterIcon";
-import ChevronDownIcon from "../../svg/ChevronDownIcon";
+import { ChevronDown, CircleAlert } from "lucide-react";
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -24,8 +23,8 @@ const SearchPage = () => {
 
   const [testPage, setTestPage] = useState(1);
   const [packagePage, setPackagePage] = useState(1);
-  const [hasMoreTest, setHasMoreTest] = useState(true);
-  const [hasMorePackage, setHasMoreTestPackage] = useState(true);
+  const [hasMoreTest, setHasMoreTest] = useState(false);
+  const [hasMorePackage, setHasMoreTestPackage] = useState(false);
 
   const fetchTests = async (type) => {
     setLoading(true);
@@ -60,6 +59,7 @@ const SearchPage = () => {
           );
           return uniquePackages;
         });
+        setHasMoreTestPackage(response.data.data.hasMore);
       }
     } catch (error) {
       console.error("Error fetching tests:", error);
@@ -236,7 +236,7 @@ const SearchPage = () => {
         </div>
         {tests.length === 0 && (
           <h5 className="text-primary-custom">
-            <CircleAlterIcon /> No Test Found!
+            <CircleAlert /> No Test Found!
           </h5>
         )}
         {loading && <TestLoader />}
@@ -256,14 +256,14 @@ const SearchPage = () => {
               >
                 {loadMoreLoader ? (
                   <div
-                    class="spinner-border text-secondary spinner-border-sm"
+                    className="spinner-border text-secondary spinner-border-sm"
                     role="status"
                   >
-                    <span class="visually-hidden">Loading...</span>
+                    <span className="visually-hidden">Loading...</span>
                   </div>
                 ) : (
                   <>
-                    Show More Tests <ChevronDownIcon />
+                    Show More Tests <ChevronDown />
                   </>
                 )}
               </button>
@@ -293,7 +293,7 @@ const SearchPage = () => {
                 onClick={loadMorePackage}
                 className="btn btn-outline-primary"
               >
-                Show More Packages <ChevronDownIcon />
+                Show More Packages <ChevronDown />
               </button>
             </div>
           )}

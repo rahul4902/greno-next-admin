@@ -1,11 +1,12 @@
+import { ChevronDown, CircleChevronRight, Clock, Tag, TestTube } from "lucide-react";
 import { useState } from "react";
 // import { ChevronDown, ChevronUp, Clock, Eye, Tag, Plus } from "lucide-react";
-import TagIcon from "../../../svg/TagIcon";
-import TubeIcon from "../../../svg/TubeIcon";
-import ChevronDownIcon from "../../../svg/ChevronDownIcon";
-import CircleChevronRightIcon from "../../../svg/CircleChevronRightIcon";
+// import TagIcon from "../../../svg/TagIcon";
+// import TubeIcon from "../../../svg/TubeIcon";
+// import ChevronDownIcon from "../../../svg/ChevronDownIcon";
+// import CircleChevronRightIcon from "../../../svg/CircleChevronRightIcon";
 import AddToCartBtn from "./AddToCardBtn";
-import ClockIcon from "../../../svg/ClockIcon";
+// import ClockIcon from "../../../svg/ClockIcon";
 
 export default function TestItemCard({ test }) {
   const [expanded, setExpanded] = useState(false);
@@ -43,7 +44,7 @@ export default function TestItemCard({ test }) {
             style={{ backgroundColor: "rgba(14, 29, 82, 0.03)" }}
             className="d-flex items-center space-x-2 bg-opacity-10 p-2 rounded"
           >
-            <TagIcon
+            <Tag
               style={{ color: "#0e1d52" }}
               className="h-5 w-5 flex-shrink-0"
             />
@@ -60,7 +61,7 @@ export default function TestItemCard({ test }) {
               {test?.parameter?.slice(0, 3).join(", ")}
               {test?.parameter?.length > 3 && (
                 <span style={{ color: "#0e1d52" }} className="fw-semibold">
-                  <ChevronDownIcon/>
+                  <ChevronDown/>
                   Read More
                 </span>
               )}
@@ -103,7 +104,7 @@ export default function TestItemCard({ test }) {
       >
         <div className="d-flex align-items-center gap-2">
           <p style={{ color: "#0e1d52" }} className="fw-semibold  m-0">
-           <ClockIcon height="18" width="18"/> Reports in {test?.tat_time}
+           <Clock height="18" width="18"/> Reports in {test?.tat_time}
           </p>
           <div
             style={{
@@ -113,12 +114,12 @@ export default function TestItemCard({ test }) {
             }}
           ></div>
           <p style={{ color: "#0e1d52" }} className="fw-semibold m-0">
-            <TubeIcon height="16px" width="16px"/> {test?.parameter?.length} Tests
+            <TestTube height="16px" width="16px"/> {test?.parameter?.length} Tests
           </p>
         </div>
         <div>
           <p style={{ color: "#0e1d52" }} className="fw-semibold m-0">
-            View More <CircleChevronRightIcon height="18" width="18"/>
+            View More <CircleChevronRight height="18" width="18"/>
           </p>
         </div>
       </div>

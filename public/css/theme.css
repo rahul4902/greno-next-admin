@@ -8,9 +8,10 @@ a {
   text-decoration: none !important;
 }
 
-.bg-primary-custom{
+.bg-primary-custom {
   background-color: #12344d !important;
 }
+
 .text-primary-custom {
   color: #12344d !important;
 }
@@ -158,6 +159,11 @@ a {
 }
 
 .btn-outline-primary:hover {
+  background-color: #12344d !important;
+  border-color: #12344d !important;
+  color: #FFF !important;
+}
+.btn-outline-primary:active {
   background-color: #12344d !important;
   border-color: #12344d !important;
   color: #FFF !important;
@@ -862,8 +868,10 @@ button {
   background-position: right;
   background-size: contain;
 }
+
 /*  */
-/* styles.css *//* styles/globals.css */
+/* styles.css */
+/* styles/globals.css */
 /* styles/globals.css */
 
 .progress-bar-custom {
@@ -884,23 +892,26 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   margin: 0 auto;
   border-radius: 50%;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: #9d9fa1; /* Default color for unvisited steps */
+  background-color: #9d9fa1;
+  /* Default color for unvisited steps */
 }
 
 .progress-bar-custom .progress-step.completed {
-  background-color: #12344d; /* Color for completed steps */
+  background-color: #12344d;
+  /* Color for completed steps */
 }
 
 .progress-bar-custom .progress-step.current {
-  background-color: #12344d; /* Color for current step */
+  background-color: #12344d;
+  /* Color for current step */
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
@@ -915,3 +926,139 @@ button {
   color: white;
 }
 
+/* empty cart */
+.empty-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+}
+
+
+
+.cart-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+
+
+.cart-item {
+  /* border: 1px solid #d9d9d9; */
+  /* border-radius: 15px; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* padding: 16px; */
+}
+
+.cart-item>span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #e00646;
+  width: 60%;
+  align-self: center;
+  position: relative;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+
+.cart-item>div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #2f3032;
+}
+
+.cart-item>div>span:last-child {
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  color: #9d9fa1;
+}
+
+.cart-item>svg {
+  width: 10%;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 601px) {
+
+  .cart-item>div,
+  .cart-item>span {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.lucide {
+  /* color: #12344d; */
+  /* width: 24px;
+  height: 24px; */
+  /* stroke-width: 1.5px; */
+}
+
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body p {
+  font-size: 16px;
+}
+
+.btn {
+  min-width: 80px;
+}
+
+/*  */
+/* Custom accordion styles */
+.custom-accordion .accordion-item {
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.custom-accordion .accordion-header {
+  background-color: #f8f9fa;
+  /* Light background for header as well */
+  border: none;
+  /* Remove header border */
+}
+
+.custom-accordion .accordion-button {
+  background-color: #f8f9fa;
+  /* Light background for button */
+  border: none;
+  /* Remove button border */
+}
+
+.custom-accordion .accordion-button:focus {
+  box-shadow: none;
+  /* Remove focus box-shadow */
+}
+
+.custom-accordion .accordion-item:first-of-type .accordion-button {
+  border: none;
+  border-radius: 0;
+}
+
+.accordion-button {
+  background-color: #ffffff00 !important;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #e00646;
+}
+.title-primary {
+  font-weight: 500;
+  font-size: 14px;
+  color: #12344d;
+}

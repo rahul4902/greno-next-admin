@@ -11,7 +11,7 @@ const cartSlice = createSlice({
       if (!item || !item._id) return; // Exit if item or _id is undefined
 
       const existingItem = state.items.find((i) => i._id === item._id);
-      
+      console.log('existingItem',existingItem)
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -22,6 +22,7 @@ const cartSlice = createSlice({
           amount: item.amount,
           package_or_test: item.package_or_test,
           slug: item.slug,
+          _id:item._id
         });
       }
     },

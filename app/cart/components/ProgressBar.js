@@ -1,13 +1,13 @@
 // components/ProgressBar.js
 import { Row, Col } from "react-bootstrap";
-import { Check } from "lucide-react";
+import { CalendarClock, Check, IndianRupee, TestTube, ListTodo, UsersRound } from "lucide-react";
 
 // Define steps with labels
 const steps = [
-  { step: 1, label: "Confirm Tests" },
-  { step: 2, label: "Add Patients" },
-  { step: 3, label: "Address & Time" },
-  { step: 4, label: "Payment" },
+  { step: 1, label: "Tests",icon:<ListTodo color="#12344d" size={15}/> },
+  { step: 2, label: "Patients",icon:<UsersRound color="#12344d" size={15}/> },
+  { step: 3, label: "Address",icon:<CalendarClock color="#12344d" size={15}/> },
+  { step: 4, label: "Payment",icon:<IndianRupee color="#12344d" size={15}/> },
 ];
 
 const ProgressBarComponent = ({ step, setStep }) => {
@@ -37,11 +37,11 @@ const ProgressBarComponent = ({ step, setStep }) => {
               onClick={() => handleStepClick(item.step)}
             >
               {/* Display Check icon for completed steps, otherwise show step number */}
-              {item.step < step ? <Check size={20} color="white" /> : item.step}
+              <span className="fw-bold"> {item.step < step ? <Check size={20} color="white" /> : item.step}</span>
             </div>
             {/* Step Label */}
           </Col>
-          <div className="progress-label">{item.label}</div>
+          <div className="progress-label title-primary">{item.icon} {item.label}</div>
         </Col>
       ))}
     </Row>

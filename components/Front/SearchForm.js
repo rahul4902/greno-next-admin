@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import SearchIcon from "../../svg/SearchIcon";
+// import SearchIcon from "../../svg/SearchIcon";
 import { useRouter } from "next/navigation";
-import UploadIcon from "../../svg/UploadIcon";
+// import UploadIcon from "../../svg/UploadIcon";
 import { API_URL, Href } from "utils/constant";
+import { Search, Upload } from "lucide-react";
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]); // Using 'any' type for the suggestions
@@ -202,10 +203,11 @@ const SearchForm = () => {
           </div>
           <div className="hdr_srch_icon">
             <button type="submit" className="btn btn-sm btn-primary me-1">
-              <SearchIcon height="18px" width="22px" />
+              {/* <SearchIcon height="18px" width="22px" /> */}
+              <Search color="#FFF" size={22}/>
             </button>
-            <label htmlFor="fileInput" className="btn btn-sm btn-primary fs-6">
-              <UploadIcon height="18px" width="18px" />
+            <label htmlFor="fileInput" className="btn btn-sm btn-primary">
+              <Upload color="#FFF" size={22}/>
             </label>
             <input
               type="file"

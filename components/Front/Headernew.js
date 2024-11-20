@@ -1,14 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { Image } from "react-bootstrap";
-
-import CallIcon from "svg/CallIcon";
+import { PhoneCall, ShoppingCart } from "lucide-react";
 import WhatsappIcon from "svg/WhatsappIcon";
-import UploadIcon from "../../svg/UploadIcon";
+// import UploadIcon from "../../svg/UploadIcon";
 import SearchForm from "./SearchForm";
-import CartIcon from "./../../svg/CartIcon";
+// import CartIcon from "./../../svg/CartIcon";
+import { useSelector } from "react-redux";
 
 const Headernew = () => {
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <div className="border-bottom bg-white">
       <div className="container">
@@ -32,19 +33,31 @@ const Headernew = () => {
             </div>
           </div>
           <div className="col-md-4 d-flex justify-content-md-end">
-           <div className="d-flex gap-4">
-                <a href="#" className="header_call">
-                  <CallIcon height="30px" width="30px" color="#12344d" />{" "}
-                  9876543219
-                </a>
-                <a href="#" className="header_call">
-                  <WhatsappIcon height="30px" width="30px" color="#25D366" />
-                </a>
-                <a href="#" className="header_call">
-                  <CartIcon height="24px" width="24px" />
-                </a>
-              </div>
-              </div>
+            <div className="d-flex gap-4">
+              <a href="tel:9958747295" className="header_call">
+              
+              <PhoneCall size={28} color="#12344d"/>
+                
+                +91 9958747295
+              </a>
+     
+              <a aria-label="Chat on WhatsApp" target="_blank" href="https://api.whatsapp.com/send/?phone=919958747295&text=Hi&app_absent=0" className="header_call">
+                <WhatsappIcon height="30px" width="30px" color="#25D366" />
+              </a>
+              <a href="/cart" className="header_call  position-relative">
+              <ShoppingCart size={24} />
+                {/* <CartIcon height="24px" width="24px" /> */}
+                {cartItems?.length ? (
+                  <span className="position-absolute bottom-0 start-100 translate-middle badge rounded bg-danger border border-light rounded-circle">
+                    {cartItems?.length}
+                    <span className="visually-hidden">cart items</span>
+                  </span>
+                ) : (
+                  <></>
+                )}
+              </a>
+            </div>
+          </div>
         </header>
         <div className="d-md-none">
           <SearchForm />

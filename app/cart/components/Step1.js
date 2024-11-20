@@ -1,37 +1,44 @@
+import { CirclePlus, CircleX, Plus, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, removeFromCart } from "../../../redux/cartSlice";
 
 const Step1 = ({ onNext, onBack, onPatientSelection }) => {
-  const [selectedPatients, setSelectedPatients] = useState([]);
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
-  const togglePatient = (patient) => {
-    const newSelection = selectedPatients.includes(patient)
-      ? selectedPatients.filter((p) => p !== patient)
-      : [...selectedPatients, patient];
-    setSelectedPatients(newSelection);
-    onPatientSelection(newSelection);
+  const handleRemoveCart = (item) => {
+    dispatch(removeFromCart(item._id));
   };
-
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
   return (
     <div>
-      <h2>Add Patients</h2>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            onChange={() => togglePatient("Patient 1")}
-            checked={selectedPatients.includes("Patient 1")}
-          />
-          Patient 1
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            onChange={() => togglePatient("Patient 2")}
-            checked={selectedPatients.includes("Patient 2")}
-          />
-          Patient 2
-        </label>
+      <h6>Selected tests / packages</h6>
+      <div className="row my-2">
+        <div className="col-6">
+          <button className="btn btn-lg btn-outline-primary border rounded-4 w-100 d-flex align-items-center justify-content-center gap-1"> <Plus size={18}/> Add Test</button>
+        </div>
+        <div className="col-6">
+        <button onClick={handleClearCart} className="btn btn-lg btn-outline-primary border rounded-4 w-100  d-flex align-items-center justify-content-center gap-1"> <Trash2 size={18}/> Clear Cart</button>
+        </div>
       </div>
+      {cartItems.map((_t, _x) => {
+        return (
+          <div
+            key={_x}
+            className="cart-item d-flex align-items-center border rounded-4 p-2 mb-2"
+          >
+            <CircleX onClick={() => handleRemoveCart(_t)} />
+            <span>{_t.name}</span>
+            <div>
+              <span>₹{_t.amount}</span>
+              <span>₹{_t.offer_price}</span>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

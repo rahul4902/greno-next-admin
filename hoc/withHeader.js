@@ -7,6 +7,7 @@ const withHeader = (PageComponent) => {
         <Suspense fallback={<div>Loading...</div>}>
           <PageComponent {...props} />
         </Suspense>
+        
       </LayoutWithHeaderFooter>
     );
   };

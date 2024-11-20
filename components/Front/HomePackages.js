@@ -79,11 +79,11 @@ const HomePackages = () => {
                         Know More
                       </a>
                     </div>
-                    <div class="add-to-cart pos_rel d-flex align-items-center mt-2">
-                      <div class="popularprice pricee-div">
+                    <div className="add-to-cart pos_rel d-flex align-items-center mt-2">
+                      <div className="popularprice pricee-div">
                         <span>₹</span>1,800{" "}
                       </div>
-                      <div class="cartt-div">
+                      <div className="cartt-div">
                         <a
                           href="#"
                           className="text-decoration-none"

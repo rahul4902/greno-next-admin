@@ -8,9 +8,9 @@ export const standard = [
 		featureHeading: 'All core features, including',
 		features: [
 			{ feature: 'Only Basic Components' },
-			{ feature: `<span class="fw-bold text-dark">12+ </span> Adv. Components` },
-			{ feature: `<span class="fw-bold text-dark">5 - </span>Landing page` },
-			{ feature: `<span class="fw-bold text-dark">3 </span>Dashboard Layouts` },
+			{ feature: `<span className="fw-bold text-dark">12+ </span> Adv. Components` },
+			{ feature: `<span className="fw-bold text-dark">5 - </span>Landing page` },
+			{ feature: `<span className="fw-bold text-dark">3 </span>Dashboard Layouts` },
 			{ feature: 'Documentation' },
 			{ feature: 'Access to support forums' }
 		]
@@ -27,8 +27,8 @@ export const multisite = [
 		featureHeading: 'Everything in Standard +:',
 		features: [
 			{ feature: 'Offline viewing' },
-			{ feature: `<span class="fw-bold text-dark">Unlimited </span>projects` },
-			{ feature: `<span class="fw-bold text-dark">Unlimited </span>storage` },
+			{ feature: `<span className="fw-bold text-dark">Unlimited </span>projects` },
+			{ feature: `<span className="fw-bold text-dark">Unlimited </span>storage` },
 			{ feature: 'Custom domain support' },
 			{ feature: 'Bulk editing' },
 			{ feature: '12 / 5 support' }
@@ -46,9 +46,9 @@ export const extended = [
 		featureHeading: 'Everything in Multisite +',
 		features: [
 			{ feature: 'Workshop' },
-			{ feature: `<span class="fw-bold text-dark">Dedicated  </span>hardware` },
+			{ feature: `<span className="fw-bold text-dark">Dedicated  </span>hardware` },
 			{
-				feature: `<span class="fw-bold text-dark">99.9% uptime </span>guarantee`
+				feature: `<span className="fw-bold text-dark">99.9% uptime </span>guarantee`
 			},
 			{ feature: 'Advanced analytics' },
 			{ feature: '3rd party integrations' },
