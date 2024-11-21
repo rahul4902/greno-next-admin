@@ -5,11 +5,12 @@ import Pagination from "../../../components/Pagination"; // Assuming you have th
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container, Col, Row } from "react-bootstrap";
-import EditIcon from "svg/EditIcon";
-import DeleteIcon from "svg/DeleteIcon";
+// import EditIcon from "svg/EditIcon";
+// import DeleteIcon from "svg/DeleteIcon";
 import apiService from "services/apiService";
 import { API_URL } from "utils/constant";
 import { toast } from "react-toastify";
+import { Edit, Trash2 } from "lucide-react";
 
 const PaginatedTable = () => {
   const [currentPage, setCurrentPage] = useState(1); // Default page 1
@@ -117,8 +118,9 @@ const PaginatedTable = () => {
                       <td>{test?.category?.name}</td>
                       <td><span className={`badge-${test?.status?'success':'danger'}-soft badge bg-none`}>{test?.status?'Active':'InActive'}</span></td>
                       <td><span className={`badge-${test?.package_or_test == 'test'?'success':'danger'}-soft badge bg-none text-capitalize`}>{test?.package_or_test}</span></td>
-                      <td><Link className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" href={`/dashboard/test/create?_id=${test?._id}`}><DeleteIcon /></Link>
-                          <button className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" type="button" onClick={ ()=>{ deleteTest(test._id) } }><EditIcon /></button></td>
+                      
+                      <td><Link className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" href={`/dashboard/test/create?_id=${test?._id}`}><Trash2/></Link>
+                          <button className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" type="button" onClick={ ()=>{ deleteTest(test._id) } }><Edit/></button></td>
                     </tr>
                   ))}
                 </tbody>

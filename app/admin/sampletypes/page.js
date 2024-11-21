@@ -5,12 +5,13 @@ import axios from "axios";
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container, Col, Row, Image } from "react-bootstrap";
-import EditIcon from "svg/EditIcon";
-import DeleteIcon from "svg/DeleteIcon";
+// import EditIcon from "svg/EditIcon";
+// import DeleteIcon from "svg/DeleteIcon";
 import apiService from "services/apiService";
 import { API_URL, productDefaultImage } from "utils/constant";
 import { toast } from "react-toastify";
 import Pagination from "components/Pagination";
+import { Edit, Trash2 } from "lucide-react";
 
 const PaginatedTable = () => {
   const [currentPage, setCurrentPage] = useState(1); // Default page 1
@@ -132,7 +133,7 @@ const PaginatedTable = () => {
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
                           href={`/admin/sampletypes/form?_id=${sampleType?._id}`}
                         >
-                          <DeleteIcon />
+                          <Trash2 />
                         </Link>
                         <button
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
@@ -141,7 +142,7 @@ const PaginatedTable = () => {
                             deleteSampleType(sampleType._id);
                           }}
                         >
-                          <EditIcon />
+                          <Edit />
                         </button>
                       </td>
                     </tr>
