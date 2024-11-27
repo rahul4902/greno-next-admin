@@ -6,7 +6,10 @@ import AddPatientModal from "./AddPatientModal"
 
 const Step2 = ({ onNext, onBack, onPatientSelection }) => {
   const [showModal, setShowModal] = useState(false);
-  const [currentPatient, setCurrentPatient] = useState(null);
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
+
   const [patients, setPatients] = useState([
     {
       id: 1,
@@ -88,31 +91,10 @@ const Step2 = ({ onNext, onBack, onPatientSelection }) => {
     );
   };
 
-    const handleCloseModal = () => setShowModal(false);
-  const handleShowModal = (patient = null) => {
-    setCurrentPatient(patient); // Set patient data if editing
-    setShowModal(true);
-  };
-
-  const handleSavePatient = (patient, isEditing) => {
-    if (isEditing) {
-      // Update existing patient data
-      setPatients((prevPatients) =>
-        prevPatients.map((p) =>
-          p.id === patient.id ? { ...p, ...patient } : p
-        )
-      );
-    } else {
-      // Add new patient
-      const newPatient = { ...patient, id: Date.now() }; // Assign a new unique ID
-      setPatients((prevPatients) => [...prevPatients, newPatient]);
-    }
-  };
-
   return (
     <div className="container">
       <h4><UsersRound size={24} /> Patients</h4>
-      <button className="btn btn-lg btn-outline-primary w-100 mb-2"  onClick={() => handleShowModal()}><Plus/> Add Patient</button>
+      <button className="btn btn-lg btn-outline-primary w-100 mb-2"  onClick={() => handleOpenModal()}><Plus/> Add Patient</button>
       <Accordion activeKey={activeKeys} alwaysOpen>
         {patients.map((patient, index) => {
           const allChecked = patient.tests.every((test) => test.checked);
@@ -154,7 +136,7 @@ const Step2 = ({ onNext, onBack, onPatientSelection }) => {
                       checked={test.checked}
                       onChange={() => toggleChildCheckbox(patient.id, test.id)}
                     />
-                    <label className="form-check-label title">{test.name}</label>
+                    <label className="form-check-label title-primary">{test.name}</label>
                   </div>
                 ))}
               </Accordion.Body>
@@ -162,12 +144,9 @@ const Step2 = ({ onNext, onBack, onPatientSelection }) => {
           );
         })}
       </Accordion>
-      <AddPatientModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        patientData={currentPatient}
-        onSave={handleSavePatient}
+      <AddPatientModal show={showModal} onClose={handleCloseModal}
       />
+      
     </div>
   );
 };

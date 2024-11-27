@@ -9,11 +9,17 @@ const PriceDetails = ({ totalAmount, discount, step }) => {
         <div className="p-3">
           <div className="d-flex justify-content-between">
             <span className="title-primary fs-6">Total Amount</span>
-            <span className="title-primary fw-semibold fs-5">₹{totalAmount}</span>
+            <span className="title-primary fw-semibold fs-6">₹{totalAmount}</span>
           </div>
-          <div>Member Discount (10%): - ₹{discount}</div>
+          <div className="d-flex justify-content-between">
+            <span className="title-primary fs-6">Member Discount (10%)</span>
+            <span className="title-primary fw-semibold fs-6">₹{discount}</span>
+          </div>
         </div>
-        <div className="px-3 py-2 bg-light">Amount to be paid: ₹{amountToPay}</div>
+        <div className="px-3 py-2 bg-light d-flex justify-content-between">
+          <span className="title-primary fs-5">Amount to be paid</span>
+          <span className="title-primary fs-5"> ₹{amountToPay}</span>
+        </div>
       </div>
     </div>
   );

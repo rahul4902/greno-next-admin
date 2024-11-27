@@ -18,10 +18,10 @@ const Step1 = ({ onNext, onBack, onPatientSelection }) => {
       <h6>Selected tests / packages</h6>
       <div className="row my-2">
         <div className="col-6">
-          <button className="btn btn-lg btn-outline-primary border rounded-4 w-100 d-flex align-items-center justify-content-center gap-1"> <Plus size={18}/> Add Test</button>
+          <button className="btn btn-md btn-outline-primary border rounded-4 w-100 d-flex align-items-center justify-content-center gap-1"> <Plus size={18}/> Add Test</button>
         </div>
         <div className="col-6">
-        <button onClick={handleClearCart} className="btn btn-lg btn-outline-primary border rounded-4 w-100  d-flex align-items-center justify-content-center gap-1"> <Trash2 size={18}/> Clear Cart</button>
+        <button onClick={handleClearCart} className="btn btn-md btn-outline-primary border rounded-4 w-100  d-flex align-items-center justify-content-center gap-1"> <Trash2 size={18}/> Clear Cart</button>
         </div>
       </div>
       {cartItems.map((_t, _x) => {
@@ -30,8 +30,8 @@ const Step1 = ({ onNext, onBack, onPatientSelection }) => {
             key={_x}
             className="cart-item d-flex align-items-center border rounded-4 p-2 mb-2"
           >
-            <CircleX onClick={() => handleRemoveCart(_t)} />
-            <span>{_t.name}</span>
+            <CircleX color="#12344d" onClick={() => handleRemoveCart(_t)} />
+            <span className="title-primary">{_t.name}</span>
             <div>
               <span>₹{_t.amount}</span>
               <span>₹{_t.offer_price}</span>

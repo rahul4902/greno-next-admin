@@ -3,7 +3,31 @@
 body {
   font-family: "Figtree", sans-serif
 }
+.form-check-input[type=checkbox]:indeterminate {
+  background-color: #12344d!important;
+  border-color: #12344d!important;
+}
 
+.form-check-input[type=checkbox]:indeterminate {
+  background-color: #12344d!important;
+  border-color: #12344d!important;
+}
+.form-check-input:focus {
+  border-color: #12344d;
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgb(16 47 69 / 50%)!important;
+}
+
+.form-check-input:checked {
+  background-color: #12344d!important;
+  border-color: #12344d!important;
+}
+
+.btn:focus-visible {
+  background-color: #12344d!important;
+  box-shadow: 0 0 0 0.25rem rgb(18 52 77 / 50%)!important;
+  color:white!important;
+}
 a {
   text-decoration: none !important;
 }
@@ -957,7 +981,6 @@ button {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
-  color: #e00646;
   width: 60%;
   align-self: center;
   position: relative;
@@ -1062,3 +1085,4 @@ button {
   font-size: 14px;
   color: #12344d;
 }
+

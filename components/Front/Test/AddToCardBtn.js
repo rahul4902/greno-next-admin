@@ -15,15 +15,16 @@ const AddToCartBtn = ({ test }) => {
   const isInCart = cartItems.some((item) => item._id === test?._id);
 
   const handleAddToCart = () => {
-    // dispatch(
-    //   addToCart({
-    //     _id: test?._id,
-    //     name: test?.name,
-    //     package_or_test: test?.package_or_test,
-    //     slug: test?.slug,
-    //     amount: test?.amount,
-    //   })
-    // );
+    dispatch(
+      addToCart({
+        _id: test?._id,
+        name: test?.name,
+        package_or_test: test?.package_or_test,
+        slug: test?.slug,
+        amount: test?.amount,
+        offer_price:test?.offer_price
+      })
+    );
   };
 
   return (
