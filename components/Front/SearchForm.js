@@ -202,7 +202,7 @@ const SearchForm = () => {
             )}
           </div>
           <div className="hdr_srch_icon">
-            <button type="submit" className="btn btn-sm btn-primary me-1">
+            <button type="submit" className="btn btn-primary btn-sm  me-1">
               {/* <SearchIcon height="18px" width="22px" /> */}
               <Search color="#FFF" size={22}/>
             </button>
