@@ -7,6 +7,7 @@ const initialState = {
   userExpireTime: null,
   permissions: [], // Array to store permissions for the user
   userDetails: null, // Additional user details like name, email, etc.
+  isLoginModalVisible:false,
 };
 
 const authSlice = createSlice({

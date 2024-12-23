@@ -3,6 +3,7 @@ import { Offcanvas, Button, Form, FloatingLabel, Spinner } from 'react-bootstrap
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { loginUser, toggleLoginModal } from '../redux/authSlice'; // Adjust path as needed
+import { toast } from 'react-toastify';
 
 const LoginOffCanvas = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,13 @@ const LoginOffCanvas = () => {
         email,
         password,
       });
-
+      
+      if(response.data.status == 400){
+        toast.error(response.data.message)
+      }
+      setIsLoading(false);
+      return;
       const { token, userDetails } = response.data;
-
       // Save token in localStorage or sessionStorage
       localStorage.setItem('authToken', token);
 

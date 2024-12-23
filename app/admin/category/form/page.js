@@ -207,6 +207,7 @@ const TestForm = () => {
                       accept=".png,.jpg,.jpeg,.gif,.webp,.svg"
                       name="icon"
                       onChange={handleFileChange}
+                      
                     />
                     {iconPreview && (
                       <div className="mt-2">

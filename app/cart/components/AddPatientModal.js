@@ -1,20 +1,21 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { API_URL } from "../../../utils/constant";
+import { Form } from "react-bootstrap";
 
 const AddPatientModal = ({ show, onClose }) => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     dob: "",
     age: "", // Calculated age
-    gender: "Male",
+    gender: "male",
     relation: "",
     phone: "",
     email: "",
   });
 
-  const [errors, setErrors] = useState({
-    age: "", // Error for age validation
-  });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +25,13 @@ const AddPatientModal = ({ show, onClose }) => {
       ...prev,
       [name]: value,
     }));
+
+    if (errors[name]) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "",
+      }));
+    }
 
     // Calculate age and validate when the Date of Birth changes
     if (name === "dob" && value) {
@@ -68,17 +76,35 @@ const AddPatientModal = ({ show, onClose }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Check if there are any validation errors
-    if (errors.age) {
-      toast.error("Age must be between 5 and 99.");
-      return;
-    }
+    // if (errors.age) {
+    //   toast.error("Age must be between 5 and 99.");
+    //   return;
+    // }
 
-    console.log("Form Data Submitted:", formData);
-    onClose(); // Close the modal after submission
+    try {
+      const response = await axios.post(`${API_URL}member/store`, formData); // Replace '/api/endpoint' with your actual API URL
+      console.log("response", response);
+      if (response.data.status === 200) {
+        toast.success(response?.data?.message);
+        console.log("Form Data Submitted:", formData);
+        //// onClose(); // Close the modal after submission
+      } else if (response.data.status === 422) {
+        toast.error(response?.data?.message);
+        setErrors(response.data.errors);
+        console.log("response.data.errors", response.data.errors);
+      } else {
+        toast.error("Failed to save data. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error saving data:", error);
+      toast.error(
+        error.response?.data?.message || "An unexpected error occurred."
+      );
+    }
   };
 
   return (
@@ -99,71 +125,88 @@ const AddPatientModal = ({ show, onClose }) => {
             ></button>
           </div>
           <div className="modal-body">
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label">Full Name*</label>
-                <input
+                <Form.Control
                   type="text"
-                  className="form-control"
-                  name="fullName"
+                  name="name"
                   placeholder="Enter Full Name"
-                  value={formData.fullName}
+                  value={formData.name}
                   onChange={handleChange}
-                  required
+                  
+                  
                 />
+                 <div class="valid-tooltip">Valid.</div>
+                 <div class="invalid-tooltip">Please fill out this field.</div>
+                {errors.name && (
+                  <label className="text-danger fw-bold">
+                    {errors.name}
+                  </label>
+                )}
               </div>
               <div className="row">
                 <div className="col-6 mb-3">
                   <label className="form-label">Date Of Birth*</label>
-                  <input
+                  <Form.Control
                     type="date"
-                    className="form-control"
                     name="dob"
                     value={formData.dob}
                     onChange={handleChange}
-                    required
+                    
                   />
+                  {errors.dob && (
+                    <label className="text-danger fw-bold">
+                      {errors.dob}
+                    </label>
+                  )}
                 </div>
                 <div className="col-6 mb-3">
                   <label className="form-label">Age*</label>
-                  <input
+                  <Form.Control
                     type="number"
-                    className={`form-control ${
-                      errors.age ? "is-invalid" : ""
-                    }`}
+                    className={`form-control`}
                     name="age"
                     value={formData.age}
                     placeholder="Calculated Automatically"
+                    
                     disabled
                   />
                   {errors.age && (
-                    <div className="invalid-feedback">{errors.age}</div>
+                    <label className="text-danger fw-bold">
+                      {errors.age}
+                    </label>
                   )}
                 </div>
               </div>
               <div className="row">
                 <div className="col-6 mb-3">
                   <label className="form-label">Gender*</label>
-                  <select
-                    className="form-select"
+                  <Form.Select
+                    aria-label="relation"
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    required
+                    
                   >
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
+                  {errors.gender && (
+                    <label className="text-danger fw-bold">
+                      {errors.gender}
+                    </label>
+                  )}
                 </div>
                 <div className="col-6 mb-3">
                   <label className="form-label">Relation*</label>
-                  <select
-                    className="form-select"
-                    name="relation"
+                  <Form.Select
+                    aria-label="relation"
                     value={formData.relation}
                     onChange={handleChange}
-                    required
+                    
+                    name="relation"
                   >
                     <option value="" disabled>
                       Select Relation
@@ -178,35 +221,51 @@ const AddPatientModal = ({ show, onClose }) => {
                     <option value="GrandParents">GrandParents</option>
                     <option value="In-Laws">In-Laws</option>
                     <option value="Other">Other</option>
-                  </select>
+                  </Form.Select>
+
+                  {errors.relation && (
+                    <label className="text-danger fw-bold">
+                      {errors.relation}
+                    </label>
+                  )}
                 </div>
               </div>
               <div className="mb-3">
                 <label className="form-label">Phone Number</label>
-                <input
+                <Form.Control
                   type="text"
-                  className="form-control"
                   name="phone"
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
+                  
                 />
+                {errors.phone && (
+                  <label className="text-danger fw-bold">
+                    {errors.phone}
+                  </label>
+                )}
               </div>
               <div className="mb-3">
                 <label className="form-label">Email ID</label>
-                <input
+                <Form.Control
                   type="email"
-                  className="form-control"
                   name="email"
                   placeholder="Enter Email Address"
                   value={formData.email}
                   onChange={handleChange}
+                  
                 />
+                {errors.email && (
+                  <label className="text-danger fw-bold">
+                    {errors.email}
+                  </label>
+                )}
               </div>
               <button type="submit" className="btn btn-primary w-100">
                 Add Member
               </button>
-            </form>
+            </Form>
           </div>
         </div>
       </div>
