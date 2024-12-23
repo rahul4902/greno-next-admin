@@ -1036,9 +1036,9 @@ button {
   font-size: 16px;
 }
 
-.btn {
+/* .btn {
   min-width: 80px;
-}
+} */
 
 /*  */
 /* Custom accordion styles */
@@ -1085,4 +1085,82 @@ button {
   font-size: 14px;
   color: #12344d;
 }
-
+.include_centre {
+  display: block;
+  width: 100%;
+  vertical-align: top;
+  border-radius: 0px 0px 8px 8px;
+  float: right;
+  background: #E1FEFF;
+  padding: 12px 15px 12px 15px;
+}
+.test_included {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  vertical-align: top;
+  /* float: right; */
+  border-radius: 0px 8px 0px 8px;
+  background: linear-gradient(180deg, rgb(235 251 255) 0.41%, rgba(254, 254, 254, 0.00) 110.22%);
+}
+.card-content{
+  display: block;
+  width: 100%;
+  min-height: 54px;
+}
+.test_included .bigcount{
+  font-size: 18px;
+  font-weight: 700;
+}
+.test_included span{
+  font-size: 12px;
+  font-weight: 700;
+}
+.tests_sec {
+  font-size: 13px;
+  margin: 0px;
+  width: 100%;
+  padding: 10px 0px;
+  border-top: 1px dashed #cfcfcf;
+  min-height: 115px;
+}
+.parameter_panel .icon_param span {
+  font-size: 10px;
+  letter-spacing: -0.2px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #858585;
+  margin: 0px;
+  display: inline-block;
+  width: 78px;
+}
+.exact__pay span.fnl_price {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #4f4f4f;
+  margin-right: 4px;
+}
+.exact__pay span.mrp_price {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #6d787d;
+  text-decoration: line-through;
+}
+.exact__pay span.off_term {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: left;
+  color: #ff8000;
+  padding: 2px 0px;
+  display: block;
+}
