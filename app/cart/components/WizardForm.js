@@ -13,45 +13,50 @@ import { selectIsLoggedIn, toggleLoginModal } from "../../../redux/authSlice";
 
 const WizardForm = () => {
   const dispatch = useDispatch();
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
   const { isLoggedIn, isLoginModalVisible } = useSelector((state) => state.auth);
   const [patients, setPatients] = useState([]);
   const [totalAmount, setTotalAmount] = useState(11991);
   const [discount, setDiscount] = useState(1200);
-
-  const cartItems = useSelector((state) => state.cart.items);
-
+  
+  const { items, selectedPatient, cartStep } = useSelector((state) => state.cart);
+  
   const handleNext = () => {
     if (step < 4 && isLoggedIn) {
-      setStep(step + 1);
+      if(cartStep == 2){
+          if(selectedPatient) setStep(cartStep + 1);
+      }else{
+        setStep(cartStep + 1);
+      }
+      
     } else {
       setStep(1);
       if (!isLoggedIn && !isLoginModalVisible) {
-        dispatch(toggleLoginModal()); // Open login modal if not logged in
+        dispatch(toggleLoginModal(true)); 
       }
     }
   };
 
   const handleBack = () => {
-    if (step > 1 && isLoggedIn) {
-      setStep(step - 1);
+    if (cartStep > 1 && isLoggedIn) {
+      setStep(cartStep - 1);
     } else {
       setStep(1);
       if (!isLoggedIn && !isLoginModalVisible) {
-        dispatch(toggleLoginModal()); // Open login modal if not logged in
+        dispatch(toggleLoginModal(true)); 
       }
     }
   };
 
 
-  const handleCloseLogin = () => dispatch(toggleLoginModal()); // Close login modal
+  const handleCloseLogin = () => dispatch(toggleLoginModal(false)); // Close login modal
 
   const handlePatientSelection = (updatedPatients) => {
     setPatients(updatedPatients);
   };
 
   const renderStep = () => {
-    switch (step) {
+    switch (cartStep) {
       case 1:
         return <Step1 onNext={handleNext} />;
       case 2:
@@ -73,10 +78,10 @@ const WizardForm = () => {
 
   return (
     <Container className="wizard-form my-4">
-      {cartItems?.length > 0 ? (
+      {items?.length > 0 ? (
         <Row className="justify-content-center">
           <Col md={6}>
-            <ProgressBar step={step} setStep={setStep} />
+            <ProgressBar step={cartStep} setStep={setStep} />
             <Col md={12}>
               <div className="step-content p-3">{renderStep()}</div>
             </Col>
@@ -87,7 +92,7 @@ const WizardForm = () => {
                 <PriceDetails
                   totalAmount={totalAmount}
                   discount={discount}
-                  step={step}
+                  step={cartStep}
                 />
               </Col>
             </Row>
@@ -102,7 +107,7 @@ const WizardForm = () => {
                   Back
                 </Button>
               )} */}
-                {step < 4 && (
+                {cartStep < 4 && (
                   <Button
                     variant="primary"
                     className="btn-lg w-100"

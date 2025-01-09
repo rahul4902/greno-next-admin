@@ -8,9 +8,9 @@ import cartReducer from '../cartSlice'; // Import your cartSlice
 
 // Persist config for both auth and cart slices
 const persistConfig = {
-    key: 'root', // Root key to store persisted state
-    storage, // Use localStorage (default is localStorage)
-    whitelist: ['auth', 'cart'], // Persist both auth and cart slices
+    key: 'root', 
+    storage, 
+    whitelist: ['auth', 'cart'], 
 };
 
 // Combine reducers for both auth and cart

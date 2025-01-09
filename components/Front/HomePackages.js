@@ -64,10 +64,10 @@ const HomePackages = () => {
                       <h4 className="pb-2 fs-6 fw-bold">
                         Healthians Winter Wellness Package - Female
                       </h4>
-                      <div class="test_included">
+                      <div className="test_included">
                         {" "}
                         <h3 className="d-flex flex-column align-items-center p-2">
-                          <span class="bigcount">103</span>
+                          <span className="bigcount">103</span>
                           <span> Tests </span>
                         </h3>{" "}
                       </div>
@@ -100,18 +100,18 @@ const HomePackages = () => {
                     </div>
                     <div className="parameter_panel d-flex justify-content-between py-3 px-2">
                       {" "}
-                      <div class="icon_param firstone d-flex gap-1">
+                      <div className="icon_param firstone d-flex gap-1">
                         {" "}
                         <UtensilsCrossed color="red" size={14} />
                         <span className="first">
                           12 hrs Fasting Required
                         </span>{" "}
                       </div>{" "}
-                      <div class="icon_param d-flex gap-1">
+                      <div className="icon_param d-flex gap-1">
                         <User color="red" size={14} />
                         <span>Recommended for Female</span>{" "}
                       </div>{" "}
-                      <div class="icon_param d-flex gap-1">
+                      <div className="icon_param d-flex gap-1">
                         <AlarmClockCheck color="red" size={14} />
                         <span>Reports within 72 hrs</span>
                       </div>{" "}
@@ -126,10 +126,10 @@ const HomePackages = () => {
                         </div>
                         <div className="d-flex gap-2 align-items-center">                      
                         <BadgePercent color="green" size={14} />
-                        <span class="off_term"> UPTO 58% OFF </span>{" "}
+                        <span className="off_term"> UPTO 58% OFF </span>{" "}
                         </div>
                       </div>{" "}
-                      <div class="city_book_now_btn">
+                      <div className="city_book_now_btn">
                         {" "}
                         <a
                           href="#"

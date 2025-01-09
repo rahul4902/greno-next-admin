@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { hasCookie,deleteCookie } from 'cookies-next';
 
 const initialState = {
-  isLoggedIn: false,
-  role: null, // Role can be 'user' or 'admin', with 'admin' being a type of user
+  isLoggedIn: hasCookie('auth-token') || false,
+  role: null, 
   userToken: null,
   userExpireTime: null,
-  permissions: [], // Array to store permissions for the user
-  userDetails: null, // Additional user details like name, email, etc.
+  permissions: [],
+  userDetails: null,
   isLoginModalVisible:false,
+  isSignUpModalVisible:false,
 };
 
 const authSlice = createSlice({
@@ -39,6 +41,7 @@ const authSlice = createSlice({
       state.userExpireTime = null; // Clear expiration time
       state.userDetails = null; // Clear user details
       state.permissions = []; // Clear permissions
+      deleteCookie('auth-token');
     },
     updatePermissions: (state, action) => {
       state.permissions = action.payload; // Update user permissions
@@ -46,14 +49,18 @@ const authSlice = createSlice({
     setRole: (state, action) => {
       state.role = action.payload; // Set or update the user’s role (e.g., 'user' or 'admin')
     },
-    toggleLoginModal: (state) => {
-      state.isLoginModalVisible = !state.isLoginModalVisible; // Toggle modal visibility
+    toggleLoginModal: (state,action) => {           
+      state.isLoginModalVisible = action.payload || action.payload === false ? action.payload : !state.isLoginModalVisible; // Toggle modal visibility
+      
+    },
+    toggleSignUpModal: (state,action) => {
+      state.isSignUpModalVisible = action.payload || action.payload === false ? action.payload : !state.isSignUpModalVisible; // Toggle modal visibility
     },
   },
 });
 
 // Exporting actions to be dispatched
-export const { loginUser, loginAdmin, logout, updatePermissions, setRole,toggleLoginModal } = authSlice.actions;
+export const { loginUser, loginAdmin, logout, updatePermissions, setRole,toggleLoginModal,toggleSignUpModal } = authSlice.actions;
 
 // Selector to check if user is logged in
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;

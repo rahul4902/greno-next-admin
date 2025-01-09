@@ -17,24 +17,26 @@ import { toast } from "react-toastify";
 import { API_URL } from "../utils/constant";
 import {setCookie}  from 'cookies-next';
 
-const LoginOffCanvas = () => {
+const SignUpOffCanvas = () => {
   const dispatch = useDispatch();
-  const { isLoginModalVisible, isLoggedIn } = useSelector(
+  const { isSignUpModalVisible, isLoggedIn } = useSelector(
     (state) => state.auth
   );
+  
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(false); // For loading state
 
-  // Handle login form submission
-  const handleLogin = async (e) => {
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // Start loading
 
     try {
-      const response = await axios.post(`${API_URL}api/auth/signin`, {
+      const response = await axios.post(`${API_URL}api/auth/signup`, {
+        name,
         email,
         password,
       });
@@ -62,49 +64,68 @@ const LoginOffCanvas = () => {
       }
       setIsLoading(false);
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || "Login failed");
+      toast.error(error.response?.data?.message || "Something went wrong.");
       setIsLoading(false); // Stop loading
     }
   };
 
-  // Handle closing the login modal
   const handleClose = () => {
-    dispatch(toggleLoginModal(false)); // Hide the modal
+    dispatch(toggleSignUpModal());
   };
 
-  const handleSignUpOpen = () => {
-    dispatch(toggleSignUpModal(true)); // Hide the modal
+  const handleSignInOpen = () => {
+    dispatch(toggleLoginModal(true));
   };
 
   return (
-    <Offcanvas show={isLoginModalVisible} onHide={handleClose} placement="end">
+    <Offcanvas show={isSignUpModalVisible} onHide={handleClose} placement="end">
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Login</Offcanvas.Title>
+        <Offcanvas.Title>Sign Up</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <Form onSubmit={handleLogin}>
-          <FloatingLabel controlId="email" label="Email" className="mb-3">
+        <Form onSubmit={handleSignUpSubmit}>
+          <FloatingLabel
+            controlId="name"
+            label="Name"
+            className={`${!error.name ? "mb-3" : ""}`}
+          >
+            <Form.Control
+              type="name"
+              placeholder="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </FloatingLabel>
+          {error.name && (
+            <p className="text-danger fw-semibold">{error.name}</p>
+          )}
+          <FloatingLabel
+            controlId="email"
+            label="Email"
+            className={`${!error.email ? "mb-3" : ""}`}
+          >
             <Form.Control
               type="email"
               placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </FloatingLabel>
           {error.email && (
             <p className="text-danger fw-semibold">{error.email}</p>
           )}
-          <FloatingLabel controlId="password" label="Password" className="mb-3">
+          <FloatingLabel
+            controlId="password"
+            label="Password"
+            className={`${!error.password ? "mb-3" : ""}`}
+          >
             <Form.Control
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </FloatingLabel>
-
           {error.password && (
             <p className="text-danger fw-semibold">{error.password}</p>
           )}
@@ -118,23 +139,23 @@ const LoginOffCanvas = () => {
               className="w-100"
               disabled
             >
-              <Spinner animation="border" size="sm" /> Logging in...
+              <Spinner animation="border" size="sm" /> Wait...
             </Button>
           ) : (
             <Button variant="primary" size="lg" type="submit" className="w-100">
-              Login
+              SignUp
             </Button>
           )}
         </Form>
         <hr />
         <p>
-          Don&apos;t have an account yet?{" "}
+          Don&apos;t have an account?{" "}
           <a
             href="#"
             className="text-primary-custom fw-semibold"
-            onClick={handleSignUpOpen}
+            onClick={handleSignInOpen}
           >
-            Sign Up
+            Sign In
           </a>
         </p>
       </Offcanvas.Body>
@@ -142,4 +163,4 @@ const LoginOffCanvas = () => {
   );
 };
 
-export default LoginOffCanvas;
+export default SignUpOffCanvas;

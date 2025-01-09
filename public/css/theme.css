@@ -1164,3 +1164,11 @@ button {
   padding: 2px 0px;
   display: block;
 }
+
+#dropdown-basic::after{
+  display: none;
+}
+
+.custom-accordion .accordion-button::after{
+  display: none;
+}

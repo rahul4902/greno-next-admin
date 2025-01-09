@@ -1,102 +1,69 @@
 // components/Step2.js
-import { Plus, UsersRound } from "lucide-react";
-import { useState } from "react";
-import { Accordion } from "react-bootstrap";
-import AddPatientModal from "./AddPatientModal"
+import { Calendar, ChevronDown, ChevronUp, Dna, Plus, User, UsersRound } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { Accordion, Badge } from "react-bootstrap";
+import AddPatientModal from "./AddPatientModal";
+import apiClient from "../../../services/apiClient";
+import { API_URL } from "../../../utils/constant";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPatient } from "../../../redux/cartSlice";
 
 const Step2 = ({ onNext, onBack, onPatientSelection }) => {
   const [showModal, setShowModal] = useState(false);
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+  const { items, selectedPatient, selectPatientsItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [patients, setPatients] = useState([]);
+  const [activeKeys, setActiveKeys] = useState([]);
 
 
-  const [patients, setPatients] = useState([
-    {
-      id: 1,
-      name: "Rohan Three | 7 | Male",
-      tests: [
-        { id: 1, name: "Kidney Function Test (KFT)", checked: false },
-        {
-          id: 2,
-          name: "Fit India Full Body Checkup With Vitamin Screening with Free HsCRP",
-          checked: true,
-        },
-        {
-          id: 3,
-          name: "Fit India Full Body Checkup With Vitamin Screening",
-          checked: true,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Rohan Second | 10 | Male",
-      tests: [
-        { id: 1, name: "Kidney Function Test (KFT)", checked: false },
-        {
-          id: 2,
-          name: "Fit India Full Body Checkup With Vitamin Screening with Free HsCRP",
-          checked: true,
-        },
-        {
-          id: 3,
-          name: "Fit India Full Body Checkup With Vitamin Screening",
-          checked: true,
-        },
-      ],
-    },
-  ]);
-
-  const [activeKeys, setActiveKeys] = useState(
-    patients.map((_, index) => String(index)) // Open all accordions by default
-  );
-
-  const toggleParentCheckbox = (patientId) => {
-    setPatients((prev) =>
-      prev.map((patient) =>
-        patient.id === patientId
-          ? {
-              ...patient,
-              tests: patient.tests.map((test) => ({
-                ...test,
-                checked: !patient.tests.every((t) => t.checked),
-              })),
-            }
-          : patient
-      )
+  const handleAccordionToggle = (key) => {
+    setActiveKeys((prevKeys) =>
+      prevKeys.includes(key)
+        ? prevKeys.filter((k) => k !== key)
+        : [...prevKeys, key]
     );
+        
   };
 
-  const toggleChildCheckbox = (patientId, testId) => {
-    setPatients((prev) =>
-      prev.map((patient) =>
-        patient.id === patientId
-          ? {
-              ...patient,
-              tests: patient.tests.map((test) =>
-                test.id === testId ? { ...test, checked: !test.checked } : test
-              ),
-            }
-          : patient
-      )
-    );
-  };
+  const getPatientsList = useCallback(async () => {
+    try {
+      let response = await apiClient.get(`${API_URL}api/member/list`);
+      console.log('response',response)
+      let patients = response?.data?.data?.map((_v, _x) => ({
+        ..._v,
+        id: _v._id,
+        tests: items?.map((_cv, _cx) => ({
+          ..._cv,
+          id: _cv._id,
+          checked: true,
+        })),
+      }));
+      setPatients(patients||[]);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }, [items]);
 
-  const handleAccordionToggle = (eventKey) => {
-    setActiveKeys(
-      (prev) =>
-        prev.includes(eventKey)
-          ? prev.filter((key) => key !== eventKey) // Close the accordion
-          : [...prev, eventKey] // Open the accordion
-    );
-  };
+  useEffect(() => {
+    getPatientsList();
+  }, [getPatientsList]);
 
   return (
     <div className="container">
-      <h4><UsersRound size={24} /> Patients</h4>
-      <button className="btn btn-lg btn-outline-primary w-100 mb-2"  onClick={() => handleOpenModal()}><Plus/> Add Patient</button>
+      <h4>
+        <UsersRound size={24} /> Patients
+      </h4>
+      <button
+        className="btn btn-lg btn-outline-primary w-100 mb-2"
+        onClick={() => handleOpenModal()}
+      >
+        <Plus /> Add Patient
+      </button>
       <Accordion activeKey={activeKeys} alwaysOpen>
-        {patients.map((patient, index) => {
+        {patients?.map((patient, index) => {
           const allChecked = patient.tests.every((test) => test.checked);
           const someChecked = patient.tests.some((test) => test.checked);
           const eventKey = String(index);
@@ -105,48 +72,74 @@ const Step2 = ({ onNext, onBack, onPatientSelection }) => {
             <Accordion.Item
               eventKey={eventKey}
               key={patient.id}
-              className="custom-accordion"
+              className="custom-accordion mb-3"
             >
-              <Accordion.Header onClick={() => handleAccordionToggle(eventKey)}>
-                <input
-                  type="checkbox"
-                  className="form-check-input me-2"
-                  checked={allChecked}
-                  onChange={(e) => {
-                    e.stopPropagation(); // Prevent accordion toggle
-                    toggleParentCheckbox(patient.id);
+              <Accordion.Header>
+                <div
+                  className="d-flex align-items-center w-100"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    dispatch(selectPatient(patient.id));
+                    // handleAccordionToggle(eventKey);
                   }}
-                  ref={(el) => {
-                    if (el) {
-                      el.indeterminate = someChecked && !allChecked;
-                    }
-                  }}
-                />
-                {patient.name} ({patient.tests.filter((t) => t.checked).length})
+                >
+                  <input
+                    type="radio"
+                    name="patient"
+                    className="form-check-input me-2"
+                    checked={selectedPatient === patient.id}
+                    onChange={() => dispatch(selectPatient(patient.id))}
+                    ref={(el) => {
+                      if (el) {
+                        el.indeterminate = someChecked && !allChecked;
+                      }
+                    }}
+                    id={`patient_${patient.id}`}
+                  />
+                  <label htmlFor={`patient_${patient.id}`}>{patient.name}</label>
+                  <Badge bg="secondary" className="ms-2">
+                    {patient?.relation}
+                  </Badge>
+                  
+                </div>
+                <span onClick={()=>{handleAccordionToggle(eventKey)}}>
+                    {activeKeys.includes(eventKey)? <ChevronUp strokeWidth={1.5}/>:<ChevronDown strokeWidth={1.5}/> }
+                    
+                  </span>
               </Accordion.Header>
               <Accordion.Body>
-                {patient.tests.map((test) => (
-                  <div
-                    className="form-check d-flex align-items-center mb-2"
-                    key={test.id}
-                  >
-                    <input
-                      type="checkbox"
-                      className="form-check-input me-2"
-                      checked={test.checked}
-                      onChange={() => toggleChildCheckbox(patient.id, test.id)}
-                    />
-                    <label className="form-check-label title-primary">{test.name}</label>
-                  </div>
-                ))}
+                <div className="d-flex align-items-center gap-2">
+                  <span>
+                    <Calendar size={16} />
+                  </span>
+                  <span className="fw-semibold text-muted">Dob : </span>
+                  <span>{patient?.dob}</span>
+                </div>
+                <div className="d-flex align-items-center gap-2">
+                  <span>
+                    <User size={16} />
+                  </span>
+                  <span className="fw-semibold text-muted">Gender : </span>
+                  <span>{patient?.gender}</span>
+                </div>
+                <div className="d-flex align-items-center gap-2">
+                  <span>
+                    <Dna size={16} />
+                  </span>
+                  <span className="fw-semibold text-muted">Relation : </span>
+                  <span>{patient?.relation}</span>
+                </div>
               </Accordion.Body>
             </Accordion.Item>
           );
         })}
       </Accordion>
-      <AddPatientModal show={showModal} onClose={handleCloseModal}
+
+      <AddPatientModal
+        show={showModal}
+        onClose={handleCloseModal}
+        getPatientsList={getPatientsList}
       />
-      
     </div>
   );
 };

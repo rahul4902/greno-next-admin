@@ -25,6 +25,8 @@ const Step1 = ({ onNext, onBack, onPatientSelection }) => {
         </div>
       </div>
       {cartItems.map((_t, _x) => {
+        console.log(_t);
+        
         return (
           <div
             key={_x}

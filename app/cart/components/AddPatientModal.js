@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../utils/constant";
+import apiClient from "../../../services/apiClient"
 import { Form } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
-const AddPatientModal = ({ show, onClose }) => {
+const AddPatientModal = ({ show, onClose, getPatientsList }) => {
   const [formData, setFormData] = useState({
     name: "",
     dob: "",
@@ -16,7 +18,7 @@ const AddPatientModal = ({ show, onClose }) => {
   });
 
   const [errors, setErrors] = useState({});
-
+  const { userToken } = useSelector((state) => state.auth);
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -78,20 +80,22 @@ const AddPatientModal = ({ show, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if there are any validation errors
-    // if (errors.age) {
-    //   toast.error("Age must be between 5 and 99.");
-    //   return;
-    // }
-
     try {
-      const response = await axios.post(`${API_URL}member/store`, formData); // Replace '/api/endpoint' with your actual API URL
-      console.log("response", response);
+      const response = await apiClient.post(`${API_URL}api/member/store`, formData,);
+      
       if (response.data.status === 200) {
         toast.success(response?.data?.message);
-        console.log("Form Data Submitted:", formData);
-        //// onClose(); // Close the modal after submission
+        getPatientsList();
+        onClose(false);  
+        setFormData({
+          name: "",
+          dob: "",
+          age: "", // Calculated age
+          gender: "male",
+          relation: "",
+          phone: "",
+          email: "",
+        })      
       } else if (response.data.status === 422) {
         toast.error(response?.data?.message);
         setErrors(response.data.errors);
@@ -134,15 +138,13 @@ const AddPatientModal = ({ show, onClose }) => {
                   placeholder="Enter Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  
-                  
                 />
-                 <div class="valid-tooltip">Valid.</div>
-                 <div class="invalid-tooltip">Please fill out this field.</div>
+                <div className="valid-tooltip">Valid.</div>
+                <div className="invalid-tooltip">
+                  Please fill out this field.
+                </div>
                 {errors.name && (
-                  <label className="text-danger fw-bold">
-                    {errors.name}
-                  </label>
+                  <label className="text-danger fw-bold">{errors.name}</label>
                 )}
               </div>
               <div className="row">
@@ -153,12 +155,9 @@ const AddPatientModal = ({ show, onClose }) => {
                     name="dob"
                     value={formData.dob}
                     onChange={handleChange}
-                    
                   />
                   {errors.dob && (
-                    <label className="text-danger fw-bold">
-                      {errors.dob}
-                    </label>
+                    <label className="text-danger fw-bold">{errors.dob}</label>
                   )}
                 </div>
                 <div className="col-6 mb-3">
@@ -169,13 +168,10 @@ const AddPatientModal = ({ show, onClose }) => {
                     name="age"
                     value={formData.age}
                     placeholder="Calculated Automatically"
-                    
                     disabled
                   />
                   {errors.age && (
-                    <label className="text-danger fw-bold">
-                      {errors.age}
-                    </label>
+                    <label className="text-danger fw-bold">{errors.age}</label>
                   )}
                 </div>
               </div>
@@ -187,9 +183,10 @@ const AddPatientModal = ({ show, onClose }) => {
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    
                   >
-                    <option value="male" selected>Male</option>
+                    <option value="male" selected>
+                      Male
+                    </option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </Form.Select>
@@ -205,7 +202,6 @@ const AddPatientModal = ({ show, onClose }) => {
                     aria-label="relation"
                     value={formData.relation}
                     onChange={handleChange}
-                    
                     name="relation"
                   >
                     <option value="" disabled>
@@ -238,12 +234,9 @@ const AddPatientModal = ({ show, onClose }) => {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
-                  
                 />
                 {errors.phone && (
-                  <label className="text-danger fw-bold">
-                    {errors.phone}
-                  </label>
+                  <label className="text-danger fw-bold">{errors.phone}</label>
                 )}
               </div>
               <div className="mb-3">
@@ -254,12 +247,9 @@ const AddPatientModal = ({ show, onClose }) => {
                   placeholder="Enter Email Address"
                   value={formData.email}
                   onChange={handleChange}
-                  
                 />
                 {errors.email && (
-                  <label className="text-danger fw-bold">
-                    {errors.email}
-                  </label>
+                  <label className="text-danger fw-bold">{errors.email}</label>
                 )}
               </div>
               <button type="submit" className="btn btn-primary w-100">
