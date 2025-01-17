@@ -1,31 +1,34 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../utils/constant";
 import apiClient from "../../../services/apiClient";
 import { Form } from "react-bootstrap";
-import { useSelector } from "react-redux";
 
-const AddAddressModal = ({ show, onClose, getPatientsList }) => {
+const AddAddressModal = ({ editAddressData, editMode, show, onClose, getAddressList }) => {
   const [formData, setFormData] = useState({
-    name: "",
-    dob: "",
-    age: "", // Calculated age
-    gender: "male",
-    relation: "",
-    phone: "",
-    email: "",
+    address1: editAddressData?.address1,
+    address2: editAddressData?.address1,
+    houseNo: "", // Calculated age
+    locality: "",
+    city: "",
+    state: "",
+    landmark: "",
+    pincode: "",
+    isBillingAddress: false,
+    isShippingAddress: false,
+    isPrimary: false,
+    addressType: "home",
   });
 
   const [errors, setErrors] = useState({});
-  const { userToken } = useSelector((state) => state.auth);
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
 
     // Update form data for all fields
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
 
     if (errors[name]) {
@@ -39,23 +42,35 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await apiClient.post(
-        `${API_URL}api/member/store`,
-        formData
-      );
+      var response;
+      if(!editMode){
+         response = await apiClient.post(`${API_URL}api/address/store`,
+          formData
+        );
+      }else{
+         response = await apiClient.put(`${API_URL}api/address/update/${editAddressData?._id}`,
+          formData
+        );
+      }
+      
 
       if (response.data.status === 200) {
         toast.success(response?.data?.message);
-        getPatientsList();
+        getAddressList();
         onClose(false);
         setFormData({
-          name: "",
-          dob: "",
-          age: "", // Calculated age
-          gender: "male",
-          relation: "",
-          phone: "",
-          email: "",
+          address1: editAddressData?.address1,
+          address2: editAddressData?.address1,
+          houseNo: "", // Calculated age
+          locality: "",
+          city: "",
+          state: "",
+          landmark: "",
+          pincode: "",
+          isBillingAddress: false,
+          isShippingAddress: false,
+          isPrimary: false,
+          addressType: "home",
         });
       } else if (response.data.status === 422) {
         toast.error(response?.data?.message);
@@ -72,6 +87,11 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
     }
   };
 
+  useEffect(() => {
+    setFormData(editAddressData);
+  }, [editAddressData])
+  
+
   return (
     <div
       className={`modal fade ${show ? "show d-block" : ""}`}
@@ -81,7 +101,7 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Add Address</h5>
+            <h5 className="modal-title">{editMode?'Edit':'Add'} Address</h5>
             <button
               type="button"
               className="btn-close"
@@ -103,21 +123,6 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
                 {errors.address1 && (
                   <label className="text-danger fw-bold">
                     {errors.address1}
-                  </label>
-                )}
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Address 2</label>
-                <Form.Control
-                  type="text"
-                  name="address2"
-                  placeholder="Enter Address 2"
-                  value={formData.address2}
-                  onChange={handleChange}
-                />
-                {errors.address2 && (
-                  <label className="text-danger fw-bold">
-                    {errors.address2}
                   </label>
                 )}
               </div>
@@ -152,8 +157,22 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
                     </label>
                   )}
                 </div>
-              </div>
-              <div className="row">
+
+                <div className="col-6 mb-3">
+                  <label className="form-label">Landmark</label>
+                  <Form.Control
+                    type="text"
+                    name="landmark"
+                    placeholder="Enter Landmark"
+                    value={formData.landmark}
+                    onChange={handleChange}
+                  />
+                  {errors.landmark && (
+                    <label className="text-danger fw-bold">
+                      {errors.landmark}
+                    </label>
+                  )}
+                </div>
                 <div className="col-6 mb-3">
                   <label className="form-label">City*</label>
                   <Form.Control
@@ -182,23 +201,7 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
                     </label>
                   )}
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-6 mb-3">
-                  <label className="form-label">Landmark</label>
-                  <Form.Control
-                    type="text"
-                    name="landmark"
-                    placeholder="Enter Landmark"
-                    value={formData.landmark}
-                    onChange={handleChange}
-                  />
-                  {errors.landmark && (
-                    <label className="text-danger fw-bold">
-                      {errors.landmark}
-                    </label>
-                  )}
-                </div>
+
                 <div className="col-6 mb-3">
                   <label className="form-label">Pincode*</label>
                   <Form.Control
@@ -214,9 +217,23 @@ const AddAddressModal = ({ show, onClose, getPatientsList }) => {
                     </label>
                   )}
                 </div>
+                <div className="col-12 mb-3">
+                  <Form.Check
+                    type="checkbox"
+                    name="isPrimary"
+                    label="Make this address primary"
+                    checked={formData.isPrimary}
+                    onChange={handleChange}
+                  />
+                  {errors.isPrimary && (
+                    <label className="text-danger fw-bold">
+                      {errors.isPrimary}
+                    </label>
+                  )}
+                </div>
               </div>
               <button type="submit" className="btn btn-primary w-100">
-                Submit Address
+              {editMode?'Update':'Submit'} Address
               </button>
             </Form>
           </div>

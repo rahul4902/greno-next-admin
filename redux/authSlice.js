@@ -49,8 +49,9 @@ const authSlice = createSlice({
     setRole: (state, action) => {
       state.role = action.payload; // Set or update the user’s role (e.g., 'user' or 'admin')
     },
-    toggleLoginModal: (state,action) => {           
-      state.isLoginModalVisible = action.payload || action.payload === false ? action.payload : !state.isLoginModalVisible; // Toggle modal visibility
+    toggleLoginModal: (state,action) => {    
+      
+      state.isLoginModalVisible = action.payload;
       
     },
     toggleSignUpModal: (state,action) => {

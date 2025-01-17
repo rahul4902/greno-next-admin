@@ -1,42 +1,57 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const Step2 = ({ onNext, onBack, onPatientSelection }) => {
-    const [selectedPatients, setSelectedPatients] = useState([]);
-  
-    const togglePatient = (patient) => {
-      const newSelection = selectedPatients.includes(patient)
-        ? selectedPatients.filter((p) => p !== patient)
-        : [...selectedPatients, patient];
-      setSelectedPatients(newSelection);
-      onPatientSelection(newSelection);
-    };
-  
-    return (
-      <div>
-        <h2>Add Patients</h2>
-        <div>
-          <label>
+  const [paymentMethod, setPaymentMethod] = useState("online");
+
+  return (
+    <div className="container">
+      <div className="payment-wrapper">
+        <h2 className="mb-4">Select Payment Option</h2>
+
+        <div className="payment-options">
+          {/* Online Payment Option */}
+          <label
+            className={`payment-option ${
+              paymentMethod === "online" ? "selected" : ""
+            }`}
+          >
             <input
-              type="checkbox"
-              onChange={() => togglePatient('Patient 1')}
-              checked={selectedPatients.includes('Patient 1')}
+              type="radio"
+              name="paymentMethod"
+              value="online"
+              checked={paymentMethod === "online"}
+              onChange={(e) => setPaymentMethod("online")}
+              className="form-check-input"
             />
-            Patient 1
+            <div className="payment-content">
+              <span className="payment-label">Pay Online</span>              
+            </div>
           </label>
-          <label>
+
+          {/* Cash/Card Payment Option */}
+          <label
+            className={`payment-option ${
+              paymentMethod === "cash" ? "selected" : ""
+            }`}
+          >
             <input
-              type="checkbox"
-              onChange={() => togglePatient('Patient 2')}
-              checked={selectedPatients.includes('Patient 2')}
+              type="radio"
+              name="paymentMethod"
+              value="cash"
+              checked={paymentMethod === "cash"}
+              onChange={(e) => setPaymentMethod("cash")}
+              className="form-check-input"
             />
-            Patient 2
+            <div className="payment-content">
+              <span className="payment-label">
+                Pay by Cash/Card during sample collection
+              </span>
+            </div>
           </label>
         </div>
-        <button onClick={onBack}>Back</button>
-        <button onClick={onNext}>Next</button>
       </div>
-    );
-  };
-  
-  export default Step2;
-  
+    </div>
+  );
+};
+
+export default Step2;

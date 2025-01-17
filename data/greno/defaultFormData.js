@@ -51,3 +51,16 @@ export const SampleTypeFormData = {
   name: "",
   status: true,
 };
+
+export const CouponFormData = {
+  code: "",
+  type: "flat",
+  value: "",
+  minAmount: 0,
+  maxAmount: "",
+  upTo: 0,
+  expiryDate: "",
+  usageCount: 0,
+  maxUsers: "",
+  allowedUsers: [],
+}

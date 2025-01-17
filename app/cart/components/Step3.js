@@ -1,38 +1,31 @@
 // components/Step2.js
-import { Calendar, ChevronDown, ChevronUp, Dna, MapPinHouse, Plus, User, UsersRound } from "lucide-react";
+import { MapPinHouse, Plus } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import { Accordion, Badge } from "react-bootstrap";
+
 import AddAddressModal from "./AddAddressModal";
+
 import apiClient from "../../../services/apiClient";
 import { API_URL } from "../../../utils/constant";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { selectPatient } from "../../../redux/cartSlice";
+import { setCartAddress } from "../../../redux/cartSlice";
+import styles from "./CleanAddressCard.module.css";
+import { Edit2, Trash2, MapPin, Home, Briefcase } from "lucide-react";
 
 const Step3 = ({ onNext, onBack, onPatientSelection }) => {
   const [showModal, setShowModal] = useState(false);
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-  const { items, selectedPatient, selectPatientsItems } = useSelector((state) => state.cart);
+  const [editMode, setEditMode] = useState(false);
+  const [editAddressData, setEditAddressData] = useState({});
+
+  const [address, setAddress] = useState([]);
+  const { items, selectedAddress } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const [patients, setPatients] = useState([]);
-  const [activeKeys, setActiveKeys] = useState([]);
 
-
-  const handleAccordionToggle = (key) => {
-    setActiveKeys((prevKeys) =>
-      prevKeys.includes(key)
-        ? prevKeys.filter((k) => k !== key)
-        : [...prevKeys, key]
-    );
-        
-  };
-
-  const getPatientsList = useCallback(async () => {
+  const getAddressList = useCallback(async () => {
     try {
-      let response = await apiClient.get(`${API_URL}api/member/list`);
-      console.log('response',response)
-      let patients = response?.data?.data?.map((_v, _x) => ({
+      let response = await apiClient.get(`${API_URL}api/address/list`);
+      console.log("response", response);
+      let address = response?.data?.data?.map((_v, _x) => ({
         ..._v,
         id: _v._id,
         tests: items?.map((_cv, _cx) => ({
@@ -41,15 +34,32 @@ const Step3 = ({ onNext, onBack, onPatientSelection }) => {
           checked: true,
         })),
       }));
-      setPatients(patients||[]);
+      setAddress(address || []);
     } catch (error) {
       toast.error(error.message);
     }
   }, [items]);
 
+  const handleCloseModal = () => {
+    setEditMode(false);
+    setShowModal(false);
+    setEditAddressData({});
+  };
+  const handleOpenModal = () => {
+    setEditMode(false);
+    setShowModal(true);
+    setEditAddressData({});
+  };
+
+  const handleAddressEdit = (data) => {
+    setShowModal(true);
+    setEditMode(true);
+    setEditAddressData(data);
+  };
+
   useEffect(() => {
-    getPatientsList();
-  }, [getPatientsList]);
+    getAddressList();
+  }, [getAddressList]);
 
   return (
     <div className="container">
@@ -62,83 +72,97 @@ const Step3 = ({ onNext, onBack, onPatientSelection }) => {
       >
         <Plus /> New Address
       </button>
-      <Accordion activeKey={activeKeys} alwaysOpen>
-        {patients?.map((patient, index) => {
-          const allChecked = patient.tests.every((test) => test.checked);
-          const someChecked = patient.tests.some((test) => test.checked);
-          const eventKey = String(index);
+
+      <div className={styles.cardContainer}>
+        {address.map((address, index) => {
+          if (!selectedAddress && address?.isPrimary) {
+            dispatch(setCartAddress(address?._id));
+          }
 
           return (
-            <Accordion.Item
-              eventKey={eventKey}
-              key={patient.id}
-              className="custom-accordion mb-3"
+            <div
+              className={`${styles.card} ${
+                selectedAddress == address?._id
+                  ? "border-3 border-primary-custom"
+                  : ""
+              }`}
+              key={index}
             >
-              <Accordion.Header>
+              <div className={styles.cardContent}>
+                <div className={styles.header}>
+                  <h3 className={styles.title}>
+                    {address?.addressType === "home" ? (
+                      <Home size={18} />
+                    ) : (
+                      <Briefcase size={18} />
+                    )}
+                    <span>
+                      {address?.addressType.charAt(0).toUpperCase() +
+                        address?.addressType.slice(1)}{" "}
+                      Address
+                    </span>
+                  </h3>
+
+                  <div className={styles.actions}>
+                    <div
+                      className={styles.badges}
+                      onClick={() => {
+                        dispatch(setCartAddress(address?._id));
+                      }}
+                    >
+                      {address?.isPrimary && (
+                        <span className={styles.primaryBadge}>Primary</span>
+                      )}
+                      {address?.isBillingAddress && (
+                        <span className={styles.billingBadge}>Billing</span>
+                      )}
+                      {address?.isShippingAddress && (
+                        <span className={styles.shippingBadge}>Shipping</span>
+                      )}
+                    </div>
+                    <button
+                      className="btn btn-outline-primary btn-sm border-0"
+                      onClick={() => {
+                        handleAddressEdit(address);
+                      }}
+                    >
+                      <Edit2 size={16} />
+                    </button>
+                    <button className="btn btn-outline-danger btn-sm border-0">
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                </div>
                 <div
-                  className="d-flex align-items-center w-100"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    dispatch(selectPatient(patient.id));
-                    // handleAccordionToggle(eventKey);
+                  className={styles.addressDetails}
+                  onClick={() => {
+                    dispatch(setCartAddress(address?._id));
                   }}
                 >
-                  <input
-                    type="radio"
-                    name="patient"
-                    className="form-check-input me-2"
-                    checked={selectedPatient === patient.id}
-                    onChange={() => dispatch(selectPatient(patient.id))}
-                    ref={(el) => {
-                      if (el) {
-                        el.indeterminate = someChecked && !allChecked;
-                      }
-                    }}
-                    id={`patient_${patient.id}`}
-                  />
-                  <label htmlFor={`patient_${patient.id}`}>{patient.name}</label>
-                  <Badge bg="secondary" className="ms-2">
-                    {patient?.relation}
-                  </Badge>
-                  
+                  <MapPin size={16} className={styles.mapPin} />
+                  <div>
+                    <p>
+                      {address?.houseNo}, {address?.address1}
+                    </p>
+                    {address?.address2 && <p>{address?.address2}</p>}
+                    <p>{address?.locality}</p>
+                    <p>
+                      {address?.city}, {address?.state} - {address?.pincode}
+                    </p>
+                  </div>
                 </div>
-                <span onClick={()=>{handleAccordionToggle(eventKey)}}>
-                    {activeKeys.includes(eventKey)? <ChevronUp strokeWidth={1.5}/>:<ChevronDown strokeWidth={1.5}/> }
-                    
-                  </span>
-              </Accordion.Header>
-              <Accordion.Body>
-                <div className="d-flex align-items-center gap-2">
-                  <span>
-                    <Calendar size={16} />
-                  </span>
-                  <span className="fw-semibold text-muted">Dob : </span>
-                  <span>{patient?.dob}</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <span>
-                    <User size={16} />
-                  </span>
-                  <span className="fw-semibold text-muted">Gender : </span>
-                  <span>{patient?.gender}</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <span>
-                    <Dna size={16} />
-                  </span>
-                  <span className="fw-semibold text-muted">Relation : </span>
-                  <span>{patient?.relation}</span>
-                </div>
-              </Accordion.Body>
-            </Accordion.Item>
+              </div>
+            </div>
           );
         })}
-      </Accordion>
+      </div>
 
       <AddAddressModal
+        editAddressData={editAddressData}
+        editMode={editMode}
         show={showModal}
         onClose={handleCloseModal}
-        getPatientsList={getPatientsList}
+        getAddressList={getAddressList}
       />
     </div>
   );

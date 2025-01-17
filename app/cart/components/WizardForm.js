@@ -10,46 +10,53 @@ import PriceDetails from "./PriceDetails";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn, toggleLoginModal } from "../../../redux/authSlice";
+import { setCartStep } from "../../../redux/cartSlice";
+import { toast } from "react-toastify";
 
 const WizardForm = () => {
   const dispatch = useDispatch();
-  // const [step, setStep] = useState(1);
-  const { isLoggedIn, isLoginModalVisible } = useSelector((state) => state.auth);
-  const [patients, setPatients] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(11991);
-  const [discount, setDiscount] = useState(1200);
-  
-  const { items, selectedPatient, cartStep } = useSelector((state) => state.cart);
-  
+  const { isLoggedIn, isLoginModalVisible } = useSelector(
+    (state) => state.auth
+  );
+  const { items, selectedPatient, selectedAddress, cartStep } = useSelector(
+    (state) => state.cart
+  );
+
   const handleNext = () => {
-    if (step < 4 && isLoggedIn) {
-      if(cartStep == 2){
-          if(selectedPatient) setStep(cartStep + 1);
-      }else{
-        setStep(cartStep + 1);
+    if (cartStep < 4 && isLoggedIn) {
+      if (cartStep == 2) {
+        if (selectedPatient) {
+          dispatch(setCartStep(cartStep + 1));
+        } else {
+          toast.error("Please select patient");
+        }
+      } else if (cartStep == 3) {
+        if (selectedAddress) {
+          dispatch(setCartStep(cartStep + 1));
+        } else {
+          toast.error("Please select address");
+        }
+      } else {
+        dispatch(setCartStep(cartStep + 1));
       }
-      
     } else {
-      setStep(1);
+      dispatch(setCartStep(1));
       if (!isLoggedIn && !isLoginModalVisible) {
-        dispatch(toggleLoginModal(true)); 
+        dispatch(toggleLoginModal(true));
       }
     }
   };
 
   const handleBack = () => {
     if (cartStep > 1 && isLoggedIn) {
-      setStep(cartStep - 1);
+      dispatch(setCartStep(cartStep - 1));
     } else {
-      setStep(1);
+      dispatch(setCartStep(1));
       if (!isLoggedIn && !isLoginModalVisible) {
-        dispatch(toggleLoginModal(true)); 
+        dispatch(toggleLoginModal(true));
       }
     }
   };
-
-
-  const handleCloseLogin = () => dispatch(toggleLoginModal(false)); // Close login modal
 
   const handlePatientSelection = (updatedPatients) => {
     setPatients(updatedPatients);
@@ -81,19 +88,15 @@ const WizardForm = () => {
       {items?.length > 0 ? (
         <Row className="justify-content-center">
           <Col md={6}>
-            <ProgressBar step={cartStep} setStep={setStep} />
+            <ProgressBar />
             <Col md={12}>
-              <div className="step-content p-3">{renderStep()}</div>
+              <div className="step-content py-3">{renderStep()}</div>
             </Col>
           </Col>
           <Col md={4}>
             <Row>
               <Col md={12}>
-                <PriceDetails
-                  totalAmount={totalAmount}
-                  discount={discount}
-                  step={cartStep}
-                />
+                <PriceDetails />
               </Col>
             </Row>
             <Row className="mt-3">

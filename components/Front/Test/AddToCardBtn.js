@@ -2,8 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../redux/cartSlice";
 import Link from "next/link"; // Assuming you want to link to the cart page
-import { CheckIcon, CircleCheckBig } from "lucide-react";
-// import CheckIcon from "../../../svg/CheckIcon"
+import { CircleCheckBig } from "lucide-react";
 
 const AddToCartBtn = ({ test }) => {
   const dispatch = useDispatch();
@@ -12,7 +11,7 @@ const AddToCartBtn = ({ test }) => {
   const cartItems = useSelector((state) => state.cart.items);
 
   // Check if the item is already in the cart
-  const isInCart = cartItems.some((item) => item._id === test?._id);
+  const isInCart = cartItems?.some((item) => item._id === test?._id);
 
   const handleAddToCart = () => {
     dispatch(

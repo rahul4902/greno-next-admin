@@ -22,7 +22,7 @@ const LoginOffCanvas = () => {
   const { isLoginModalVisible, isLoggedIn } = useSelector(
     (state) => state.auth
   );
-
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});

@@ -1,4 +1,4 @@
-import { CategoryFormData, SampleTypeFormData, TestFormData } from "data/greno/defaultFormData";
+import { CategoryFormData, SampleTypeFormData, TestFormData, CouponFormData } from "data/greno/defaultFormData";
 
 const { default: axios } = require("axios");
 const { API_URL } = require("utils/constant");
@@ -9,6 +9,17 @@ const apiService = {
       const { data } = await axios.get(API_URL + 'category/activeList', {
         params: { query },
       });
+      
+      return data?.data || []; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return [];
+    }
+  },
+
+  fetchUsers: async (query) => {
+    try {
+      const { data } = await axios.get(API_URL + 'api/users', {});
       
       return data?.data || []; // Return the categories array from the response
     } catch (error) {
@@ -53,6 +64,16 @@ const apiService = {
       const { data } = await axios.get(API_URL + 'category/'+_id);
       
       return data?.data || CategoryFormData; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return TestFormData;
+    }
+  },
+  fetchCouponById: async (_id) => {
+    try {
+      const { data } = await axios.get(API_URL + 'api/coupon/'+_id);
+      
+      return data?.data || CouponFormData; // Return the categories array from the response
     } catch (error) {
       console.error('API Error:', error.message);
       return TestFormData;

@@ -867,6 +867,11 @@ button {
   border-radius: 12px;
 }
 
+.border-primary-custom {
+  border-color: #0e3f6c !important;
+  box-shadow: 0px 0px 6px 0px #0e3f6cd9 !important;
+}
+
 .bg-danger-custom {
   background-color: #f9ebe7 !important;
 }
@@ -1171,4 +1176,221 @@ button {
 
 .custom-accordion .accordion-button::after{
   display: none;
+}
+
+
+.payment-wrapper {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+  background-color: #f8f9fa;
+}
+
+.payment-option.selected {
+  border-color: #12344d;
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.payment-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+
+.payment-label {
+  font-weight: 500;
+  color: #212529;
+}
+
+.payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.payment-icon {
+  height: 1rem;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Custom radio button styles */
+.form-check-input {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  margin-top: 0 !important;
+  cursor: pointer;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .payment-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .payment-methods {
+    margin-left: 0;
+  }
+}
+
+
+.radio-card {
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.radio-card:hover {
+  border-color: #12344d;
+}
+
+.radio-card.selected {
+  border-color: #12344d;
+  background-color: #f8f9fa;
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-custom {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #6c757d;
+  border-radius: 50%;
+}
+
+.radio-input:checked ~ .radio-custom {
+  border-color: #12344d;
+  background-color: #fff;
+}
+
+.radio-input:checked ~ .radio-custom:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #12344d;
+}
+
+.card-content {
+  padding-left: 35px;
+}
+
+.edit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.edit-button:hover {
+  color: #12344d;
+}
+
+.location-text {
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+.location-subtext {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+
+
+.coupon-section .coupon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border: 2px solid #20c99662;
+  box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.coupon-section .coupon-input {
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #495057;
+  width: 100px;
+  outline: none;
+}
+
+.coupon-section .coupon-status {
+  color: #20c997;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-left: 2px dashed #dee2e6;
+  background: rgba(32, 201, 151, 0.1);
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.coupon-section .title {
+  color: #495057;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Optional animation for applied status */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.coupon-section .coupon-status {
+  animation: fadeIn 0.3s ease-in-out;
 }

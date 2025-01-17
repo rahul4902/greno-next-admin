@@ -30,7 +30,7 @@ apiClient.interceptors.response.use(
         // store.dispatch(logout());
     //   console.error('Unauthorized! Redirecting to login...');
       deleteCookie('auth-token');
-      // window.location.href = '/'; 
+      window.location.href = '/'; 
     }
     return Promise.reject(error);
   }

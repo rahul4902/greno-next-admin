@@ -1,0 +1,102 @@
+.card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  
+  .cardContent {
+    padding: 1rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 1rem; */
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .title svg {
+    margin-right: 0.5rem;
+    color: #555;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  
+  .editButton:hover {
+    color: #4a90e2;
+  }
+  
+  .deleteButton:hover {
+    color: #e25555;
+  }
+  
+  .addressDetails {
+    display: flex;
+    font-size: 0.875rem;
+    color: #555;
+    /* margin-bottom: 1rem; */
+  }
+  
+  .mapPin {
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    color: #777;
+  }
+  
+  .addressDetails p {
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .primaryBadge, .billingBadge, .shippingBadge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+  
+  .primaryBadge {
+    background-color: #fff9c4;
+    color: #fbc02d;
+  }
+  
+  .billingBadge {
+    background-color: #e8f5e9;
+    color: #4caf50;
+  }
+  
+  .shippingBadge {
+    background-color: #e3f2fd;
+    color: #2196f3;
+  }
+  
+  
