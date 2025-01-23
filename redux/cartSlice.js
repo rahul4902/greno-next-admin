@@ -8,10 +8,10 @@ const cartSlice = createSlice({
     cartStep:1,
     selectedPatient: null,
     selectedAddress: null,
+    selectedPaymentMethod: "online",
     getCartTotalPrice:0,
     getCartOfferPrice:0,
     cartPriceToPay:0,
-
     coupon: null,
     discountAmount: 0
   },
@@ -21,7 +21,7 @@ const cartSlice = createSlice({
       if (!item || !item._id) return;
 
       const existingItem = state.items?.find((i) => i._id === item._id);
-      // console.log('existingItem',existingItem)
+      
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -63,6 +63,9 @@ const cartSlice = createSlice({
     setCartAddress: (state, action) => {
       state.selectedAddress = action.payload;
     },
+    setSelectedPaymentMethod: (state, action) => {
+      state.selectedPaymentMethod = action.payload;
+    },
     updateCouponState: (state, action) => {
       const { coupon, discountAmount } = action.payload;
       state.coupon = coupon || null; // Store all coupon details
@@ -90,7 +93,7 @@ export const {
   selectPatient,
   setCartStep,
   setCartAddress,
-  
+  setSelectedPaymentMethod,
   updateCouponState,
   clearCoupon
 } = cartSlice.actions;

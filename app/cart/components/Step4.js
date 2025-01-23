@@ -1,50 +1,52 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedPaymentMethod } from "../../../redux/cartSlice";
 
 const Step2 = ({ onNext, onBack, onPatientSelection }) => {
-  const [paymentMethod, setPaymentMethod] = useState("online");
-
+  const dispatch = useDispatch();  
+  const { selectedPaymentMethod} = useSelector((state)=>state.cart);
   return (
     <div className="container">
       <div className="payment-wrapper">
         <h2 className="mb-4">Select Payment Option</h2>
 
         <div className="payment-options">
-          {/* Online Payment Option */}
+          {/* Razorpay Payment Option */}
           <label
             className={`payment-option ${
-              paymentMethod === "online" ? "selected" : ""
+              selectedPaymentMethod === "Razorpay" ? "selected" : ""
             }`}
           >
             <input
               type="radio"
               name="paymentMethod"
-              value="online"
-              checked={paymentMethod === "online"}
-              onChange={(e) => setPaymentMethod("online")}
+              value="Razorpay"
+              checked={selectedPaymentMethod === "Razorpay"}
+              onChange={ ()=>{ dispatch(setSelectedPaymentMethod("Razorpay")); }}
               className="form-check-input"
             />
             <div className="payment-content">
-              <span className="payment-label">Pay Online</span>              
+              <span className="payment-label">Pay With Razorpay</span>              
             </div>
           </label>
 
-          {/* Cash/Card Payment Option */}
+          {/* COD/Card Payment Option */}
           <label
             className={`payment-option ${
-              paymentMethod === "cash" ? "selected" : ""
+              selectedPaymentMethod === "COD" ? "selected" : ""
             }`}
           >
             <input
               type="radio"
               name="paymentMethod"
-              value="cash"
-              checked={paymentMethod === "cash"}
-              onChange={(e) => setPaymentMethod("cash")}
+              value="COD"
+              checked={selectedPaymentMethod === "COD"}
+              onChange={()=>{ dispatch(setSelectedPaymentMethod("COD")); }}
               className="form-check-input"
             />
             <div className="payment-content">
               <span className="payment-label">
-                Pay by Cash/Card during sample collection
+                Cash On Delivery
               </span>
             </div>
           </label>
