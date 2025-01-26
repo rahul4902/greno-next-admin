@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     cartStep:1,
     selectedPatient: null,
     selectedAddress: null,
-    selectedPaymentMethod: "online",
+    selectedPaymentMethod: "COD",
     getCartTotalPrice:0,
     getCartOfferPrice:0,
     cartPriceToPay:0,
