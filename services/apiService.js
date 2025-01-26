@@ -16,6 +16,19 @@ const apiService = {
       return [];
     }
   },
+  getActiveBanner: async (query) => {
+    try {
+      const { data } = await axios.get(API_URL + 'api/banner/activeList', {
+        params: { query },
+      });
+      
+      return data?.data || []; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return [];
+    }
+  },
+  
 
   fetchUsers: async (query) => {
     try {
@@ -64,6 +77,16 @@ const apiService = {
       const { data } = await axios.get(API_URL + 'category/'+_id);
       
       return data?.data || CategoryFormData; // Return the categories array from the response
+    } catch (error) {
+      console.error('API Error:', error.message);
+      return TestFormData;
+    }
+  },
+  fetchBannerById: async (_id) => {
+    try {
+      const { data } = await axios.get(API_URL + 'api/banner/'+_id);
+      
+      return data?.data || BannerFormData; // Return the categories array from the response
     } catch (error) {
       console.error('API Error:', error.message);
       return TestFormData;

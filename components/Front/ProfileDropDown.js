@@ -4,6 +4,7 @@ import { logout, toggleLoginModal } from "../../redux/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { CircleUserRound } from "lucide-react";
 
 
 export default function ProfileDropDown() {
@@ -23,7 +24,7 @@ export default function ProfileDropDown() {
   
   return (
     <section className="bg-gray-2 py-20 dark:bg-dark">
-      <div className="container">
+      <div className="container p-0">
         <div className="flex justify-center">
           <div className="relative inline-block">
             <Dropdown>
@@ -35,9 +36,9 @@ export default function ProfileDropDown() {
               >
                 <div
                   className="position-relative"
-                  style={{ width: 32, height: 32 }}
+                  style={{ width: 32, height: 26 }}
                 >
-                  {isLoggedIn ? (
+                  {/* {isLoggedIn ? (
                     <Image
                       alt="avatar"
                       src="/images/common/user1.png"
@@ -51,7 +52,8 @@ export default function ProfileDropDown() {
                         fluid={true}
                       />
                     </>
-                  )}
+                  )} */}
+                  <CircleUserRound size={28} color="#12344d" />
                 </div>
               </Dropdown.Toggle>
 

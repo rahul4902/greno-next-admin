@@ -163,14 +163,19 @@ const SearchForm = () => {
     setIsSuggestionsVisible(false);
     router.push(`/search?q=${encodeURIComponent(suggestion.name)}`);
   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (searchTerm) {
+      const formattedSearchTerm = encodeURIComponent(searchTerm).replace(/%20/g, '+');
+      router.push(`/search?q=${formattedSearchTerm}`);
+    }
+  };
 
   return (
     <div>
       <form
         className="hdr-srch d-flx itm-cntr"
-        onSubmit={() => {
-          console.log("submit");
-        }}
+     onSubmit={submitHandler}
       >
         <div className="position-relative">
           <div>

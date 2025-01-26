@@ -1,3 +1,5 @@
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 const Footernew = () => {
@@ -5,106 +7,54 @@ const Footernew = () => {
     <div>
       <footer>
         <div className="container">
-          <div className="row gx-5">
-            <div className="col-md-3">
+          <div className="row">
+            <div className="col-md-4">
               <img 
-               src="/images/gallery/logo.png"
-                alt="logo" 
+               src="/images/brand/logo/logo_footer.png"
+                alt="logo"
+                className='img-fluid'
+                width={180} 
               />
-              <p className="small link-danger pt-2 pb-0 mb-0 ftcol">
-                Get A Lot Of Information About Us
+              <p className=" pt-2 pb-0 mb-0" style={{ color:'lightgrey' }}>
+              Your health, our priority –<br></br><b> Greno Diagnous Labs,</b> where precision meets care!
               </p>
-              <h4 className="dp-col4 fs-5 mb-3">Subscribe Our Newsletter</h4>
-              <div className="mb-3">
-                <div className="response-n"></div>
-              </div>
-              <form id="form-subscribe-news-letter">
-                <div className="mb-3">
-                  <input 
-                    type="email" 
-                    className="form-control" 
-                    id="userEmail" 
-                    name="email" 
-                    placeholder="Enter your email id" 
-                  />
-                  <textarea 
-                    id="pageURL" 
-                    style={{ display: 'none' }} 
-                    name="page"
-                  >
-                   
-                  </textarea>
-                </div>
-                <p>
-                  <button type="submit" className="w-100 ft-btn rounded" id="btn-subscribe-newsletter">
-                    Submit
-                  </button>
-                </p>
-              </form>
+          
          
             </div>
-            <div className="col-md-9">
-              <div className="row row-cols-lg-5 row-cols-2">
-                <div className="col">
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col-md-4">
                   <h5>Patient Care</h5>
                   <ul className="list-unstyled ft-links">
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Find A Doctor</a></li>
-                    <li><a href="#">Medical Services</a></li>
-                    <li><a href="#">Patient Testimonials</a></li>
-                    <li><a href="#">Value Added Services</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Pay Online</a></li>
-                    <li><a href="#">Apollo Surgery</a></li>
+                    <li><Link href="#" target="_blank" rel="noopener noreferrer">Find A Doctor</Link></li>
                   </ul>
                  
                 </div>
-                <div className="col">
-                  <h5>Centres Of Excellence</h5>
+                <div className="col-md-4">
+                  <h5>Quick Links</h5>
                   <ul className="list-unstyled">
-                    <li><a href="">Orthopaedics</a></li>
-                    <li><a href="">Nephrology & Urology</a></li>
-                    <li><a href="">Bariatric Surgery</a></li>
-                    <li><a href="">Cardiology</a></li>
-                    <li><a href="">Pulmonology</a></li>
-                    <li><a href="">Gastroenterology</a></li>
+                    <li><Link href="" target="_blank" rel="noopener noreferrer">About US</Link></li>
+                    <li><Link href="" target="_blank" rel="noopener noreferrer">Contact US</Link></li>
+                    <li><Link href="" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
                   </ul>
                 </div>
-                <div className="col">
-                  <h5>Medical Procedures</h5>
-                  <ul className="list-unstyled">
-                    <li><a href="" target="_blank" rel="noopener noreferrer">Proton Therapy For Cancer Treatment</a></li>
-                    <li><a href="">Cosmetic And Plastic Surgery</a></li>
-                    <li><a href="">Bone Marrow Transplant</a></li>
-                    <li><a href="">Oral & Maxillofacial Surgery</a></li>
+                <div className="col-md-4">
+                  <h5>Follow us on</h5>
+                  <ul className="list-unstyled d-flex gap-2">
+                    <li><Link href="" target="_blank" rel="noopener noreferrer"><Facebook strokeWidth={1} color='#fff' fontSize={10} /></Link></li>
+                    <li><Link href="" target="_blank" rel="noopener noreferrer"><Instagram strokeWidth={1} color='#fff' fontSize={10} /></Link></li>
+                    <li><Link href="" target="_blank" rel="noopener noreferrer"><Linkedin strokeWidth={1} color='#fff' fontSize={10} /></Link></li>
+                   
                   </ul>
                 </div>
-                <div className="col">
-                  <h5>Corporate</h5>
-                  <ul className="list-unstyled">
-                    <li><a href="">Company Overview</a></li>
-                    <li><a href="">Our Doctors Achieve</a></li>
-                    <li><a href="">The Apollo Ethos</a></li>
-                    <li><a href="">The Apollo Story</a></li>
-                    <li><a href="">Management</a></li>
-                    <li><a href="">Investor Relations</a></li>
-                  </ul>
-                </div>
-                <div className="col">
-                  <h5>Academics & Research</h5>
-                  <ul className="list-unstyled">
-                    <li><a href="">Courses</a></li>
-                    <li><a href="">Academics</a></li>
-                    <li><a href="">Clinical Research</a></li>
-                    <li><a href="">Honors List</a></li>
-                    <li><a href="">Apollo Torch: Alumni Network</a></li>
-                  </ul>                 
-                </div>
+          
               </div>
             </div>
           </div>
         </div>
       </footer>
       {/* bottom-bar */}
-      <section className="cprght_ftr">
+      {/* <section className="cprght_ftr">
         <div className="container">
             <div className="row">
                 <div className="col-md-5">
@@ -131,7 +81,7 @@ const Footernew = () => {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     </div>
   );
 }

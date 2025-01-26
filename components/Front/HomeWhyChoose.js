@@ -53,6 +53,15 @@ const HomeWhyChoose = () => {
       <section className="why_ah_sec mt-5">
         <div className="container">
           <div className="row g-lg-5 g-3">
+            <div className="col-md-5">
+              <div className="card border-0 who-card">
+                <img 
+                  src="/images/gallery/eye-care.png" 
+                  className="card-img" 
+                  alt="Apollo Healthcare" 
+                />
+              </div>
+            </div>
             <div className="col-md-7">
               <h2>Why Choose Greno Healthcare?</h2>
               <p>
@@ -131,15 +140,6 @@ const HomeWhyChoose = () => {
                 </div>
 
 
-              </div>
-            </div>
-            <div className="col-md-5">
-              <div className="card border-0 who-card">
-                <img 
-                  src="/images/gallery/eye-care.png" 
-                  className="card-img" 
-                  alt="Apollo Healthcare" 
-                />
               </div>
             </div>
           </div>
