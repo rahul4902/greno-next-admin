@@ -17,7 +17,7 @@ if(token){
   const publicRoutes = ['/', '/about', '/login', '/signup', '/cart'];
 
   // Allow public routes to pass through
-  if (publicRoutes.some((route) => url.pathname.startsWith(route))) {
+  if (publicRoutes.some((route) => url.pathname?.startsWith(route))) {
     return NextResponse.next();
   }
 

@@ -91,11 +91,15 @@ const PriceDetails = () => {
     setLoading(true);
     try {
       const orderResponse = await apiClient.post("/api/orders", {
+        
         items,
         address:selectedAddress,
         paymentType:selectedPaymentMethod,
         patient:selectedPatient,
-        coupon
+        coupon,
+        cartPriceToPay,
+        couponDiscount:discountAmount,
+        getCartTotalPrice
       });
 
       if (orderResponse.data.status === 200) {
@@ -109,17 +113,17 @@ const PriceDetails = () => {
           // const rzp = new window.Razorpay(paymentOptions);
           // rzp.open();
         } else {
-          toast.success(orderResponse.data.status);
-          router.push("thank-you");
+          toast.success(orderResponse.data.message);
+          router.push("/thankyou?orderId="+orderResponse?.data?.data?.orderId);
         }
       } else if (orderResponse.data.status === 400) {
-        toast.error(orderResponse.data.status);
+        toast.error(orderResponse.data.message);
       } else {
         toast.error("Something went wrong.");
       }
     } catch (error) {
       console.error("Error placing order:", error);
-      alert("Failed to place order.");
+      toast.error("Failed to place order.");
     } finally {
       setLoading(false);
     }
