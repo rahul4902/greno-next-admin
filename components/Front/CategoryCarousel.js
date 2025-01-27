@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 import Slider from "react-slick";
 
 // Custom Previous Arrow
@@ -71,7 +72,7 @@ const BrandCarousel = () => {
                   >
                     <div className="row g-0">
                       <div className="col-md-4">
-                        <img
+                        <Image
                           src="https://themewagon.github.io/FoodMart/images/product-thumb-11.jpg"
                           className="img-fluid rounded"
                           alt="Brand 1"
