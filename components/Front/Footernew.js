@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { Image } from 'react-bootstrap';
 
 const Footernew = () => {
   return (
@@ -9,7 +10,7 @@ const Footernew = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <img 
+              <Image 
                src="/images/brand/logo/logo_footer.png"
                 alt="logo"
                 className='img-fluid'

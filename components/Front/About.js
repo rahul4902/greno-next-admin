@@ -1,4 +1,5 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 
 const About = () => {
   return (
@@ -35,7 +36,7 @@ const About = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-md-6 order-lg-1 mb-5 mb-lg-0">
-                <img
+                <Image
                   className="fit-cover rounded-circle w-100"
                   src="/images/gallery/health-care.png"
                   alt="..."

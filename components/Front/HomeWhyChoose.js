@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './HomeWhyChoose.css';
+import { Image } from 'react-bootstrap';
 
 const HomeWhyChoose = () => {
   const [counters, setCounters] = useState({
@@ -55,7 +56,7 @@ const HomeWhyChoose = () => {
           <div className="row g-lg-5 g-3">
             <div className="col-md-5">
               <div className="card border-0 who-card">
-                <img 
+                <Image
                   src="/images/gallery/eye-care.png" 
                   className="card-img" 
                   alt="Apollo Healthcare" 
@@ -72,7 +73,7 @@ const HomeWhyChoose = () => {
                   <div className="d-flex gap-3">
                     <div className="d-flex gap-4 py-2 pt-3 why_point">
                       <div className="flex-shrink-0">
-                        <img 
+                        <Image 
                           src="/images/gallery/01-Counters-Hospitals-1.svg" 
                           alt="" 
                           className="point_icon" 
@@ -89,7 +90,7 @@ const HomeWhyChoose = () => {
                   <div className="d-flex gap-3">
                     <div className="d-flex gap-4 py-2 pt-3 why_point">
                       <div className="flex-shrink-0">
-                        <img 
+                        <Image
                           src="/images/gallery/01-Counters-Hospitals-1.svg" 
                           alt="" 
                           className="point_icon" 
@@ -107,7 +108,7 @@ const HomeWhyChoose = () => {
                   <div className="d-flex gap-3">
                     <div className="d-flex gap-4 py-2 pt-3 why_point">
                       <div className="flex-shrink-0">
-                        <img 
+                        <Image 
                           src="/images/gallery/01-Counters-Hospitals-1.svg" 
                           alt="" 
                           className="point_icon" 
@@ -125,7 +126,7 @@ const HomeWhyChoose = () => {
                   <div className="d-flex gap-3">
                     <div className="d-flex gap-4 py-2 pt-3 why_point">
                       <div className="flex-shrink-0">
-                        <img 
+                        <Image 
                           src="/images/gallery/01-Counters-Hospitals-1.svg" 
                           alt="" 
                           className="point_icon" 
