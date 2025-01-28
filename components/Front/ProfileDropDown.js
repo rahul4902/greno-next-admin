@@ -64,7 +64,7 @@ export default function ProfileDropDown() {
                 {isLoggedIn ? (
                   <>
                     <Dropdown.Item
-                      href="javascript:void(0)"
+                      href="/profile"
                       className="dark:text-dark-6 dark:hover:bg-dark-3"
                     >
                       Profile
