@@ -34,9 +34,8 @@ const Footernew = () => {
                 <div className="col-md-4">
                   <h5>Quick Links</h5>
                   <ul className="list-unstyled">
-                    <li><Link href="" target="_blank" rel="noopener noreferrer">About US</Link></li>
-                    <li><Link href="" target="_blank" rel="noopener noreferrer">Contact US</Link></li>
-                    <li><Link href="" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
+                    <li><Link href="/aboutUs" target="_blank" rel="noopener noreferrer">About US</Link></li>
+                    <li><Link href="/contactus" target="_blank" rel="noopener noreferrer">Contact US</Link></li>
                   </ul>
                 </div>
                 <div className="col-md-4">

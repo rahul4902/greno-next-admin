@@ -2,6 +2,7 @@ import { PhoneCall } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Image } from "react-bootstrap";
+import WhatsappIcon from "svg/WhatsappIcon";
 
 const Topheader = () => {
   return (
@@ -10,13 +11,16 @@ const Topheader = () => {
         <nav>
           <div className="container d-flex flex-wrap">
             <ul className="nav">
-              <li className="nav-item">
-                <Link href="tel:9958747295" className="text-white">
-                  <PhoneCall size={18} /> +91 9958747295,
+              <li className="nav-item d-flex gap-3 align-items-center">
+                <Link href="tel:9958747295" className="text-white d-flex gap-2 align-items-center">
+                  <PhoneCall size={18} /> +91 9958747295
                 </Link>
-                <Link href="tel:9958747295" className="text-white ms-1">
+                {/* <Link href="tel:9958747295" className="text-white ms-1">
                    9716164902
-                </Link>
+                </Link> */}
+                <Link aria-label="Chat on WhatsApp" color="#fff" target="_blank" href="https://api.whatsapp.com/send/?phone=919958747295&text=Hi&app_absent=0" className="text-white d-flex gap-1 align-items-center">
+                <WhatsappIcon height="22px" width="22px" color="#fff" />9716164902
+              </Link>
               </li>
             </ul>
 
