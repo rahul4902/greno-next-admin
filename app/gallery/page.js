@@ -1,8 +1,9 @@
 "use client"
 
 import { Container, Row, Col, Navbar } from 'react-bootstrap';
-import '../gallery/gallery.css'
+import './gallery.css'
 import withHeader from '../../hoc/withHeader';
+import Image from 'next/image';
 
 const MediaGallery = () => {
   const images = Array.from({ length: 12 }, (_, i) => ({
@@ -19,7 +20,7 @@ const MediaGallery = () => {
           {images.map((img, index) => (
             <Col key={img.id} md={4} className="mb-4 gallery-item">
               <div className="image-wrapper">
-                <img
+                <Image
                   src={img.image}
                   alt={`Gallery item ${img.id}`}
                   className="gallery-image animate__animated"
