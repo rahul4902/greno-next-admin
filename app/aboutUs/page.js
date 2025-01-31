@@ -1,10 +1,8 @@
 "use client"
 
 import Image from "next/image";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "../../../greno-next-admin/public/css/theme.css"
-import withHeader from "../../hoc/withHeader";
 import { ClipboardList, Cpu, HandHeart } from "lucide-react";
+import withHeader from "../../hoc/withHeader";
 
 const AboutSection = () => {
   return (

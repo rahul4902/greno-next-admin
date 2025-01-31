@@ -3,7 +3,7 @@
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import withHeader from "../../hoc/withHeader";
-import "../../app/contactus/contactus.css";
+import "./contactUs.css";
 import { Mail, MapPinHouse, PhoneCall } from "lucide-react";
 
 const ContactUs = () => {
