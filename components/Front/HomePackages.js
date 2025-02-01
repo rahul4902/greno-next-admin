@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/category.css";
 import Image from "next/image";
-import { AlarmClockCheck, BadgePercent, User, UtensilsCrossed } from "lucide-react";
+import { AlarmClockCheck, BadgePercent, CircleChevronLeft, CircleChevronRight, User, UtensilsCrossed } from "lucide-react";
 
 const HomePackages = () => {
   const settings = {
@@ -60,8 +60,8 @@ const HomePackages = () => {
               <div key={index} className="slider-card  mt-4">
                 <div className="card shadow-sm rounded-3 ms-3">
                   <div className="card-body p-0 pt-3">
-                    <div className="d-flex justify-content-between card-content px-3">
-                      <h4 className="pb-2 fs-6 fw-bold">
+                    <div className="d-flex align-items-center justify-content-between card-content px-3">
+                      <h4 className="pb-2 fs-5" style={{ fontWeight:'600' }}>
                         Healthians Winter Wellness Package - Female
                       </h4>
                       <div className="test_included">
@@ -72,20 +72,9 @@ const HomePackages = () => {
                         </h3>{" "}
                       </div>
                     </div>
-                    {/* <ul className="ps-0">
-                      <li className="d-flex align-items-center gap-2">
-                        No special preparation required.
-                      </li>
-                      <li className="d-flex align-items-center gap-2">
-                        No special preparation required.
-                      </li>
-                      <li className="d-flex align-items-center gap-2">
-                        No special preparation required.
-                      </li>
-                    </ul> */}
                     <div className="tests_sec minhgt80 px-3">
                       {" "}
-                      <b style={{ color: "#000" }}>Tests Included:</b>{" "}
+                      <b style={{ color: "#12344d",fontSize:'14px' }}>Tests Included:</b>{" "}
                       <span>
                         {" "}
                         RA Test Rheumatoid Arthritis Factor, Quantitative ,
@@ -93,30 +82,12 @@ const HomePackages = () => {
                         Embryonic Antigen Serum...
                       </span>{" "}
                     </div>
-                    <div className=" p-2">
-                      <a href="#" className="text-decoration-none know-more">
-                        +Know More
+                    <div className=" px-3 text-end mb-2">
+                      <a href="#" className="text-decoration-none know-more d-flex align-items-center justify-content-end" style={{ color:'#12344d', fontSize:'14px', fontWeight:'600' }}>
+                      <CircleChevronLeft strokeWidth={3} height="14" width="14" className="me-1"/>Know More
                       </a>
                     </div>
-                    <div className="parameter_panel d-flex justify-content-between py-3 px-2">
-                      {" "}
-                      <div className="icon_param firstone d-flex gap-1">
-                        {" "}
-                        <UtensilsCrossed color="red" size={14} />
-                        <span className="first">
-                          12 hrs Fasting Required
-                        </span>{" "}
-                      </div>{" "}
-                      <div className="icon_param d-flex gap-1">
-                        <User color="red" size={14} />
-                        <span>Recommended for Female</span>{" "}
-                      </div>{" "}
-                      <div className="icon_param d-flex gap-1">
-                        <AlarmClockCheck color="red" size={14} />
-                        <span>Reports within 72 hrs</span>
-                      </div>{" "}
-                    </div>
-                    <div className="include_centre d-flex justify-content-between">
+                    <div className="include_centre d-flex align-items-center justify-content-between py-1 px-3">
                       {" "}
                       <div className="exact__pay d-flex flex-column">
                         {" "}
@@ -140,20 +111,6 @@ const HomePackages = () => {
                         </a>{" "}
                       </div>{" "}
                     </div>
-                    {/* <div className="add-to-cart pos_rel d-flex align-items-center mt-2">
-                      <div className="popularprice pricee-div">
-                        <span>₹</span>1,800{" "}
-                      </div>
-                      <div className="cartt-div">
-                        <a
-                          href="#"
-                          className="text-decoration-none"
-                          target="_blank"
-                        >
-                          Book Now
-                        </a>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>

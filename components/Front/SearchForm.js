@@ -163,14 +163,19 @@ const SearchForm = () => {
     setIsSuggestionsVisible(false);
     router.push(`/search?q=${encodeURIComponent(suggestion.name)}`);
   };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (searchTerm) {
+      const formattedSearchTerm = encodeURIComponent(searchTerm).replace(/%20/g, '+');
+      router.push(`/search?q=${formattedSearchTerm}`);
+    }
+  };
 
   return (
     <div>
       <form
         className="hdr-srch d-flx itm-cntr"
-        onSubmit={() => {
-          console.log("submit");
-        }}
+     onSubmit={submitHandler}
       >
         <div className="position-relative">
           <div>
@@ -203,7 +208,6 @@ const SearchForm = () => {
           </div>
           <div className="hdr_srch_icon">
             <button type="submit" className="btn btn-primary btn-sm  me-1">
-              {/* <SearchIcon height="18px" width="22px" /> */}
               <Search color="#FFF" size={22}/>
             </button>
             <label htmlFor="fileInput" className="btn btn-sm btn-primary">

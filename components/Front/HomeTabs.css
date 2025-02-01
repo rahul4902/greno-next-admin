@@ -11,13 +11,12 @@
     justify-content: center;
     align-items: center;
 }
-
 .h_tabs img {
     width: 42px;
 }
 
 .h_tabs h5 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.6;
     padding-top: 16px;

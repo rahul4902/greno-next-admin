@@ -3,6 +3,7 @@ import "./../public/css/theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Topheader from '../components/Front/Topheader'
 import Headernew from '../components/Front/Headernew'
+import Navbar from '../components/Front/Navbar'
 import Footernew from '../components/Front/Footernew';
 import LoginOffCanvas from '../components/LoginOffCanvas';
 import SignUpOffCanvas from '../components/SignUpOffCanvas';
@@ -25,7 +26,8 @@ const LayoutWithHeaderFooter = ({ children }) => {
   return (  
   <main className="main" id="top">
     <Topheader />
-    <Headernew/>
+    {/* <Headernew/> */}
+    <Navbar/>
     {/* <Header2 /> */}
     {children}
     <Footernew/>

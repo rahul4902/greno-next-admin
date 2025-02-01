@@ -47,6 +47,13 @@ export const CategoryFormData = {
   status: true,
 };
 
+export const BannerFormData = {
+  name: "",
+  order: "",
+  status: "",
+  status: true,
+};
+
 export const SampleTypeFormData = {
   name: "",
   status: true,

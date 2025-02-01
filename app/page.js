@@ -21,19 +21,21 @@ const page = () => {
         {/* <CategoryCarousel/> */}
         <AddBanners/>
         <HomePackages />
+        
         <section className="py-5">
           <div className="container"> 
             <h2 className="my-5">People are also looking for</h2>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Blue diamon almonds</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Angie’s Boomchickapop Corn</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Salty kettle Corn</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Chobani Greek Yogurt</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Sweet Vanilla Yogurt</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Foster Farms Takeout Crispy wings</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Warrior Blend Organic</a>
-            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2">Chao Cheese Creamy</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Blue diamon almonds</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Angie’s Boomchickapop Corn</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Salty kettle Corn</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Chobani Greek Yogurt</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Sweet Vanilla Yogurt</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Foster Farms Takeout Crispy wings</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Warrior Blend Organic</a>
+            <a href="#" className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2" style={{ color:'#12344d' }}>Chao Cheese Creamy</a>
           </div>
         </section>
+        <HomeWhyChoose />
         <section className="py-5">
           <div className="container">
             <div className="row">
@@ -102,7 +104,7 @@ const page = () => {
           </div>
         </section>
         
-        <HomeWhyChoose />
+        
 
         {/* <Hero />
         <Departments />
