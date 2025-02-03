@@ -26,6 +26,7 @@ export const DashboardMenu = [
 		children: [
 			{ id: uuid(), link: '/admin/category', name: 'Category' },
 			{ id: uuid(), link: '/admin/sampletypes', name: 'Sample Type' },
+			{ id: uuid(), link: '/admin/banner', name: 'Banner' },
 			
 			{ id: uuid(), link: '/pages/profile', name: 'Profile' },
 			{ id: uuid(), link: '/pages/settings', name: 'Settings'},

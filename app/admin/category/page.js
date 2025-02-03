@@ -5,13 +5,11 @@ import axios from "axios";
 import { Fragment } from "react";
 import Link from "next/link";
 import { Container, Col, Row, Image } from "react-bootstrap";
-// import EditIcon from "svg/EditIcon";
-// import DeleteIcon from "svg/DeleteIcon";
 import apiService from "services/apiService";
 import { API_URL, productDefaultImage } from "utils/constant";
-import { toast } from "react-toastify";
 import Pagination from "components/Pagination";
 import { Edit, Trash2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 const PaginatedTable = () => {
   const [currentPage, setCurrentPage] = useState(1); // Default page 1
@@ -25,7 +23,7 @@ const PaginatedTable = () => {
         const response = await axios.get(API_URL + "category/list", {
           params: {
             page: currentPage,
-            limit: itemsPerPage,
+            limit: 10,
           },
         });
         console.log("Data fetched:", response.data.data); // Debug log
@@ -45,14 +43,19 @@ const PaginatedTable = () => {
 
   const deleteCategory = async (_id) => {
     try {
-      const isConfirmed = window.confirm("Are you sure you want to delete this category?");
+      const isConfirmed = window.confirm(
+        "Are you sure you want to delete this category?"
+      );
 
       if (!isConfirmed) {
-        return; // Exit the function if the user cancels
+        return;
       }
       const response = await axios.delete(API_URL + "category/" + _id);
+      
       if (response?.data?.status == 200) {
-        setCategories((prevTests) => prevTests.filter((category) => category._id !== _id));
+        setCategories((prevTests) =>
+          prevTests.filter((category) => category._id !== _id)
+        );
         toast.success(response.data.message);
       } else {
         toast.error(response.data.message);
@@ -106,17 +109,20 @@ const PaginatedTable = () => {
                   {categories?.map((category, index) => (
                     <tr key={index}>
                       <td>
-                      <div className="d-flex align-items-center">
-                            <div>
-                                <Image src={category.icon_url || productDefaultImage} alt={category.name } 
-                                onError={(e) => {
+                        <div className="d-flex align-items-center">
+                          <div>
+                            <Image
+                              src={category.icon_url || productDefaultImage}
+                              alt={category.name}
+                              onError={(e) => {
                                 e.target.src = productDefaultImage;
                               }}
-                               className="avatar-md avatar rounded-circle" />
-                            </div>
-                            <div className="ms-3 lh-1">
-                                <h5 className=" mb-1">{category.name}</h5>
-                            </div>
+                              className="avatar-md avatar rounded-circle"
+                            />
+                          </div>
+                          <div className="ms-3 lh-1">
+                            <h5 className=" mb-1">{category.name}</h5>
+                          </div>
                         </div>
                       </td>
                       <td>
@@ -127,22 +133,22 @@ const PaginatedTable = () => {
                         >
                           {category?.status ? "Active" : "InActive"}
                         </span>
-                      </td>                     
+                      </td>
                       <td>
                         <Link
-                          className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
+                          className="btn btn-sm btn-outline-primary me-2"
                           href={`/admin/category/form?_id=${category?._id}`}
                         >
-                          <Trash2 />
+                          <Edit />
                         </Link>
                         <button
-                          className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
+                          className="btn btn-sm btn-outline-danger"
                           type="button"
                           onClick={() => {
                             deleteCategory(category._id);
                           }}
                         >
-                          <Edit />
+                          <Trash2 />
                         </button>
                       </td>
                     </tr>

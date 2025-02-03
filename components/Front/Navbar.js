@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import "../Front/navbar.css";
 import { Image } from "react-bootstrap";
-import { ShoppingCart } from "lucide-react";
+import { Menu, ShoppingCart } from "lucide-react";
 import { useSelector } from "react-redux";
 import ProfileDropDown from "./ProfileDropDown"
 // import { Image } from "lucide-react";
@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
 
         <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-          ☰
+        <Menu/>
         </button>
 
         <ul className={`nav-links ${isOpen ? "active" : ""} d-flex align-items-center mb-0`}>
@@ -36,13 +36,13 @@ const Navbar = () => {
             <Link href="/gallery">Gallery</Link>
           </li>
           <li>
-            <Link href="/">Test/Package</Link>
+            <Link href="/search">Test/Package</Link>
           </li>
           <li>
             <Link href="/aboutUs">About</Link>
           </li>
           <li>
-            <Link href="/contactus">Contact</Link>
+            <Link href="/contactUs">Contact</Link>
           </li>
           <li className="d-flex gap-3">
           <Link href="/cart" className="header_call  position-relative">

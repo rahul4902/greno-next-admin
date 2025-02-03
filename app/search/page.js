@@ -9,7 +9,7 @@ import TestLoader from "../../components/Front/Test/TestLoader";
 import TestItemCard from "../../components/Front/Test/TestItemCard";
 import { API_URL } from "../../utils/constant";
 import { ChevronDown, CircleAlert } from "lucide-react";
-import CategoryComponent from "../../components/Front/category/categoryComponent"
+import CategoryComponent from "../../components/Front/category/CategoryComponent"
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -74,21 +74,21 @@ const SearchPage = () => {
       fetchTests("test"); // Initial fetch for tests
       fetchTests("package"); // Initial fetch for packages
     }
-  }, [searchQuery]);
+  }, [searchQuery,fetchTests]);
 
   // Fetch more tests when testPage changes
   useEffect(() => {
     if (testPage > 1) {
       fetchTests("test");
     }
-  }, [testPage]);
+  }, [testPage,fetchTests]);
 
   // Fetch more packages when packagePage changes
   useEffect(() => {
     if (packagePage > 1) {
       fetchTests("package");
     }
-  }, [packagePage]);
+  }, [packagePage,fetchTests]);
 
   // Load more handler for tests
   const loadMoreTest = () => {
