@@ -9,7 +9,8 @@ import TestLoader from "../../components/Front/Test/TestLoader";
 import TestItemCard from "../../components/Front/Test/TestItemCard";
 import { API_URL } from "../../utils/constant";
 import { ChevronDown, CircleAlert } from "lucide-react";
-import CategoryComponent from "../../components/Front/category/CategoryComponent"
+import CategoryComponent from "@/components/Front/category/categoryComponent"
+
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
