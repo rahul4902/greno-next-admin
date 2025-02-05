@@ -4,12 +4,12 @@ import { Container, Spinner } from "react-bootstrap";
 import { FormSelect, PageHeading } from "widgets";
 import { Col, Row, Form, Card, Button } from "react-bootstrap";
 import Select from "react-select";
-import apiService from "./../../../../services/apiService";
+import apiService from "@/services/apiService";
 import { TagsInput } from "react-tag-input-component";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { API_URL } from "utils/constant";
-import { TestFormData } from "./../../../../data/greno/defaultFormData";
+import { TestFormData } from "@/data/greno/defaultFormData";
 import { useRouter, useSearchParams } from "next/navigation";
 import "./FormWizard.css";
 const TestForm = () => {

@@ -19,7 +19,7 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
 // import routes file
-import { DashboardMenu } from 'routes/DashboardRoutes';
+import { DashboardMenu } from '../../routes/DashboardRoutes';
 
 const NavbarVertical = (props) => {
 	const location = usePathname ()

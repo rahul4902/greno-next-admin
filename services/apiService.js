@@ -4,9 +4,10 @@ const { default: axios } = require("axios");
 const { API_URL } = require("utils/constant");
 
 const apiService = {
-  fetchCategories: async (query) => {
+  fetchCategories: async (query,other=null) => {
     try {
-      const { data } = await axios.get(API_URL + 'category/activeList', {
+      
+      const { data } = await axios.get(API_URL + `category/activeList${other?other:''}`, {
         params: { query },
       });
       

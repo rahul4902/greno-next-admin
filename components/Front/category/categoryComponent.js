@@ -1,41 +1,52 @@
-import { Calendar, Download, TestTube, UserRoundPen } from 'lucide-react'
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { TestTube } from "lucide-react";
+import apiService from "@/services/apiService";
 import "/components/Front/HomeTabs.css";
+import Image from "next/image";
 
-function categoryComponent() {
+function CategoryComponent() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const query = "?allActive=true";
+      const response = await apiService.fetchCategories("", query);
+      setCategories(response);
+    };
+    fetchCategory();
+  }, []);
   return (
     <div>
-         <div className="container mt-3">
-      <div className="row justify-content-center">
-        <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
-          <a href="#" target="_blank" rel="noreferrer" className="h_tabs position-relative">
-            {/* <TestIcon /> */}
-            <TestTube size={44} color="#12344d" />
-            <h5>Book a Test</h5>
-          </a>
-        </div>
-        <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
-          <a href="#" target="_blank" rel="noreferrer" className="h_tabs">
-          <Calendar size={44} color="#12344d" />
-            <h5>My Bookings</h5>  
-          </a>
-        </div>
-        <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
-          <a href="#" target="_blank" rel="noreferrer" className="h_tabs">
-            <Download size={44} color="#12344d" />
-            <h5>Report Download</h5>
-          </a>
-        </div>
-        <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
-          <a href="#" target="_blank" rel="noreferrer" className="h_tabs">
-          <UserRoundPen size={44} color="#12344d" />
-            <h5>My Profile</h5>
-          </a>
+      <div className="container mt-3">
+        <div className="row justify-content-center">
+          {categories?.map((_v, _x) => {
+            return (
+              <>
+                <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="h_tabs position-relative"
+                  >
+                    <Image
+                      src={_v?.icon_url}
+                      alt={_v?.name}
+                      width={100} // Adjust as needed
+                      height={0} // Not required when using layout="intrinsic"
+                      layout="intrinsic"
+                      loading="lazy"
+                    />
+                    <h5>{_v?.name}</h5>
+                  </a>
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default categoryComponent
+export default CategoryComponent;
