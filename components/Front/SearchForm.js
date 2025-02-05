@@ -172,7 +172,9 @@ const SearchForm = () => {
   };
 
   return (
-    <div>
+    <div className="row d-flex justify-content-md-center">
+      <div className="col-md-7">
+    <div className="card p-5 rounded-4" style={{ marginTop:'-22%', backgroundColor:'#ffffff4d' }}>
       <form
         className="hdr-srch d-flx itm-cntr"
      onSubmit={submitHandler}
@@ -222,6 +224,8 @@ const SearchForm = () => {
           </div>
         </div>
       </form>
+    </div>
+      </div>
     </div>
   );
 };

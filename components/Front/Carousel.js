@@ -18,8 +18,9 @@ const Carousel =  () => {
     return (
         <Carousel2 showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true} itemsToShow={2}>
             {banner?.map((value, index)=>{
-            return ( <div key={index}>
-                <Image src={value.image_url} className='img-fluid' style={{ maxHeight:'450px', objectFit:'cover',overflow:'hidden' }} alt={value?.name}/>
+            return ( <div key={index} className='carousel-item-wrapper'>
+                 <div className="image-overlay"></div>
+                <Image src={value.image_url} className='img-fluid' style={{ maxHeight:'380px', objectFit:'cover',overflow:'hidden' }} alt={value?.name}/>
             </div> )
             })}
         </Carousel2>

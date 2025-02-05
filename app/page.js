@@ -11,12 +11,14 @@ import About from "../components/Front/About";
 import Testimonial from "../components/Front/Testimonial";
 
 import LayoutWithHeaderFooter from "./../layouts/layout-with-header-footer";
+import SearchForm from "../components/Front/SearchForm";
 
 const page = () => {
   return (
     <>
       <LayoutWithHeaderFooter>
         <Carousel />
+        <SearchForm />
         <HomeTabs />
         {/* <CategoryCarousel/> */}
         <AddBanners />
