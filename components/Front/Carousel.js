@@ -16,6 +16,8 @@ const Carousel =  () => {
     }, [])
     
     return (
+        <div className="bg-black" style={{ minHeight:'248px', background: 'rgb(2,0,36)',
+            background: 'linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(18, 52, 77) 35%, rgb(3 99 118) 100%)' }}>
         <Carousel2 showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true} itemsToShow={2}>
             {banner?.map((value, index)=>{
             return ( <div key={index} className='carousel-item-wrapper'>
@@ -24,6 +26,7 @@ const Carousel =  () => {
             </div> )
             })}
         </Carousel2>
+        </div>
     );
 
 }
