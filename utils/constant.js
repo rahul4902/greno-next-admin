@@ -1,5 +1,5 @@
-exports.API_URL = 'http://localhost:5000/';
-// exports.API_URL = 'https://grno-backend.onrender.com/';
+// exports.API_URL = 'http://localhost:5000/';
+exports.API_URL = 'https://grno-backend.onrender.com/';
 // exports.API_URL = 'http://192.168.1.7:5000/';
 exports.Href = "#javascript";
 exports.ImagePath = "/images";
