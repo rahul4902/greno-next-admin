@@ -6,13 +6,13 @@ export const DashboardMenu = [
 		id: uuid(),
 		title: 'Dashboard',
 		icon: 'home',
-		link: '/'
+		link: '/admin'
 	},
 	{
 		id: uuid(),
 		title: 'Test',
 		icon: 'package',
-		link: '/dashboard/test',		
+		link: '/admin/dashboard/test',		
 	},	
 	{
 		id: uuid(),

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import Carousel from "../components/Front/Carousel";
 import HomeTabs from "../components/Front/HomeTabs";
+
+import TestimonialsSlider from "../components/Front/TestimonialsSlider";
 import HomePackages from "../components/Front/HomePackages";
 import HomeWhyChoose from "../components/Front/HomeWhyChoose";
 import AddBanners from "../components/Front/Home/AddBanners";
@@ -17,12 +18,14 @@ const page = () => {
   return (
     <>
       <LayoutWithHeaderFooter>
-        <Carousel />
+        
         <SearchForm />
         <HomeTabs />
         {/* <CategoryCarousel/> */}
         <AddBanners />
         <HomePackages />
+        <About />
+        <TestimonialsSlider />
 
         <section className="py-5">
           <div className="container">
@@ -86,7 +89,7 @@ const page = () => {
           </div>
         </section>
 
-        <HomeWhyChoose />
+        {/* <HomeWhyChoose /> */}
         <section className="py-5">
           <div className="container">
             <div className="row">
@@ -201,15 +204,6 @@ const page = () => {
             </div>
           </div>
         </section>
-
-        {/* <Hero />
-        <Departments />
-        <Budget />
-        <About />
-        <OurDoctor />
-        <Testimonial />
-        <Appointment />
-        <Blog /> */}
       </LayoutWithHeaderFooter>
     </>
   );

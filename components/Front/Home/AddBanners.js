@@ -3,7 +3,7 @@ import React from "react";
 const AddBanners = () => {
   return (
     <div className="container">
-      <section className="py-5">
+      <section className=" mt-5">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6">

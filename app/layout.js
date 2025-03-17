@@ -1,7 +1,3 @@
-// import theme style scss file
-// import 'styles/theme.scss';
-// import "./../public/css/theme.css";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./providers";
@@ -19,7 +15,18 @@ export default function RootLayout({ children }) {
       <body className="">
         <Providers>
           {children}
-          <ToastContainer />
+          <ToastContainer
+            theme="dark"
+            position="bottom-center"
+            hideProgressBar={true}
+            limit={1}
+            toastStyle={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+            closeButton={false}
+          />
         </Providers>
       </body>
     </html>

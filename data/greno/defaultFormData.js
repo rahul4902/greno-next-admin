@@ -10,6 +10,7 @@ export const TestFormData = {
   description: "",
   max_age: 0,
   parameter: [],
+  fasting_time: "",
   tat_time: "",
   tat_time_duration: "",
   recommended_age: "",

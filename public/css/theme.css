@@ -4,31 +4,34 @@
 body {
   font-family: "Outfit", serif !important;
 }
+
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #12344d!important;
-  border-color: #12344d!important;
+  background-color: #12344d !important;
+  border-color: #12344d !important;
 }
 
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #12344d!important;
-  border-color: #12344d!important;
+  background-color: #12344d !important;
+  border-color: #12344d !important;
 }
+
 .form-check-input:focus {
   border-color: #12344d;
   outline: 0;
-  box-shadow: 0 0 0 .25rem rgb(16 47 69 / 50%)!important;
+  box-shadow: 0 0 0 .25rem rgb(16 47 69 / 50%) !important;
 }
 
 .form-check-input:checked {
-  background-color: #12344d!important;
-  border-color: #12344d!important;
+  background-color: #12344d !important;
+  border-color: #12344d !important;
 }
 
 .btn:focus-visible {
-  background-color: #12344d!important;
-  box-shadow: 0 0 0 0.25rem rgb(18 52 77 / 50%)!important;
-  color:white!important;
+  background-color: #12344d !important;
+  box-shadow: 0 0 0 0.25rem rgb(18 52 77 / 50%) !important;
+  color: white !important;
 }
+
 a {
   text-decoration: none !important;
 }
@@ -119,7 +122,8 @@ a {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.hdr-srch button, .hdr-srch label  {
+.hdr-srch button,
+.hdr-srch label {
   padding: 14px 12px !important;
 }
 
@@ -190,6 +194,7 @@ a {
   border-color: #12344d !important;
   color: #FFF !important;
 }
+
 .btn-outline-primary:active {
   background-color: #12344d !important;
   border-color: #12344d !important;
@@ -650,7 +655,7 @@ footer .border-top {
 
 .text-xl {
   font-size: 1rem;
-  line-height: 1.25rem;
+  line-height: 2rem;
 }
 
 .font-medium {
@@ -822,18 +827,26 @@ textarea {
   }
 
 }
-h1,h2,h3,h4,h5{
+
+h1,
+h2,
+h3,
+h4,
+h5 {
   color: #12344d !important;
 }
+
 h2 {
   font-size: 32px !important;
   font-weight: 600 !important;
   color: #12344d !important;
 }
-h5{
+
+h5 {
   font-size: 20px;
 }
-footer h5{
+
+footer h5 {
   color: #fff !important;
 }
 
@@ -1095,11 +1108,13 @@ button {
   font-size: 14px;
   color: #e00646;
 }
+
 .title-primary {
   font-weight: 500;
   font-size: 14px;
   color: #12344d;
 }
+
 .include_centre {
   display: block;
   width: 100%;
@@ -1109,6 +1124,7 @@ button {
   background: #f1f1f4;
   padding: 12px 15px 12px 15px;
 }
+
 .test_included {
   position: absolute;
   top: 0;
@@ -1119,19 +1135,23 @@ button {
   border-radius: 0px 8px 0px 8px;
   background: linear-gradient(180deg, rgb(18 52 77 / 20%) 0.41%, rgba(254, 254, 254, 0.00) 110.22%);
 }
-.card-content{
+
+.card-content {
   display: block;
   width: 100%;
   min-height: 54px;
 }
-.test_included .bigcount{
+
+.test_included .bigcount {
   font-size: 18px;
   font-weight: 700;
 }
-.test_included span{
+
+.test_included span {
   font-size: 12px;
   font-weight: 700;
 }
+
 .tests_sec {
   font-size: 13px;
   margin: 0px;
@@ -1140,6 +1160,7 @@ button {
   border-top: 1px dashed #cfcfcf;
   /* min-height: 115px; */
 }
+
 .parameter_panel .icon_param span {
   font-size: 10px;
   letter-spacing: -0.2px;
@@ -1152,6 +1173,7 @@ button {
   display: inline-block;
   width: 78px;
 }
+
 .exact__pay span.fnl_price {
   font-size: 16px;
   font-weight: 600;
@@ -1161,6 +1183,7 @@ button {
   color: #12344d;
   margin-right: 4px;
 }
+
 .exact__pay span.mrp_price {
   font-size: 12px;
   font-weight: 400;
@@ -1170,6 +1193,7 @@ button {
   color: #12344d;
   text-decoration: line-through;
 }
+
 .exact__pay span.off_term {
   font-size: 12px;
   font-weight: 600;
@@ -1180,11 +1204,11 @@ button {
   display: block;
 }
 
-#dropdown-basic::after{
+#dropdown-basic::after {
   display: none;
 }
 
-.custom-accordion .accordion-button::after{
+.custom-accordion .accordion-button::after {
   display: none;
 }
 
@@ -1262,7 +1286,7 @@ button {
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .payment-methods {
     margin-left: 0;
   }
@@ -1303,12 +1327,12 @@ button {
   border-radius: 50%;
 }
 
-.radio-input:checked ~ .radio-custom {
+.radio-input:checked~.radio-custom {
   border-color: #12344d;
   background-color: #fff;
 }
 
-.radio-input:checked ~ .radio-custom:after {
+.radio-input:checked~.radio-custom:after {
   content: '';
   position: absolute;
   top: 3px;
@@ -1397,8 +1421,13 @@ button {
 
 /* Optional animation for applied status */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .coupon-section .coupon-status {
@@ -1413,6 +1442,7 @@ button {
   padding-bottom: 80px;
   min-height: 100vh;
 }
+
 .section-title {
   font-weight: 700;
   text-transform: capitalize;
@@ -1436,6 +1466,7 @@ button {
   height: 2px;
   width: 100px;
 }
+
 .text_custom {
   color: #00bd2a;
 }
@@ -1465,6 +1496,7 @@ button {
 .about_content_box_all {
   padding: 28px;
 }
+
 .carousel-item-wrapper {
   position: relative;
   display: inline-block;
@@ -1479,4 +1511,19 @@ button {
   height: 100%;
   background: rgb(4 4 4 / 30%);
   z-index: 1;
+}
+
+
+.h2,
+h2 {
+  font-size: calc(0.7rem + .9vw) !important;
+}
+
+.border-primary-color {
+  border-color: rgb(18 52 77)!important;
+}
+@media (max-width: 575.98px) { /* Applies only on mobile (smaller than 576px) */
+  .form-control {
+    height: 44px !important;
+  }
 }

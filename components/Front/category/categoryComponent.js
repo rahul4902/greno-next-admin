@@ -3,6 +3,7 @@ import { TestTube } from "lucide-react";
 import apiService from "@/services/apiService";
 import "/components/Front/HomeTabs.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function CategoryComponent() {
   const [categories, setCategories] = useState([]);
@@ -17,16 +18,17 @@ function CategoryComponent() {
   }, []);
   return (
     <div>
-      <div className="container mt-3">
+      <div className="container mt-4">
+        <div className="col-12">
+          <h4 className="text-primary-custom">Tests By Category</h4>
+        </div>
         <div className="row justify-content-center">
           {categories?.map((_v, _x) => {
             return (
               <>
                 <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href={`/search?category=${(_v?.name).replace(/ /g, "+")}`}
                     className="h_tabs position-relative"
                   >
                     <Image
@@ -38,7 +40,7 @@ function CategoryComponent() {
                       loading="lazy"
                     />
                     <h5>{_v?.name}</h5>
-                  </a>
+                  </Link>
                 </div>
               </>
             );

@@ -56,13 +56,13 @@ const TestForm = () => {
     try {
       let response;
       if (editMode) {
-        response = await axios.post(API_URL + "test/update", {
+        response = await axios.post(API_URL + "api/test/update", {
           ...formData,
           parameter: parameterOptions,
           tags: tagOptions,
         });
       } else {
-        response = await axios.post(API_URL + "test/create", {
+        response = await axios.post(API_URL + "api/test/create", {
           ...formData,
           parameter: parameterOptions,
           tags: tagOptions,
@@ -78,7 +78,7 @@ const TestForm = () => {
         toast.success(response.data.message);
         setFormData(TestFormData);
 
-        router.push("/dashboard/test");
+        router.push("/admin/dashboard/test");
       } else {
         toast.error(response.data.message);
         setIsSubmitting(false);
@@ -620,7 +620,28 @@ const TestForm = () => {
 
                 {currentStep === 3 && (
                   <section>
-                    {/* TAT Time */}
+                    {/* Fasting Time */}
+                    <Row className="mb-3">
+                      <Form.Label className="col-sm-4" htmlFor="fasting_time">
+                      Fasting Time
+                      </Form.Label>
+                      <Col md={4} xs={6}>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Fasting Time"
+                          id="fasting_time"
+                          name="fasting_time"
+                          value={formData.fasting_time || ""}
+                          onChange={handleChange}
+                          isInvalid={!!errors.fasting_time}
+                        />
+                        {errors.fasting_time && (
+                          <Form.Control.Feedback type="invalid">
+                            {errors.fasting_time}
+                          </Form.Control.Feedback>
+                        )}
+                      </Col>                      
+                    </Row>
                     <Row className="mb-3">
                       <Form.Label className="col-sm-4" htmlFor="tat_time">
                         TAT Time

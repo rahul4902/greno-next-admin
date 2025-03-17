@@ -1,32 +1,24 @@
-import React, { useRef } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/category.css";
-import {
-  AlarmClockCheck,
-  BadgePercent,
-  CircleChevronLeft,
-  CircleChevronRight,
-  User,
-  UtensilsCrossed,
-} from "lucide-react";
+import Image from "next/image";
+import { AlarmClockCheck, BadgePercent, CircleChevronLeft, CircleChevronRight, User, UtensilsCrossed } from "lucide-react";
 
 const HomePackages = () => {
-  const sliderRef = useRef(null);
-
   const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false, // Disable default arrows
+    dots: false, // Enable dots navigation
+    infinite: true, // Enable infinite looping
+    speed: 500, // Transition speed
+    slidesToShow: 3, // Show 3 items at a time on larger screens
+    slidesToScroll: 1, // Scroll 1 item at a time
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Time delay for autoplay
+    arrows: true, // Enable arrows
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // Medium devices
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -35,12 +27,12 @@ const HomePackages = () => {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 768, // Small devices
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: false,
+          arrows: false, // Disable arrows on mobile
         },
       },
     ],
@@ -57,35 +49,19 @@ const HomePackages = () => {
   ];
 
   return (
-    <div className="container my-5">
+    <div className="container mt-4">
       <div className="row position-relative">
-        <div className="col-md-12 mb-3">
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>Popular Tests / Packages</h2>
-            <div className="arrow-container d-none d-md-flex">
-              <button
-                className="slick-arrow prev-arrow"
-                onClick={() => sliderRef.current.slickPrev()}
-              >
-                <CircleChevronLeft size={24} />
-              </button>
-              <button
-                className="slick-arrow next-arrow"
-                onClick={() => sliderRef.current.slickNext()}
-              >
-                <CircleChevronRight size={24} />
-              </button>
-            </div>
-          </div>
+        <div className="col-md-12">
+          <h2>Popular Tests / Packages</h2>
         </div>
         <div className="col-md-12">
-          <Slider ref={sliderRef} {...settings}>
+          <Slider {...settings}>
             {points.map((point, index) => (
-              <div key={index} className="slider-card">
-                <div className="card shadow-sm rounded-3 mx-1">
+              <div key={index} className="slider-card  mt-4">
+                <div className="card shadow-sm rounded-3 ms-3">
                   <div className="card-body p-0 pt-3">
                     <div className="d-flex align-items-center justify-content-between card-content px-3">
-                      <h4 className="pb-2 fs-5" style={{ fontWeight: "600" }}>
+                      <h4 className="pb-2 fs-5" style={{ fontWeight:'600' }}>
                         Healthians Winter Wellness Package - Female
                       </h4>
                       <div className="test_included">
@@ -98,9 +74,7 @@ const HomePackages = () => {
                     </div>
                     <div className="tests_sec minhgt80 px-3">
                       {" "}
-                      <b style={{ color: "#12344d", fontSize: "14px" }}>
-                        Tests Included:
-                      </b>{" "}
+                      <b style={{ color: "#12344d",fontSize:'14px' }}>Tests Included:</b>{" "}
                       <span>
                         {" "}
                         RA Test Rheumatoid Arthritis Factor, Quantitative ,
@@ -109,22 +83,8 @@ const HomePackages = () => {
                       </span>{" "}
                     </div>
                     <div className=" px-3 text-end mb-2">
-                      <a
-                        href="#"
-                        className="text-decoration-none know-more d-flex align-items-center justify-content-end"
-                        style={{
-                          color: "#12344d",
-                          fontSize: "14px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        <CircleChevronLeft
-                          strokeWidth={3}
-                          height="14"
-                          width="14"
-                          className="me-1"
-                        />
-                        Know More
+                      <a href="#" className="text-decoration-none know-more d-flex align-items-center justify-content-end" style={{ color:'#12344d', fontSize:'14px', fontWeight:'600' }}>
+                      <CircleChevronLeft strokeWidth={3} height="14" width="14" className="me-1"/>Know More
                       </a>
                     </div>
                     <div className="include_centre d-flex align-items-center justify-content-between py-1 px-3">
@@ -132,17 +92,20 @@ const HomePackages = () => {
                       <div className="exact__pay d-flex flex-column">
                         {" "}
                         <div className="">
-                          <span className="fnl_price">₹2000</span>{" "}
-                          <span className="mrp_price">₹4762</span>{" "}
+                        <span className="fnl_price">₹2000</span>{" "}
+                        <span className="mrp_price">₹4762</span>{" "}
                         </div>
-                        <div className="d-flex gap-2 align-items-center">
-                          <BadgePercent color="green" size={14} />
-                          <span className="off_term"> UPTO 58% OFF </span>{" "}
+                        <div className="d-flex gap-2 align-items-center">                      
+                        <BadgePercent color="green" size={14} />
+                        <span className="off_term"> UPTO 58% OFF </span>{" "}
                         </div>
                       </div>{" "}
                       <div className="city_book_now_btn">
                         {" "}
-                        <a href="#" className="btn btn-sm btn-primary">
+                        <a
+                          href="#"
+                          className="btn btn-sm btn-primary"
+                        >
                           {" "}
                           Book Now <span> </span>{" "}
                         </a>{" "}

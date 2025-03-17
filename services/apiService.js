@@ -55,7 +55,7 @@ const apiService = {
   },
   fetchTests: async () => {
     try {
-      const { data } = await axios.get(API_URL + 'test/activeList');
+      const { data } = await axios.get(API_URL + 'api/test/activeList');
       
       return data?.data || []; // Return the categories array from the response
     } catch (error) {
@@ -65,7 +65,7 @@ const apiService = {
   },
   fetchTest: async (_id) => {
     try {
-      const { data } = await axios.get(API_URL + 'test/'+_id);
+      const { data } = await axios.get(API_URL + 'api/test/'+_id);
       
       return data?.data || TestFormData; // Return the categories array from the response
     } catch (error) {
@@ -115,7 +115,7 @@ const apiService = {
   },
   saveTestForm: async (formData) => {
     try {
-      const { data } = await axios.post(API_URL + 'test/create', formData);
+      const { data } = await axios.post(API_URL + 'api/test/create', formData);
       console.log('data',data)
       return data?.data || []; // Return the categories array from the response
     } catch (error) {

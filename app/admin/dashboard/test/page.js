@@ -21,7 +21,7 @@ const PaginatedTable = () => {
     const fetchData = async () => {
       try {
         console.log("Fetching data..."); // Debug log
-        const response = await axios.get("http://localhost:5000/test/list", {
+        const response = await axios.get(API_URL + "api/test/list", {
           params: {
             page: currentPage,
             limit: itemsPerPage,
@@ -114,7 +114,7 @@ const PaginatedTable = () => {
                     className="btn btn-white ms-2"
                     onClick={handleButtonClick}
                   >
-                    Import <Import/>
+                    Import <Import />
                   </button>
                 </div>
               </div>
@@ -192,9 +192,9 @@ const PaginatedTable = () => {
                       <td>
                         <Link
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
-                          href={`/dashboard/test/create?_id=${test?._id}`}
+                          href={`/admin/dashboard/test/create?_id=${test?._id}`}
                         >
-                          <Trash2 />
+                          <Edit />
                         </Link>
                         <button
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
@@ -203,7 +203,7 @@ const PaginatedTable = () => {
                             deleteTest(test._id);
                           }}
                         >
-                          <Edit />
+                          <Trash2 />
                         </button>
                       </td>
                     </tr>
