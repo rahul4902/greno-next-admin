@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { ClipboardList, Cpu, HandHeart } from "lucide-react";
@@ -16,11 +16,10 @@ const AboutSection = () => {
                 Welcome To <span className="text-custom">Greno Labs</span>
               </h1>
               <p className="section_subtitle mx-auto text-muted">
-              Greno Labs is at the forefront of innovative diagnostic solutions, delivering accurate and <br/>rapid results to enhance healthcare outcomes.
-              </p>
-              <div className="">
-                <i className=""></i>
-              </div>
+                Greno Labs is at the forefront of innovative diagnostic
+                solutions, delivering accurate and <br />
+                rapid results to enhance healthcare outcomes.
+              </p>              
             </div>
           </div>
         </div>
@@ -30,14 +29,19 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <div className="about_header_main mt-3">
               <h4 className="about_heading text-capitalize font-weight-bold mt-4 fs-1">
-              About Us
+                About Us
               </h4>
               <p className="text-muted mt-3">
-                Greno Labs is at the forefront of scientific research and technological innovation. From developing new materials to advancing healthcare, we are committed to solving real-world problems through cutting-edge science.
+                Greno Labs is at the forefront of scientific research and
+                technological innovation. From developing new materials to
+                advancing healthcare, we are committed to solving real-world
+                problems through cutting-edge science.
               </p>
 
               <p className="text-muted mt-3">
-                Our interdisciplinary teams work across fields like biotechnology, environmental science, and artificial intelligence to create sustainable, impactful solutions.
+                Our interdisciplinary teams work across fields like
+                biotechnology, environmental science, and artificial
+                intelligence to create sustainable, impactful solutions.
               </p>
             </div>
           </div>
@@ -60,11 +64,13 @@ const AboutSection = () => {
             <div className="about_content_box_all mt-3">
               <div className="about_detail text-center">
                 <div className="about_icon">
-                <Cpu size={34} />
+                  <Cpu size={34} />
                 </div>
-                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">Advanced Technology</h5>
+                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">
+                  Advanced Technology
+                </h5>
                 <p className="edu_desc mt-3 mb-0 text-muted">
-                Cutting-edge equipment for high-precision results.
+                  Cutting-edge equipment for high-precision results.
                 </p>
               </div>
             </div>
@@ -74,11 +80,14 @@ const AboutSection = () => {
             <div className="about_content_box_all mt-3">
               <div className="about_detail text-center">
                 <div className="about_icon">
-                <ClipboardList size={34} />
+                  <ClipboardList size={34} />
                 </div>
-                <h5 className="text-dark text-capitalize mt-3 font-weight-bold"> Fast & Reliable Reports</h5>
+                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">
+                  {" "}
+                  Fast & Reliable Reports
+                </h5>
                 <p className="edu_desc mb-0 mt-3 text-muted">
-                Timely delivery of accurate test reports.
+                  Timely delivery of accurate test reports.
                 </p>
               </div>
             </div>
@@ -88,20 +97,22 @@ const AboutSection = () => {
             <div className="about_content_box_all mt-3">
               <div className="about_detail text-center">
                 <div className="about_icon">
-                <HandHeart size={34} />
+                  <HandHeart size={34} />
                 </div>
-                <h5 className="text-dark text-capitalize mt-3 font-weight-bold"> Customer-Centric Approach </h5>
+                <h5 className="text-dark text-capitalize mt-3 font-weight-bold">
+                  {" "}
+                  Customer-Centric Approach{" "}
+                </h5>
                 <p className="edu_desc mb-0 mt-3 text-muted">
-                Hassle-free sample collection and result access.
+                  Hassle-free sample collection and result access.
                 </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
-}
+};
 
 export default withHeader(AboutSection);

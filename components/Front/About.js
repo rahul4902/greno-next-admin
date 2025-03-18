@@ -1,74 +1,49 @@
+import { CheckCircle, Lightbulb, Users } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 import { Image } from "react-bootstrap";
 
 const About = () => {
   return (
     <>
-      <section className="pb-0 section" id="about">
+      <section className="mt-5">
         <div className="container">
-          <div className="row">
-            <div className="col-12 py-3">
+          {/* Company Story */}
+          <div className="row align-items-center mb-5 g-5">
+            <div className="col-md-6 mt-0">
+              <h3 className="fw-bold mb-4">About Us</h3>
+              <p className="text-muted mt-3">
+                Greno Labs is at the forefront of scientific research and
+                technological innovation. From developing new materials to
+                advancing healthcare, we are committed to solving real-world
+                problems through cutting-edge science.
+              </p>
+
+              <p className="text-muted mt-3">
+                Our interdisciplinary teams work across fields like
+                biotechnology, environmental science, and artificial
+                intelligence to create sustainable, impactful solutions.
+              </p>
+              <Link href="/contact" className="btn btn-primary">
+                Get in Touch
+              </Link>
+            </div>
+            <div className="col-md-6 mt-5">
               <div
-                className="bg-holder bg-size"
-                style={{
-                  backgroundImage: "url(/images/gallery/about-us.png)",
-                  backgroundPosition: "top center",
-                  backgroundSize: "contain",
-                }}
-              ></div>
-              {/*/.bg-holder*/}
-              <h1 className="text-center">ABOUT US</h1>
+                className="position-relative rounded overflow-hidden"
+                style={{ height: "400px" }}
+              >
+                <Image
+                  src="/images/gallery/about_us.jpg"
+                  alt="Our office"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
-        {/* end of .container*/}
       </section>
-      <section className="py-5">
-          <div
-            className="bg-holder bg-size"
-            style={{
-              backgroundImage: "url(/images/gallery/about-bg.png)",
-              backgroundPosition: "top center",
-              backgroundSize: "contain",
-            }}
-          ></div>
-          {/*/.bg-holder*/}
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-6 order-lg-1 mb-5 mb-lg-0">
-                <Image
-                  className="fit-cover rounded-circle w-100"
-                  src="/images/gallery/health-care.png"
-                  alt="..."
-                />
-              </div>
-              <div className="col-md-6 text-center text-md-start">
-                <h2 className="fw-bold mb-4">
-                  We are developing a healthcare{" "}
-                  <br className="d-none d-sm-block" />
-                  system around you
-                </h2>
-                <p>
-                  We think that everyone should have easy access to excellent{" "}
-                  <br className="d-none d-sm-block" />
-                  healthcare. Our aim is to make the procedure as simple as{" "}
-                  <br className="d-none d-sm-block" />
-                  possible for our patients and to offer treatment no matter
-                  <br className="d-none d-sm-block" />
-                  where they are — in person or at their convenience.{" "}
-                </p>
-                <div className="py-3">
-                  <button
-                    className="btn btn-lg btn-outline-primary rounded-pill"
-                    type="submit"
-                  >
-                    Learn more{" "}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
     </>
   );
 };

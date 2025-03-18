@@ -39,10 +39,10 @@ const Navbar = () => {
             <Link href="/search">Test/Package</Link>
           </li>
           <li>
-            <Link href="/aboutUs">About</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
-            <Link href="/contactUs">Contact</Link>
+            <Link href="/contact">Contact</Link>
           </li>
           <li className="d-flex gap-3">
           <Link href="/cart" className="header_call  position-relative">

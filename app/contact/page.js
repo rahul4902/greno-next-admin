@@ -6,7 +6,7 @@ import withHeader from "../../hoc/withHeader";
 import "./contactUs.css";
 import { Mail, MapPinHouse, PhoneCall } from "lucide-react";
 
-const ContactUs = () => {
+const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -97,4 +97,4 @@ const ContactUs = () => {
   );
 };
 
-export default withHeader(ContactUs);
+export default withHeader(Contact);
