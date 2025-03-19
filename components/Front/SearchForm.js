@@ -83,7 +83,7 @@ const SearchForm = () => {
         position: "relative",
       }}
     >
-      <div className="container position-relative" style={{ zIndex: 1 }}>
+      <div className="position-relative" style={{ zIndex: 1 }}>
         <div className="row justify-content-center text-center">
           <div className="col-md-10 col-lg-8">
             <div className="bg-white bg-opacity-90 rounded-4 p-3 shadow-lg">
@@ -94,13 +94,25 @@ const SearchForm = () => {
                 <div className="flex-grow-1 position-relative">
                   <input
                     type="text"
-                    className="form-control form-control-lg border-2 border-primary-custom shadow-sm"
+                    className="form-control form-control-lg border-2 border-primary-custom shadow-sm pe-5"
                     value={searchTerm}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Search blood tests (e.g., CBC, Lipid Profile)..."
                     style={{ borderRadius: "12px" }}
                   />
+
+                  {/* Search Button Positioned Inside Input */}
+                  <button
+                    type="submit"
+                    className="position-absolute top-50 translate-middle-y border-0 bg-transparent p-0"
+                    style={{
+                      right: "12px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Search size={32} className="text-primary-custom" />
+                  </button>
 
                   {isSuggestionsVisible && (
                     <div className="position-absolute w-100 mt-1">
@@ -127,15 +139,6 @@ const SearchForm = () => {
                 </div>
 
                 <div className="d-flex gap-2">
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-lg px-2 px-md-4 text-white d-flex align-items-center"
-                    style={{ borderRadius: "12px" }}
-                  >
-                    <Search size={24} className="me-md-2" />
-                    <span className="d-none d-md-block">Search</span>
-                  </button>
-
                   <label
                     className="btn btn-outline-primary btn-lg px-2 px-md-4 d-flex align-items-center"
                     style={{
@@ -143,8 +146,7 @@ const SearchForm = () => {
                       border: "2px solid #12344d",
                     }}
                   >
-                    <Upload size={24} className="me-md-2" />                    
-                    <span className="d-none d-md-block">Upload Rx</span>
+                    <Upload size={24} />
                     <input type="file" hidden accept=".pdf,.jpg,.jpeg,.png" />
                   </label>
                 </div>
@@ -165,7 +167,6 @@ const SearchForm = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>

@@ -805,10 +805,10 @@ textarea {
     line-height: normal !important;
   }
 
-  button {
+  /* button {
     padding: 4px 10px !important;
     font-size: 12px !important;
-  }
+  } */
 
   .sptb button {
     display: flex;
@@ -1514,10 +1514,10 @@ button {
 }
 
 
-.h2,
+/* .h2,
 h2 {
-  font-size: calc(0.7rem + .9vw) !important;
-}
+  font-size: calc(0.7rem + .5vw) !important;
+} */
 
 .border-primary-color {
   border-color: rgb(18 52 77)!important;

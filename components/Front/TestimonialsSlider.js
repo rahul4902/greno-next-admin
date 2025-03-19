@@ -72,7 +72,7 @@ export default function TestimonialSlider() {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -80,7 +80,7 @@ export default function TestimonialSlider() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
+          dots: false,
           arrows: false,
         },
       },
@@ -116,7 +116,7 @@ export default function TestimonialSlider() {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="px-3">
               <div className="card h-100 border-0 ">
-                <div className="card-body p-4 position-relative">
+                <div className="card-body position-relative">
                   {/* Avatar */}
                   <div className="d-flex justify-content-center">
                     <div className="border border-3 border-white rounded-circle shadow">
@@ -133,7 +133,7 @@ export default function TestimonialSlider() {
                   {/* Content */}
                   <div className="text-center mt-2">
                     <Quote size={32} className="text-primary-custom opacity-25 mb-3" />
-                    <p className="fs-5 text-dark mb-4 px-3 lh-base">
+                    <p className="text-dark mb-4 px-3 lh-base">
                       {testimonial.quote}
                     </p>
 

@@ -114,6 +114,14 @@ const SearchPage = () => {
     }
   }, [packagePage, fetchTests]);
 
+useEffect(()=>{
+  console.log('in')
+  const category = searchParams.get("category");
+  if(category){
+    setCategorySearch(category)
+  }
+},[searchParams])
+
   // Load more handler for tests
   const loadMoreTest = () => {
     setTestPage((prevPage) => prevPage + 1);
@@ -201,7 +209,7 @@ const SearchPage = () => {
           </div>
         </>
       ) : (
-        <CategoryComponent />
+        <CategoryComponent  />
       )}
     </div>
   );

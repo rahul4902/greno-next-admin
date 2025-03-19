@@ -2,9 +2,7 @@ import React from "react";
 
 const AddBanners = () => {
   return (
-    <div className="container">
-      <section className=" mt-5">
-        <div className="container-fluid">
+    <div className="container mt-5">
           <div className="row">
             <div className="col-md-6">
               <div className="banner-ad bg-danger-custom mb-3 banner-ad-1">
@@ -36,8 +34,6 @@ const AddBanners = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
   );
 };
 

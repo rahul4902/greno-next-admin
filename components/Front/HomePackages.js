@@ -31,7 +31,7 @@ const HomePackages = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -39,7 +39,7 @@ const HomePackages = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
+          dots: false,
           arrows: false,
         },
       },
@@ -62,7 +62,7 @@ const HomePackages = () => {
         <div className="col-md-12 mb-3">
           <div className="d-flex justify-content-between align-items-center">
             <h2>Popular Tests / Packages</h2>
-            <div className="arrow-container d-none d-md-flex">
+            <div className="arrow-container">
               <button
                 className="slick-arrow prev-arrow"
                 onClick={() => sliderRef.current.slickPrev()}
@@ -85,9 +85,7 @@ const HomePackages = () => {
                 <div className="card shadow-sm rounded-3 mx-1">
                   <div className="card-body p-0 pt-3">
                     <div className="d-flex align-items-center justify-content-between card-content px-3">
-                      <h4 className="pb-2 fs-5" style={{ fontWeight: "600" }}>
-                        Healthians Winter Wellness Package - Female
-                      </h4>
+                      <h5 className="fw-semibold">Greno Winter Wellness Package - Female</h5>
                       <div className="test_included">
                         {" "}
                         <h3 className="d-flex flex-column align-items-center p-2">

@@ -23,9 +23,3 @@
   cursor: not-allowed;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .arrow-container {
-    display: none;
-  }
-}

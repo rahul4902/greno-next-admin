@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import HomeTabs from "../components/Front/HomeTabs";
+import AlsoLookingFor from "../components/Front/AlsoLookingFor";
 
 import TestimonialsSlider from "../components/Front/TestimonialsSlider";
 import HomePackages from "../components/Front/HomePackages";
@@ -27,67 +28,7 @@ const page = () => {
         {/* <About /> */}
         <TestimonialsSlider />
 
-        <section className="">
-          <div className="container">
-            <h2 className="">People are also looking for</h2>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Complete Blood Count (CBC)
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Blood Glucose Test
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Lipid Profile Test
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Liver Function Test (LFT)
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Kidney Function Test (KFT)
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Thyroid Function Test (TFT)
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Hemoglobin Test
-            </a>
-            <a
-              href="#"
-              className="badge rounded-pill text-bg-light py-3 px-4 fw-semibold fs-5 me-2 mb-2"
-              style={{ color: "#12344d" }}
-            >
-              Vitamin D Test
-            </a>
-          </div>
-        </section>
+        <AlsoLookingFor/>
 
         
       </LayoutWithHeaderFooter>
