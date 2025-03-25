@@ -4,18 +4,7 @@
   gap: 10px;
 }
 
-.slick-arrow {
-  background: none;
-  border: none;
-  color: #12344d;
-  cursor: pointer;
-  padding: 0;
-  transition: color 0.3s ease;
-}
 
-.slick-arrow:hover {
-  color: #2a5a7a;
-}
 
 /* Hide default slick arrows */
 .slick-disabled {

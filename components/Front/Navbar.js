@@ -4,7 +4,7 @@ import "../Front/navbar.css";
 import { Image } from "react-bootstrap";
 import { Menu, ShoppingCart } from "lucide-react";
 import { useSelector } from "react-redux";
-import ProfileDropDown from "./ProfileDropDown"
+import ProfileDropDown from "./ProfileDropDown";
 // import { Image } from "lucide-react";
 
 const Navbar = () => {
@@ -24,11 +24,14 @@ const Navbar = () => {
         </Link>
 
         <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
-        <Menu/>
+          <Menu />
         </button>
 
-        <ul className={`nav-links ${isOpen ? "active" : ""} d-flex align-items-center mb-0`}>
-          
+        <ul
+          className={`nav-links ${
+            isOpen ? "active" : ""
+          } d-flex align-items-center mb-0`}
+        >
           <li>
             <Link href="/">Reports</Link>
           </li>
@@ -45,19 +48,18 @@ const Navbar = () => {
             <Link href="/contact">Contact</Link>
           </li>
           <li className="d-flex gap-3">
-          <Link href="/cart" className="header_call  position-relative">
-              <ShoppingCart size={28} color="#12344d"/>
-                {/* <CartIcon height="24px" width="24px" /> */}
-                {cartItems?.length ? (
-                  <span className="position-absolute bottom-0 start-100 translate-middle badge rounded bg-danger border border-light rounded-circle">
-                    {cartItems?.length}
-                    <span className="visually-hidden">cart items</span>
-                  </span>
-                ) : (
-                  <></>
-                )}
-              </Link>
-              <ProfileDropDown/>
+            {/* <Link href="/cart" className="header_call  position-relative">
+              <ShoppingCart size={28} color="#12344d" />
+              {cartItems?.length ? (
+                <span className="position-absolute bottom-0 start-100 translate-middle badge rounded bg-danger border border-light rounded-circle">
+                  {cartItems?.length}
+                  <span className="visually-hidden">cart items</span>
+                </span>
+              ) : (
+                <></>
+              )}
+            </Link> */}
+            <ProfileDropDown />
           </li>
         </ul>
       </div>

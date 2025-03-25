@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import "./styles/category.css";
 import { CircleChevronLeft, CircleChevronRight } from "lucide-react";
+import Slider from "react-slick";
+
 import apiService from "@/services/apiService";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,28 +23,26 @@ const CategoryCarousel = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
+    slidesToScroll: 3,
+    autoplay: false,
     autoplaySpeed: 3000,
-    arrows: false, // Disable default arrows
+    arrows: false,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
+          slidesToScroll: 3,
+          variableWidth: true,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           dots: false,
           arrows: false,
+          variableWidth: true,
         },
       },
     ],
@@ -79,20 +75,22 @@ const CategoryCarousel = () => {
             {categories?.map((_v, _x) => {
               return (
                 <>
-                  <div className="col-6 col-md-3 col-lg-2 col-xl-2 mt-3">
+                  <div key={_x} className="slider-item">
                     <Link
                       href={`/search?category=${(_v?.name).replace(/ /g, "+")}`}
-                      className="h_tabs position-relative"
+                      className="h_tabs h_tabs_2 position-relative"
                     >
-                      <Image
-                        src={_v?.icon_url}
-                        alt={_v?.name}
-                        width={100} // Adjust as needed
-                        height={0} // Not required when using layout="intrinsic"
-                        layout="intrinsic"
-                        loading="lazy"
-                      />
-                      <h5>{_v?.name}</h5>
+                      <div className="d-flex align-items-center gap-3">
+                        <Image
+                          src={_v?.icon_url}
+                          alt={_v?.name}
+                          width={60} // ✅ Adjusted for responsiveness
+                          height={60} // ✅ Keeps aspect ratio
+                          className="slider-image"
+                          loading="lazy"
+                        />
+                        <h5 className="slider-text">{_v?.name}</h5>
+                      </div>
                     </Link>
                   </div>
                 </>

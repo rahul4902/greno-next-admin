@@ -1,6 +1,8 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./providers";
+import "@/app/globals.css";
+
 export const metadata = {
   title: "Greno - Next.Js Admin Dashboard Template",
   description:

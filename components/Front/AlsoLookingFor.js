@@ -12,23 +12,29 @@ const AlsoLookingFor = () => {
     "Vitamin D Test",
   ];
 
+  // Duplicate the array to create an infinite effect
+  const marqueeLinks = [testLinks];
+
   return (
     <section className="py-4 bg-light">
       <div className="container">
         <h2 className="mb-4">People are also looking for</h2>
-        <div className="d-flex flex-wrap gap-2">
-          {testLinks.map((test, index) => (
-            <a
-              key={index}
-              href="#"
-              className="badge rounded-pill bg-white shadow-sm text-dark py-2 px-3 fw-semibold"
-              style={{ color: "#12344d", textDecoration: "none" }}
-            >
-              {test}
-            </a>
-          ))}
+        <div className="marquee-container">
+          <div className="marquee-content">
+            {testLinks.map((test, index) => (
+              <a
+                key={index}
+                href="#"
+                className="badge rounded-pill bg-white shadow-sm text-dark py-2 px-3 fw-semibold"
+              >
+                <h6 className="mb-0 text-primary-custom">{test}</h6>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+
+      
     </section>
   );
 };
