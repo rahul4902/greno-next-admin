@@ -53,7 +53,7 @@ const CategoryCarousel = () => {
       <div className="row position-relative">
         <div className="col-md-12 mb-3">
           <div className="d-flex justify-content-between align-items-center">
-            <h2>Tests By Category</h2>
+            <h3 className="font-bold">Tests By Category</h3>
             <div className="arrow-container">
               <button
                 className="slick-arrow prev-arrow"

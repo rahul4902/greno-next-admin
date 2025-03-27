@@ -32,6 +32,7 @@
 /* Pricing Section */
 .labPriceWrapper {
   margin-bottom: 1.5rem;
+  columns: 2;
 }
 
 /* .labOriginalPrice {
@@ -49,8 +50,9 @@
 
   background-color: #de0e4ac9;
   color: #fff;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  /* border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  border-radius: 10px;
   padding: 2px 7px;
   text-align: center;
   font-size: 18px;
@@ -117,8 +119,7 @@
 
 /* Hover Effects */
 /* .labPackageCard:hover .labPackageTitle {
-  color: #1a4461;
-  
+  color: #1a4461;  
 } */
 
 .labTestItem:hover {

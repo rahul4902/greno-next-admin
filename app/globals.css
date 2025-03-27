@@ -78,8 +78,14 @@ a {
     background-color: #12344d !important;
     border-color: #12344d !important;
     transition: .3s !important;
+    border-radius: 10px;
 }
-
+.btn-danger {
+    background-color: #de0545 !important;
+    border-color: #de0545 !important;
+    transition: .3s!important;
+    border-radius: 10px;
+}
 
 /* topheader */
 .top_hdr {

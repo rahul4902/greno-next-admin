@@ -9,16 +9,20 @@ const BloodTestPackages = () => {
         {[1, 2, 3].map(() => {
           return (
             <>
-              <Col md={4}>
+              <Col md={4} className="mb-2">
                 <Card className={styles.labPackageCard}>
                   <Card.Body>
                     <div className={styles.labPackageHeader}>
-                      <h4 className={styles.labPackageTitle}>
+                      <h5 className={`${styles.labPackageTitle} fw-semibold`}>
                         Basic Health Checkup
-                      </h4>
+                      </h5>
                       <div className={styles.labPriceWrapper}>
                         <div className={styles.labCurrentPrice}>
-                          Spacial Price <IndianRupee strokeWidth={2.5} />999
+                          Spacial Price <IndianRupee strokeWidth={2.5} />
+                          999
+                        </div>
+                        <div className={styles.labCurrentPrice}>
+                          100 Parameters
                         </div>
                       </div>
                     </div>
@@ -36,14 +40,20 @@ const BloodTestPackages = () => {
                         "Electrolyte Panel",
                       ].map((test, i) => (
                         <div key={i} className={styles.labTestItem}>
-                          <CircleDot strokeWidth={2.5} width={10} className="me-2"/>{" "} {test}
+                          <CircleDot
+                            strokeWidth={2.5}
+                            width={10}
+                            className="me-2"
+                          />{" "}
+                          {test}
                         </div>
                       ))}
                     </div>
 
                     <div className={styles.labPackageFooter}>
                       <button className="btn btn-primary w-100">
-                       Book Now At <IndianRupee strokeWidth={2.5}  width={16}/>999
+                        Book Now At <IndianRupee strokeWidth={2.5} width={16} />
+                        999
                       </button>
                     </div>
                   </Card.Body>

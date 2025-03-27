@@ -4,7 +4,7 @@ import React from "react";
 import HomeTabs from "@/components/Front/HomeTabs";
 import AlsoLookingFor from "@/components/Front/AlsoLookingFor";
 
-// import TestimonialsSlider from "../components/Front/TestimonialsSlider";
+import TestimonialsSlider from "../components/Front/TestimonialsSlider";
 import HomePackages from "@/components/Front/HomePackages";
 import AddBanners from "@/components/Front/Home/AddBanners";
 
@@ -32,7 +32,7 @@ const page = () => {
         <AddBanners />
         <HomePackages />
         {/* <About /> */}
-        {/* <TestimonialsSlider /> */}
+        <TestimonialsSlider />
 
         <AlsoLookingFor />
       </LayoutWithHeaderFooter>

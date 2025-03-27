@@ -18,7 +18,7 @@ const AlsoLookingFor = () => {
   return (
     <section className="py-4 bg-light">
       <div className="container">
-        <h2 className="mb-4">People are also looking for</h2>
+        <h3 className="mb-4 font-bold">People are also looking for</h3>
         <div className="marquee-container">
           <div className="marquee-content">
             {testLinks.map((test, index) => (

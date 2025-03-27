@@ -93,7 +93,7 @@ export default function TestimonialSlider() {
         {/* Header Section */}
         <div className="row mb-4">
           <div className="d-flex justify-content-between align-items-center">
-            <h2>What Doctors Are Saying</h2>
+            <h3>What Doctors Are Saying</h3>
             <div className="d-none d-md-flex gap-2">
               <button
                 className="slick-arrow prev-arrow"
