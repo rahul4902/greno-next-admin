@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "@/app/form.module.css";
 import {
   Offcanvas,
   Button,
@@ -15,14 +16,15 @@ import {
 } from "../redux/authSlice"; // Adjust path as needed
 import { toast } from "react-toastify";
 import { API_URL } from "../utils/constant";
-import {setCookie}  from 'cookies-next';
+import { setCookie } from "cookies-next";
+import { Lock, Mail, User } from "lucide-react";
 
 const LoginOffCanvas = () => {
   const dispatch = useDispatch();
   const { isLoginModalVisible, isLoggedIn } = useSelector(
     (state) => state.auth
   );
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
@@ -50,7 +52,7 @@ const LoginOffCanvas = () => {
       if (response.data.status == 200) {
         toast.success(response.data.message);
         const userDetail = response.data.data;
-        setCookie('auth-token',userDetail.token)
+        setCookie("auth-token", userDetail.token);
         dispatch(
           loginUser({
             token: userDetail.token,
@@ -82,34 +84,42 @@ const LoginOffCanvas = () => {
         <Offcanvas.Title>Login</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <Form onSubmit={handleLogin}>
-          <FloatingLabel controlId="email" label="Email" className="mb-3">
-            <Form.Control
+        <Form onSubmit={handleLogin} className={styles.attractiveForm}>
+          {/* Email Input Group */}
+          <div className={styles.inputGroup}>
+            <Mail className={styles.inputIcon} />
+            <input
               type="email"
-              placeholder="name@example.com"
+              className={styles.customInput}
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="username"
               required
             />
-          </FloatingLabel>
+          </div>
           {error.email && (
             <p className="text-danger fw-semibold">{error.email}</p>
           )}
-          <FloatingLabel controlId="password" label="Password" className="mb-3">
-            <Form.Control
+
+          {/* Password Input Group */}
+          <div className={styles.inputGroup}>
+            <Lock className={styles.inputIcon} />
+            <input
               type="password"
-              placeholder="Password"
+              className={styles.customInput}
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
               required
             />
-          </FloatingLabel>
-
+          </div>
           {error.password && (
             <p className="text-danger fw-semibold">{error.password}</p>
           )}
 
-          {/* Loading spinner when request is in progress */}
+          {/* Loading spinner and submit button (remain unchanged) */}
           {isLoading ? (
             <Button
               variant="primary"

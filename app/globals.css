@@ -1038,6 +1038,9 @@ button {
 
 
 
+.text-danger-custom{
+    color: #db1652!important;
+}
 .border-primary-color {
     border-color: rgb(18 52 77) !important;
 }
@@ -1073,3 +1076,4 @@ button {
 
 
 }
+

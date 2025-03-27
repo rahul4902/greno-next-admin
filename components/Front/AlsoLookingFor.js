@@ -25,7 +25,7 @@ const AlsoLookingFor = () => {
               <a
                 key={index}
                 href="#"
-                className="badge rounded-pill bg-white shadow-sm text-dark py-2 px-3 fw-semibold"
+                className="badge rounded-pill bg-white shadow-sm text-dark py-2 px-3 fw-semibold mb-2 mx-2"
               >
                 <h6 className="mb-0 text-primary-custom">{test}</h6>
               </a>

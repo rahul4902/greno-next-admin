@@ -1,4 +1,4 @@
-.packages{
+/* .packages{
     margin-top: 7%;
 }
 .packages .container{
@@ -79,10 +79,6 @@
 }
 
 .slick-prev:before, .slick-next:before {
-    /* content: '←' !important;
-    font-size: 20px !important;
-    line-height: 1 !important;
-    opacity: .75 !important; */
     color: #12344d !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -129,4 +125,4 @@
         font-size: 14px;
     }
     
-}
+} */

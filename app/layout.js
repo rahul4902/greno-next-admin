@@ -1,7 +1,9 @@
 import { ToastContainer } from "react-toastify";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/app/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./providers";
-import "@/app/globals.css";
+
 
 export const metadata = {
   title: "Greno - Next.Js Admin Dashboard Template",
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
             }}
             closeButton={false}
           />
+          
         </Providers>
       </body>
     </html>
