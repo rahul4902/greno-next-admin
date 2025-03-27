@@ -12,9 +12,10 @@ import AddBanners from "@/components/Front/Home/AddBanners";
 import LayoutWithHeaderFooter from "./../layouts/layout-with-header-footer";
 import SearchForm from "@/components/Front/SearchForm";
 import CategoryCarousel from "@/components/Front/CategoryCarousel";
-import HomeWhyChoose from "../components/Front/HomeWhyChoose";
-import About from "../components/Front/About";
-import Testimonial from "../components/Front/Testimonial";
+import BloodTestPackages from "@/components/Front/BloodTestPackages";
+// import HomeWhyChoose from "../components/Front/HomeWhyChoose";
+// import About from "../components/Front/About";
+// import Testimonial from "../components/Front/Testimonial";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,6 +26,7 @@ const page = () => {
       <LayoutWithHeaderFooter>
         <SearchForm />
         <CategoryCarousel />
+        <BloodTestPackages/>
         <HomeTabs />
         {/* <CategoryCarousel/> */}
         <AddBanners />

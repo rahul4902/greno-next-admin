@@ -46,7 +46,7 @@
 
 .h_tabs:hover {
     cursor: pointer;
-    box-shadow: 13px 13px 30px 10px rgb(16 40 81 / 23%);
+    /* box-shadow: 13px 13px 30px 10px rgb(16 40 81 / 23%); */
 }
 
 /* 
@@ -84,7 +84,8 @@
     padding: 10px 15px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 6px 6px 70px rgb(16 40 81 / 7%);
+    box-shadow: none;
+    border: 1px solid lightgray;
 }
 
 .h_tabs_2 img {

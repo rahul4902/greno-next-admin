@@ -4,6 +4,12 @@ body {
     font-family: "Outfit", serif !important;
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+    color: white !important;
+    background-color: #12344d!important;
+}
+
 .slick-arrow {
     background-color: none !important;
     background: none !important;
@@ -1038,9 +1044,11 @@ button {
 
 
 
-.text-danger-custom{
-    color: #db1652!important;
+
+.text-danger-custom {
+    color: #db1652 !important;
 }
+
 .border-primary-color {
     border-color: rgb(18 52 77) !important;
 }
@@ -1076,4 +1084,3 @@ button {
 
 
 }
-
