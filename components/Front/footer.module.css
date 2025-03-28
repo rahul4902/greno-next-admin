@@ -1,0 +1,145 @@
+/* FooterNonConflict.module.css */
+.footerContainer {
+    background: #1a1a1a;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footerGrid {
+    display: grid;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .footerSection {
+    padding: 1rem;
+  }
+  
+  .footerHeading {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .footerList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footerListItem {
+    margin-bottom: 0.6rem;
+  }
+  
+  .footerLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .footerLink:hover {
+    opacity: 0.8;
+  }
+  
+  .footerLinkIcon {
+    opacity: 0.6;
+  }
+  
+  .footerNews {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .footerNewsText {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+  
+  .footerContacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  
+  .footerContactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.95rem;
+  }
+  
+  .footerContactIcon {
+    opacity: 0.6;
+  }
+  
+  .footerSocials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .footerSocialLink {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  
+  .footerSocialLink:hover {
+    opacity: 1;
+  }
+  
+  .footerDivider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 2rem 0;
+  }
+  
+  .footerLegal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+  }
+  
+  .footerLegalLinks {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .footerLegalLink {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .footerLegalLink::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.2s ease;
+  }
+  
+  .footerLegalLink:hover::after {
+    width: 100%;
+  }

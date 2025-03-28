@@ -3,6 +3,7 @@ import React from "react";
 
 import HomeTabs from "@/components/Front/HomeTabs";
 import AlsoLookingFor from "@/components/Front/AlsoLookingFor";
+import Footer from "@/components/Front/Footer";
 
 import TestimonialsSlider from "../components/Front/TestimonialsSlider";
 import HomePackages from "@/components/Front/HomePackages";
@@ -35,6 +36,7 @@ const page = () => {
         <TestimonialsSlider />
 
         <AlsoLookingFor />
+        <Footer />
       </LayoutWithHeaderFooter>
     </>
   );

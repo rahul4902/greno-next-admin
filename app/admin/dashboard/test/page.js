@@ -98,7 +98,7 @@ const PaginatedTable = () => {
                   <h3 className="mb-0  text-white">Test</h3>
                 </div>
                 <div>
-                  <Link href="/dashboard/test/create" className="btn btn-white">
+                  <Link href="/admin/dashboard/test/create" className="btn btn-white">
                     Create New Test
                   </Link>
                   <input
