@@ -1,18 +1,30 @@
-import { Container, Row, Col } from 'react-bootstrap';
-import { ArrowRight, Mail, MapPin, Phone, Twitter, Linkedin } from 'lucide-react';
-import styles from './Footer.module.css';
+import { Container, Row, Col } from "react-bootstrap";
+import {
+  ArrowRight,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Linkedin,
+} from "lucide-react";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
       <Container className={styles.footerContent}>
-        <Row className={styles.footerGrid}>
-          {/* Links Section */}
+        <Row>
           <Col md={4} className={styles.footerSection}>
-            <h3 className={styles.footerHeading}>
-              <span className={styles.footerIcon}>→</span>
-              Quick Links
-            </h3>
+            <h3 className={styles.footerHeading}>Company News</h3>
+            <div className={styles.footerNews}>
+              <p className={styles.footerNewsText}>
+                Crafting digital experiences that inspire and transform
+                businesses through innovation.
+              </p>
+            </div>
+          </Col>
+          <Col md={4} className={styles.footerSection}>
+            <h3 className={styles.footerHeading}>Quick Links</h3>
             <ul className={styles.footerList}>
               <li className={styles.footerListItem}>
                 <a href="/about" className={styles.footerLink}>
@@ -21,33 +33,27 @@ const Footer = () => {
                 </a>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/services" className={styles.footerLink}>
+                <a href="/contact" className={styles.footerLink}>
                   <ArrowRight size={14} className={styles.footerLinkIcon} />
-                  Services
+                  Contact
                 </a>
               </li>
               <li className={styles.footerListItem}>
-                <a href="/insights" className={styles.footerLink}>
+                <a href="/search" className={styles.footerLink}>
                   <ArrowRight size={14} className={styles.footerLinkIcon} />
-                  Insights
+                  Book a Test
+                </a>
+              </li>
+              <li className={styles.footerListItem}>
+                <a href="/reports" className={styles.footerLink}>
+                  <ArrowRight size={14} className={styles.footerLinkIcon} />
+                  Reports
                 </a>
               </li>
             </ul>
           </Col>
-
-          {/* News Section */}
           <Col md={4} className={styles.footerSection}>
-            <h3 className={styles.footerHeading}>📰 Company News</h3>
-            <div className={styles.footerNews}>
-              <p className={styles.footerNewsText}>
-                Crafting digital experiences that inspire and transform businesses through innovation.
-              </p>
-            </div>
-          </Col>
-
-          {/* Contact Section */}
-          <Col md={4} className={styles.footerSection}>
-            <h3 className={styles.footerHeading}>📞 Contact Info</h3>
+            <h3 className={styles.footerHeading}>Contact Info</h3>
             <div className={styles.footerContacts}>
               <div className={styles.footerContactItem}>
                 <MapPin size={16} className={styles.footerContactIcon} />
@@ -76,10 +82,14 @@ const Footer = () => {
         <div className={styles.footerDivider}></div>
 
         <div className={styles.footerLegal}>
-          <span>© 2025 Nexus Technologies</span>
+          <span>© 2025 Greno Labs</span>
           <div className={styles.footerLegalLinks}>
-            <a href="/terms" className={styles.footerLegalLink}>Terms of Service</a>
-            <a href="/privacy" className={styles.footerLegalLink}>Privacy Policy</a>
+            <a href="/terms" className={styles.footerLegalLink}>
+              Terms of Service
+            </a>
+            <a href="/privacy" className={styles.footerLegalLink}>
+              Privacy Policy
+            </a>
           </div>
         </div>
       </Container>

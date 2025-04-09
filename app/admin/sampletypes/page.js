@@ -133,7 +133,8 @@ const PaginatedTable = () => {
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
                           href={`/admin/sampletypes/form?_id=${sampleType?._id}`}
                         >
-                          <Trash2 />
+                          <Edit />
+                          
                         </Link>
                         <button
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
@@ -142,7 +143,7 @@ const PaginatedTable = () => {
                             deleteSampleType(sampleType._id);
                           }}
                         >
-                          <Edit />
+                          <Trash2 />
                         </button>
                       </td>
                     </tr>

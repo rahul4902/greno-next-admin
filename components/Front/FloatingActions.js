@@ -14,7 +14,8 @@ const FloatingActions = ({handleCallback}) => {
         target="_blank"
         rel="noreferrer"
       >
-        <MessageCircle size={20} />
+        {/* <MessageCircle size={20} /> */}
+        {/* <What */}
         <span className={styles.fabTooltip}>Chat on WhatsApp</span>
       </Button>
 

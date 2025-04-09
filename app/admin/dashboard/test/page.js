@@ -190,7 +190,7 @@ const PaginatedTable = () => {
                       </td>
 
                       <td>
-                        <Link
+                      <Link
                           className="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip"
                           href={`/admin/dashboard/test/create?_id=${test?._id}`}
                         >
